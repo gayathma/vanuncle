@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/styler.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/theme-pink.css" id="template-color" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/style.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/icons.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/animate.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="<?php echo base_url(); ?>fe_resources/images/favicon.ico" />

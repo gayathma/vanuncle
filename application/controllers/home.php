@@ -25,40 +25,10 @@ class Home extends CI_Controller {
         parent::__construct();
         // Your own constructor code
 
-        $this->load->model('sliders/Sliders_model');
-        $this->load->model('sliders/Sliders_service');
-
-
-        $this->load->model('content/content_model');
-        $this->load->model('content/content_service');
     }
 
     public function index() {
-
-
-        $sliders_model   = new Sliders_model();
-        $sliders_service = new Sliders_service();
-
-        $content_service = new Content_service();
-
-        $sliders_model->setSlider_id('1');
-        $data['slider_featured'] = $sliders_service->getSlideritemsbysliderid($sliders_model);
-
-
-        $sliders_model->setSlider_id('2');
-        $data['slider_main'] = $sliders_service->getSlideritemsbysliderid($sliders_model);
-
-
-        $sliders_model->setSlider_id('3');
-        $data['slider_airways'] = $sliders_service->getSlideritemsbysliderid($sliders_model);
-
-
-        $data['right_side_snippet'] = $content_service->getContentbyhcode('RIGHTSIDESNIPPET');
-
-        $data['welcome_note'] = $content_service->getContentbyhcode('WELCOMEHOMEPAGE');
-
-        $data['footer_right'] = $content_service->getContentbyhcode('FOOTERROGHT');
-
+        $data['data'] = '';
         $partials = array('content' => 'home/main');
         $this->template->load('template/template', $partials, $data);
     }

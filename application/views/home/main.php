@@ -449,9 +449,8 @@
             </div>
         </figure>
         <div class="details">
-            <h4><a href="services.html">Private transfers</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <a class="more" title="Read more" href="services.html">Read more</a>
+            <h4><a href="#">Staff Services</a></h4>
+            <p>Why drive on your own to your work place when you can opt for a professional transportation service. You can experience relaxation at its best while enjoying the company of fellow commuters. We are ready to connect you to a vast number of staff service providers covering all most all the routes in Sri Lanka.</p>
         </div>
     </article>
     <!-- //Item -->
@@ -465,9 +464,8 @@
             </div>
         </figure>
         <div class="details">
-            <h4><a href="services.html">Bus transfers</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <a class="more" title="Read more" href="services.html">Read more</a>
+            <h4><a href="#">School Services</a></h4>
+            <p>Here we connect school van seeking parents to school van service providers. Parent will get reliable School Van services with shortest possible route. Children can enjoy journey with more comfort.</p>
         </div>
     </article>
     <!-- //Item -->
@@ -481,9 +479,8 @@
             </div>
         </figure>
         <div class="details">
-            <h4><a href="services.html">Shuttle transfers</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <a class="more" title="Read more" href="services.html">Read more</a>
+            <h4><a href="#">Special Hires</a></h4>
+            <p>Are you looking for a vehicle for a trip? We can send a vehicle anytime, anywhere you want. We have vans, buses and cars A/c, Non A/C, these services can be customized based on your budget and preferences.</p>
         </div>
     </article>
     <!-- //Item -->
@@ -497,9 +494,8 @@
             </div>
         </figure>
         <div class="details">
-            <h4><a href="services.html">Helicopter transfers</a></h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-            <a class="more" title="Read more" href="services.html">Read more</a>
+            <h4><a href="#">Freight Transportation</a></h4>
+            <p>We can connect you for most cost effective Home moving, Office moving services along with goods transportation.</p>
         </div>
     </article>
     <!-- //Item -->			
