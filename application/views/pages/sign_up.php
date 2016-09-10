@@ -74,7 +74,7 @@
                         </div>
                     </div>
 
-                    <p>Already have an account? <a href="login.html">Login</a>.</p>
+                    <p>Already have an account? <a href="<?php echo site_url(); ?>/login">Login</a>.</p>
                 </form>
             </div>
             <!--//Login-->

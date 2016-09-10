@@ -20,8 +20,14 @@
             <!-- Row -->
             <div class="f-row">
                 <div class="form-group datepicker one-third">
-                    <label for="dep-date">Departure date and time</label>
-                    <input type="text" id="dep-date" />
+                    <label for="service_type">Service</label>
+                    <select id="service_type" name="service_type">
+                        <option selected>&nbsp;</option>
+                        <option value="staff">Staff Services</option>
+                        <option value="school">School Services</option>
+                        <option value="special">Special Hires</option>
+                        <option value="freight">Freight Transportation</option>
+                    </select>
                 </div>
                 <div class="form-group select one-third">
                     <label>Pick up location</label>
@@ -325,20 +331,6 @@
 
             <!-- Row -->
             <div class="f-row">
-                <div class="form-group spinner">
-                    <label for="people">How many people <small>(including children)</small>?</label>
-                    <input type="number" id="people" min="1"  />
-                </div>
-                <div class="form-group radios">
-                    <div>
-                        <input type="radio" name="radio" id="return" value="return" />
-                        <label for="return">Return</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="radio" id="oneway" value="oneway" checked />
-                        <label for="oneway">One way</label>
-                    </div>
-                </div>
                 <div class="form-group right">
                     <button type="submit" class="btn large black">Find a transfer</button>
                 </div>
@@ -355,73 +347,49 @@
         <div class="row">
             <!-- Item -->
             <div class="one-third wow fadeIn">
-                <span class="circle"><span class="ico pig"></span></span>
-                <h3>Fixed rates</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-            </div>
-            <!-- //Item -->
-
-            <!-- Item -->
-            <div class="one-third wow fadeIn" data-wow-delay=".2s">
-                <span class="circle"><span class="ico lock"></span></span>
-                <h3>Reliable transfers</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-            </div>
-            <!-- //Item -->
-
-            <!-- Item -->
-            <div class="one-third wow fadeIn" data-wow-delay=".4s">
-                <span class="circle"><span class="ico wallet"></span></span>
-                <h3>No booking fees</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-            </div>
-            <!-- //Item -->
-
-            <!-- Item -->
-            <div class="one-third wow fadeIn">
-                <span class="circle"><span class="ico heart"></span></span>
-                <h3>Free cancellation</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-            </div>
-            <!-- //Item -->
-
-            <!-- Item -->
-            <div class="one-third wow fadeIn" data-wow-delay=".2s">
-                <span class="circle"><span class="ico wand"></span></span>
-                <h3>Booking flexibility</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
-            </div>
-            <!-- //Item -->
-
-            <!-- Item -->
-            <div class="one-third wow fadeIn" data-wow-delay=".4s">
                 <span class="circle"><span class="ico telephone"></span></span>
                 <h3>24h customer service</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                <p>Our team is readily available to provide every customer with a maximized transportation solution; 24 hours a day, 7 days a week, 365 days a year.</p>
+            </div>
+            <!-- //Item -->
+
+            <!-- Item -->
+            <div class="one-third wow fadeIn" data-wow-delay=".2s">
+                <span class="circle"><span class="ico shuttle"></span></span>
+                <h3>Quality vehicles</h3>
+                <p>Facilitating quality transportation is the essence of our business; therefore, we consider our network of contracted transportation providers to be the heartbeat of our operation.</p>
+            </div>
+            <!-- //Item -->
+
+            <!-- Item -->
+            <div class="one-third wow fadeIn" data-wow-delay=".4s">
+                <span class="circle"><span class="ico heart"></span></span>
+                <h3>Safety</h3>
+                <p>You can be assured of travel safety if you choose to hire professionals instead of trust in your own driving skills.</p>
             </div>
             <!-- //Item -->
 
             <!-- Item -->
             <div class="one-third wow fadeIn">
                 <span class="circle"><span class="ico award"></span></span>
-                <h3>Award winning service</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                <h3>Comfortable rides</h3>
+                <p>You get to enjoy utmost travel convenience with the help of an expert driver and a comfortable ride.</p>
             </div>
             <!-- //Item -->
 
             <!-- Item -->
             <div class="one-third wow fadeIn" data-wow-delay=".2s">
-                <span class="circle"><span class="ico clip"></span></span>
-                <h3>Benefits for partners</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                <span class="circle"><span class="ico wand"></span></span>
+                <h3>On time arrivals</h3>
+                <p>No more worries about being late, We’ll get you to your destination on time.</p>
             </div>
             <!-- //Item -->
 
             <!-- Item -->
             <div class="one-third wow fadeIn" data-wow-delay=".4s">
-                <span class="circle"><span class="ico shuttle"></span></span>
-                <h3>Quality vehicles</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy  tinc dolore magna.</p>
+                <span class="circle"><span class="ico clip"></span></span>
+                <h3>Wide range of choice</h3>
+                <p>Our comprehensive data base covers a wide range of transport service providers and service seekers. You can select a service provider of your choice.</p>
             </div>
             <!-- //Item -->
         </div>
