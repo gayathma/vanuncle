@@ -462,7 +462,7 @@ blockquote:before			{content:"";width:41px;height:29px;}
 
 
 /* 18 ERROR PAGE */
-.error 				{background:url(../images/lost.jpg) -50px 100% no-repeat;padding:0;min-height:630px;}
+.error 				{color: red;}
 .error .content 		{padding-top:70px;}
 .error h2			{font-size:35px;}
 

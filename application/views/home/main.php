@@ -33,301 +33,195 @@
                     <label>Pick up location</label>
                     <select>
                         <option selected>&nbsp;</option>
-                        <optgroup label="Germany">
-                            <option value="Berlin Central Train Station">Berlin Central Train Station</option>
-                            <option value="Berlin Schonefeld Airport">Berlin Schonefeld Airport</option>
-                            <option value="Berlin Tegel Airport">Berlin Tegel Airport</option>
-                            <option value="Bremen Airport">Bremen Airport</option>
-                            <option value="Cologne Bonn Airport">Cologne Bonn Airport</option>
-                            <option value="Dortmund Airport">Dortmund Airport</option>
-                            <option value="Dresden Airport">Dresden Airport</option>
-                            <option value="Dusseldorf Airport">Dusseldorf Airport</option>
-                            <option value="Frankfurt Hahn Airport">Frankfurt Hahn Airport</option>
-                            <option value="Frankfurt International Airport">Frankfurt International Airport</option>
-                            <option value="Friedrichshafen Airport">Friedrichshafen Airport</option>
-                            <option value="Hamburg Finkenwerder Airport">Hamburg Finkenwerder Airport</option>
-                            <option value="Hamburg Port">Hamburg Port</option>
-                            <option value="Hamburg-Fuhlsbuttel Airport">Hamburg-Fuhlsbuttel Airport</option>
-                            <option value="Hanover Lengenhagen Airport">Hanover Lengenhagen Airport</option>
-                            <option value="Kiel Port">Kiel Port</option>
-                            <option value="Leipzig Halle Airport">Leipzig Halle Airport</option>
-                            <option value="Munich Airport">Munich Airport</option>
-                            <option value="Nuremberg Airport">Nuremberg Airport</option>
-                        </optgroup>
-                        <optgroup label="Italy">
-                            <option value="Alghero Airport">Alghero Airport</option>
-                            <option value="Bari Airport">Bari Airport</option>
-                            <option value="Bari Port">Bari Port</option>
-                            <option value="Bergamo Airport">Bergamo Airport</option>
-                            <option value="Bologna Airport">Bologna Airport</option>
-                            <option value="Brindisi Airport">Brindisi Airport</option>
-                            <option value="Cagliari Airport">Cagliari Airport</option>
-                            <option value="Florence Airport">Florence Airport</option>
-                            <option value="Florence Train Station">Florence Train Station</option>
-                            <option value="Genoa Airport">Genoa Airport</option>
-                            <option value="Genoa Port">Genoa Port</option>
-                            <option value="Milan Central Train Station">Milan Central Train Station</option>
-                            <option value="Milan City Centre">Milan City Centre</option>
-                            <option value="Naples Airport">Naples Airport</option>
-                        </optgroup>
-                        <optgroup label="Spain">
-                            <option value="Alicante Airport">Alicante Airport</option>
-                            <option value="Almeria Airport">Almeria Airport</option>
-                            <option value="Barcelona Airport">Barcelona Airport</option>
-                            <option value="Granada Airport">Granada Airport</option>
-                            <option value="Jerez de la Frontera">Jerez de la Frontera</option>
-                            <option value="Leon Airport">Leon Airport</option>
-                            <option value="Madrid Atocha Train Station">Madrid Atocha Train Station</option>
-                            <option value="Madrid Barajas Airport">Madrid Barajas Airport</option>
-                            <option value="Pamplona Airport">Pamplona Airport</option>
-                            <option value="Santander Airport">Santander Airport</option>
-                            <option value="Seville Airport">Seville Airport</option>
-                            <option value="Valencia Airport">Valencia Airport</option>
-                            <option value="Zaragoza Airport">Zaragoza Airport</option>
-                        </optgroup>
-                        <optgroup label="United Kingdom">
-                            <option value="Belfast City Airport">Belfast City Airport</option>
-                            <option value="Belfast International Airport">Belfast International Airport</option>
-                            <option value="Bristol Airport">Bristol Airport</option>
-                            <option value="Cardiff Airport">Cardiff Airport</option>
-                            <option value="Edinburgh Airport">Edinburgh Airport</option>
-                            <option value="Glasgow International Airport">Glasgow International Airport</option>
-                            <option value="London City Airport">London City Airport</option>
-                            <option value="London Gatwick Airport">London Gatwick Airport</option>
-                            <option value="London Heathrow Airport">London Heathrow Airport</option>
-                            <option value="London Stansted Airport">London Stansted Airport</option>
-                            <option value="Manchester Airport">Manchester Airport</option>
-                            <option value="Southampton Airport">Southampton Airport</option>
-                        </optgroup>
+                        <option value="Ambalangoda">Ambalangoda</option>
+                        <option value="Ampara">Ampara</option>
+                        <option value="Anuradapura">Anuradapura</option>
+                        <option value="Avissawella">Avissawella</option>
+                        <option value="Bandaragama">Bandaragama</option>
+                        <option value="Badulla">Badulla</option>
+                        <option value="Balangoda">Balangoda</option>
+                        <option value="Bandarawela">Bandarawela</option>
+                        <option value="Battaramulla">Battaramulla</option>
+                        <option value="Batticaloa">Batticaloa</option>
+                        <option value="Beruwala">Beruwala</option>
+                        <option value="Chavakacheri">Chavakacheri</option>
+                        <option value="Chilaw">Chilaw</option>
+                        <option value="Colombo">Colombo</option>
+                        <option value="Daluguma">Daluguma</option>
+                        <option value="Dambulla">Dambulla</option>
+                        <option value="Dehiwala-Mount-Lavinia">Dehiwala-Mount-Lavinia</option>
+                        <option value="Divulapitiya">Divulapitiya</option>
+                        <option value="Dompe">Dompe</option>
+                        <option value="Eheliyagoda">Eheliyagoda</option>
+                        <option value="Eravur">Eravur</option>
+                        <option value="Galle">Galle</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Gampola">Gampola</option>
+                        <option value="Hambantota">Hambantota</option>
+                        <option value="Haputale">Haputale</option>
+                        <option value="Harispattuwa">Harispattuwa</option>
+                        <option value="Hatton">Hatton</option>
+                        <option value="Hendala">Hendala</option>
+                        <option value="Homagama">Homagama</option>
+                        <option value="Horana">Horana</option>
+                        <option value="Ja-Ela">Ja-Ela</option>
+                        <option value="Jaffna">Jaffna</option>
+                        <option value="Kadawatha">Kadawatha</option>
+                        <option value="Kadugannawa">Kadugannawa</option>
+                        <option value="Kaduwela">Kaduwela</option>
+                        <option value="Kalawana">Kalawana</option>
+                        <option value="Kalmunai">Kalmunai</option>
+                        <option value="Kalutara">Kalutara</option>
+                        <option value="Kandana">Kandana</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Kattankudy">Kattankudy</option>
+                        <option value="Katunayake">Katunayake</option>
+                        <option value="Kegalle">Kegalle</option>
+                        <option value="Kelaniya">Kelaniya</option>
+                        <option value="Kesbewa">Kesbewa</option>
+                        <option value="Keselwatta">Keselwatta</option>
+                        <option value="Kilinochchi">Kilinochchi</option>
+                        <option value="Kiribathgoda">Kiribathgoda</option>
+                        <option value="Kolonnawa">Kolonnawa</option>
+                        <option value="Kotikawatta">Kotikawatta</option>
+                        <option value="Kotte">Kotte</option>
+                        <option value="Kuliyapitiya">Kuliyapitiya</option>
+                        <option value="Kurunegala">Kurunegala</option>
+                        <option value="Maharagama">Maharagama</option>
+                        <option value="Mannar">Mannar</option>
+                        <option value="Matale">Matale</option>
+                        <option value="Matara">Matara</option>
+                        <option value="Matugama">Matugama</option>
+                        <option value="Minuwangoda">Minuwangoda</option>
+                        <option value="Mirigama">Mirigama</option>
+                        <option value="Moneragala">Moneragala</option>
+                        <option value="Moratuwa">Moratuwa</option>
+                        <option value="Mullaitivu">Mullaitivu</option>
+                        <option value="Mulleriyawa">Mulleriyawa</option>
+                        <option value="Nawalapitiya">Nawalapitiya</option>
+                        <option value="Negombo">Negombo</option>
+                        <option value="Nittambuwa">Nittambuwa</option>
+                        <option value="Nuwara-Eliya">Nuwara-Eliya</option>
+                        <option value="Panadura">Panadura</option>
+                        <option value="Peliyagoda">Peliyagoda</option>
+                        <option value="Polgahawela">Polgahawela</option>
+                        <option value="Polonnaruwa">Polonnaruwa</option>
+                        <option value="Puttalam">Puttalam</option>
+                        <option value="Ragama">Ragama</option>
+                        <option value="Ratnapura">Ratnapura</option>
+                        <option value="Seethawakapura">Seethawakapura</option>
+                        <option value="Sigiriya">Sigiriya</option>
+                        <option value="Talawakele">Talawakele</option>
+                        <option value="Tangalle">Tangalle</option>
+                        <option value="Trincomalee">Trincomalee</option>
+                        <option value="Valvettithurai">Valvettithurai</option>
+                        <option value="Vavuniya">Vavuniya</option>
+                        <option value="Wattala">Wattala</option>
+                        <option value="Wattegama">Wattegama</option>
+                        <option value="Weligama">Weligama</option>
+                        <option value="Welimada">Welimada</option>
+                        <option value="Welisara">Welisara</option>
                     </select>
                 </div>
                 <div class="form-group select one-third">
                     <label>Drop off location</label>
                     <select>
                         <option selected>&nbsp;</option>
-                        <optgroup label="Germany">
-                            <option value="Berlin Central Train Station">Berlin Central Train Station</option>
-                            <option value="Berlin Schonefeld Airport">Berlin Schonefeld Airport</option>
-                            <option value="Berlin Tegel Airport">Berlin Tegel Airport</option>
-                            <option value="Bremen Airport">Bremen Airport</option>
-                            <option value="Cologne Bonn Airport">Cologne Bonn Airport</option>
-                            <option value="Dortmund Airport">Dortmund Airport</option>
-                            <option value="Dresden Airport">Dresden Airport</option>
-                            <option value="Dusseldorf Airport">Dusseldorf Airport</option>
-                            <option value="Frankfurt Hahn Airport">Frankfurt Hahn Airport</option>
-                            <option value="Frankfurt International Airport">Frankfurt International Airport</option>
-                            <option value="Friedrichshafen Airport">Friedrichshafen Airport</option>
-                            <option value="Hamburg Finkenwerder Airport">Hamburg Finkenwerder Airport</option>
-                            <option value="Hamburg Port">Hamburg Port</option>
-                            <option value="Hamburg-Fuhlsbuttel Airport">Hamburg-Fuhlsbuttel Airport</option>
-                            <option value="Hanover Lengenhagen Airport">Hanover Lengenhagen Airport</option>
-                            <option value="Kiel Port">Kiel Port</option>
-                            <option value="Leipzig Halle Airport">Leipzig Halle Airport</option>
-                            <option value="Munich Airport">Munich Airport</option>
-                            <option value="Nuremberg Airport">Nuremberg Airport</option>
-                        </optgroup>
-                        <optgroup label="Italy">
-                            <option value="Alghero Airport">Alghero Airport</option>
-                            <option value="Bari Airport">Bari Airport</option>
-                            <option value="Bari Port">Bari Port</option>
-                            <option value="Bergamo Airport">Bergamo Airport</option>
-                            <option value="Bologna Airport">Bologna Airport</option>
-                            <option value="Brindisi Airport">Brindisi Airport</option>
-                            <option value="Cagliari Airport">Cagliari Airport</option>
-                            <option value="Florence Airport">Florence Airport</option>
-                            <option value="Florence Train Station">Florence Train Station</option>
-                            <option value="Genoa Airport">Genoa Airport</option>
-                            <option value="Genoa Port">Genoa Port</option>
-                            <option value="Milan Central Train Station">Milan Central Train Station</option>
-                            <option value="Milan City Centre">Milan City Centre</option>
-                            <option value="Naples Airport">Naples Airport</option>
-                        </optgroup>
-                        <optgroup label="Spain">
-                            <option value="Alicante Airport">Alicante Airport</option>
-                            <option value="Almeria Airport">Almeria Airport</option>
-                            <option value="Barcelona Airport">Barcelona Airport</option>
-                            <option value="Granada Airport">Granada Airport</option>
-                            <option value="Jerez de la Frontera">Jerez de la Frontera</option>
-                            <option value="Leon Airport">Leon Airport</option>
-                            <option value="Madrid Atocha Train Station">Madrid Atocha Train Station</option>
-                            <option value="Madrid Barajas Airport">Madrid Barajas Airport</option>
-                            <option value="Pamplona Airport">Pamplona Airport</option>
-                            <option value="Santander Airport">Santander Airport</option>
-                            <option value="Seville Airport">Seville Airport</option>
-                            <option value="Valencia Airport">Valencia Airport</option>
-                            <option value="Zaragoza Airport">Zaragoza Airport</option>
-                        </optgroup>
-                        <optgroup label="United Kingdom">
-                            <option value="Belfast City Airport">Belfast City Airport</option>
-                            <option value="Belfast International Airport">Belfast International Airport</option>
-                            <option value="Bristol Airport">Bristol Airport</option>
-                            <option value="Cardiff Airport">Cardiff Airport</option>
-                            <option value="Edinburgh Airport">Edinburgh Airport</option>
-                            <option value="Glasgow International Airport">Glasgow International Airport</option>
-                            <option value="London City Airport">London City Airport</option>
-                            <option value="London Gatwick Airport">London Gatwick Airport</option>
-                            <option value="London Heathrow Airport">London Heathrow Airport</option>
-                            <option value="London Stansted Airport">London Stansted Airport</option>
-                            <option value="Manchester Airport">Manchester Airport</option>
-                            <option value="Southampton Airport">Southampton Airport</option>
-                        </optgroup>
+                        <option value="Ambalangoda">Ambalangoda</option>
+                        <option value="Ampara">Ampara</option>
+                        <option value="Anuradapura">Anuradapura</option>
+                        <option value="Avissawella">Avissawella</option>
+                        <option value="Bandaragama">Bandaragama</option>
+                        <option value="Badulla">Badulla</option>
+                        <option value="Balangoda">Balangoda</option>
+                        <option value="Bandarawela">Bandarawela</option>
+                        <option value="Battaramulla">Battaramulla</option>
+                        <option value="Batticaloa">Batticaloa</option>
+                        <option value="Beruwala">Beruwala</option>
+                        <option value="Chavakacheri">Chavakacheri</option>
+                        <option value="Chilaw">Chilaw</option>
+                        <option value="Colombo">Colombo</option>
+                        <option value="Daluguma">Daluguma</option>
+                        <option value="Dambulla">Dambulla</option>
+                        <option value="Dehiwala-Mount-Lavinia">Dehiwala-Mount-Lavinia</option>
+                        <option value="Divulapitiya">Divulapitiya</option>
+                        <option value="Dompe">Dompe</option>
+                        <option value="Eheliyagoda">Eheliyagoda</option>
+                        <option value="Eravur">Eravur</option>
+                        <option value="Galle">Galle</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Gampola">Gampola</option>
+                        <option value="Hambantota">Hambantota</option>
+                        <option value="Haputale">Haputale</option>
+                        <option value="Harispattuwa">Harispattuwa</option>
+                        <option value="Hatton">Hatton</option>
+                        <option value="Hendala">Hendala</option>
+                        <option value="Homagama">Homagama</option>
+                        <option value="Horana">Horana</option>
+                        <option value="Ja-Ela">Ja-Ela</option>
+                        <option value="Jaffna">Jaffna</option>
+                        <option value="Kadawatha">Kadawatha</option>
+                        <option value="Kadugannawa">Kadugannawa</option>
+                        <option value="Kaduwela">Kaduwela</option>
+                        <option value="Kalawana">Kalawana</option>
+                        <option value="Kalmunai">Kalmunai</option>
+                        <option value="Kalutara">Kalutara</option>
+                        <option value="Kandana">Kandana</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Kattankudy">Kattankudy</option>
+                        <option value="Katunayake">Katunayake</option>
+                        <option value="Kegalle">Kegalle</option>
+                        <option value="Kelaniya">Kelaniya</option>
+                        <option value="Kesbewa">Kesbewa</option>
+                        <option value="Keselwatta">Keselwatta</option>
+                        <option value="Kilinochchi">Kilinochchi</option>
+                        <option value="Kiribathgoda">Kiribathgoda</option>
+                        <option value="Kolonnawa">Kolonnawa</option>
+                        <option value="Kotikawatta">Kotikawatta</option>
+                        <option value="Kotte">Kotte</option>
+                        <option value="Kuliyapitiya">Kuliyapitiya</option>
+                        <option value="Kurunegala">Kurunegala</option>
+                        <option value="Maharagama">Maharagama</option>
+                        <option value="Mannar">Mannar</option>
+                        <option value="Matale">Matale</option>
+                        <option value="Matara">Matara</option>
+                        <option value="Matugama">Matugama</option>
+                        <option value="Minuwangoda">Minuwangoda</option>
+                        <option value="Mirigama">Mirigama</option>
+                        <option value="Moneragala">Moneragala</option>
+                        <option value="Moratuwa">Moratuwa</option>
+                        <option value="Mullaitivu">Mullaitivu</option>
+                        <option value="Mulleriyawa">Mulleriyawa</option>
+                        <option value="Nawalapitiya">Nawalapitiya</option>
+                        <option value="Negombo">Negombo</option>
+                        <option value="Nittambuwa">Nittambuwa</option>
+                        <option value="Nuwara-Eliya">Nuwara-Eliya</option>
+                        <option value="Panadura">Panadura</option>
+                        <option value="Peliyagoda">Peliyagoda</option>
+                        <option value="Polgahawela">Polgahawela</option>
+                        <option value="Polonnaruwa">Polonnaruwa</option>
+                        <option value="Puttalam">Puttalam</option>
+                        <option value="Ragama">Ragama</option>
+                        <option value="Ratnapura">Ratnapura</option>
+                        <option value="Seethawakapura">Seethawakapura</option>
+                        <option value="Sigiriya">Sigiriya</option>
+                        <option value="Talawakele">Talawakele</option>
+                        <option value="Tangalle">Tangalle</option>
+                        <option value="Trincomalee">Trincomalee</option>
+                        <option value="Valvettithurai">Valvettithurai</option>
+                        <option value="Vavuniya">Vavuniya</option>
+                        <option value="Wattala">Wattala</option>
+                        <option value="Wattegama">Wattegama</option>
+                        <option value="Weligama">Weligama</option>
+                        <option value="Welimada">Welimada</option>
+                        <option value="Welisara">Welisara</option>
                     </select>
                 </div>
             </div>
             <!-- //Row -->
 
             <!-- Row -->
-            <div class="f-row">
-                <div class="form-group datepicker one-third">
-                    <label for="ret-date">Return date and time</label>
-                    <input type="text" id="ret-date" />
-                </div>
-                <div class="form-group select one-third">
-                    <label>Pick up location</label>
-                    <select>
-                        <option selected>&nbsp;</option>
-                        <optgroup label="Germany">
-                            <option value="Berlin Central Train Station">Berlin Central Train Station</option>
-                            <option value="Berlin Schonefeld Airport">Berlin Schonefeld Airport</option>
-                            <option value="Berlin Tegel Airport">Berlin Tegel Airport</option>
-                            <option value="Bremen Airport">Bremen Airport</option>
-                            <option value="Cologne Bonn Airport">Cologne Bonn Airport</option>
-                            <option value="Dortmund Airport">Dortmund Airport</option>
-                            <option value="Dresden Airport">Dresden Airport</option>
-                            <option value="Dusseldorf Airport">Dusseldorf Airport</option>
-                            <option value="Frankfurt Hahn Airport">Frankfurt Hahn Airport</option>
-                            <option value="Frankfurt International Airport">Frankfurt International Airport</option>
-                            <option value="Friedrichshafen Airport">Friedrichshafen Airport</option>
-                            <option value="Hamburg Finkenwerder Airport">Hamburg Finkenwerder Airport</option>
-                            <option value="Hamburg Port">Hamburg Port</option>
-                            <option value="Hamburg-Fuhlsbuttel Airport">Hamburg-Fuhlsbuttel Airport</option>
-                            <option value="Hanover Lengenhagen Airport">Hanover Lengenhagen Airport</option>
-                            <option value="Kiel Port">Kiel Port</option>
-                            <option value="Leipzig Halle Airport">Leipzig Halle Airport</option>
-                            <option value="Munich Airport">Munich Airport</option>
-                            <option value="Nuremberg Airport">Nuremberg Airport</option>
-                        </optgroup>
-                        <optgroup label="Italy">
-                            <option value="Alghero Airport">Alghero Airport</option>
-                            <option value="Bari Airport">Bari Airport</option>
-                            <option value="Bari Port">Bari Port</option>
-                            <option value="Bergamo Airport">Bergamo Airport</option>
-                            <option value="Bologna Airport">Bologna Airport</option>
-                            <option value="Brindisi Airport">Brindisi Airport</option>
-                            <option value="Cagliari Airport">Cagliari Airport</option>
-                            <option value="Florence Airport">Florence Airport</option>
-                            <option value="Florence Train Station">Florence Train Station</option>
-                            <option value="Genoa Airport">Genoa Airport</option>
-                            <option value="Genoa Port">Genoa Port</option>
-                            <option value="Milan Central Train Station">Milan Central Train Station</option>
-                            <option value="Milan City Centre">Milan City Centre</option>
-                            <option value="Naples Airport">Naples Airport</option>
-                        </optgroup>
-                        <optgroup label="Spain">
-                            <option value="Alicante Airport">Alicante Airport</option>
-                            <option value="Almeria Airport">Almeria Airport</option>
-                            <option value="Barcelona Airport">Barcelona Airport</option>
-                            <option value="Granada Airport">Granada Airport</option>
-                            <option value="Jerez de la Frontera">Jerez de la Frontera</option>
-                            <option value="Leon Airport">Leon Airport</option>
-                            <option value="Madrid Atocha Train Station">Madrid Atocha Train Station</option>
-                            <option value="Madrid Barajas Airport">Madrid Barajas Airport</option>
-                            <option value="Pamplona Airport">Pamplona Airport</option>
-                            <option value="Santander Airport">Santander Airport</option>
-                            <option value="Seville Airport">Seville Airport</option>
-                            <option value="Valencia Airport">Valencia Airport</option>
-                            <option value="Zaragoza Airport">Zaragoza Airport</option>
-                        </optgroup>
-                        <optgroup label="United Kingdom">
-                            <option value="Belfast City Airport">Belfast City Airport</option>
-                            <option value="Belfast International Airport">Belfast International Airport</option>
-                            <option value="Bristol Airport">Bristol Airport</option>
-                            <option value="Cardiff Airport">Cardiff Airport</option>
-                            <option value="Edinburgh Airport">Edinburgh Airport</option>
-                            <option value="Glasgow International Airport">Glasgow International Airport</option>
-                            <option value="London City Airport">London City Airport</option>
-                            <option value="London Gatwick Airport">London Gatwick Airport</option>
-                            <option value="London Heathrow Airport">London Heathrow Airport</option>
-                            <option value="London Stansted Airport">London Stansted Airport</option>
-                            <option value="Manchester Airport">Manchester Airport</option>
-                            <option value="Southampton Airport">Southampton Airport</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group select one-third">
-                    <label>Drop off location</label>
-                    <select>
-                        <option selected>&nbsp;</option>
-                        <optgroup label="Germany">
-                            <option value="Berlin Central Train Station">Berlin Central Train Station</option>
-                            <option value="Berlin Schonefeld Airport">Berlin Schonefeld Airport</option>
-                            <option value="Berlin Tegel Airport">Berlin Tegel Airport</option>
-                            <option value="Bremen Airport">Bremen Airport</option>
-                            <option value="Cologne Bonn Airport">Cologne Bonn Airport</option>
-                            <option value="Dortmund Airport">Dortmund Airport</option>
-                            <option value="Dresden Airport">Dresden Airport</option>
-                            <option value="Dusseldorf Airport">Dusseldorf Airport</option>
-                            <option value="Frankfurt Hahn Airport">Frankfurt Hahn Airport</option>
-                            <option value="Frankfurt International Airport">Frankfurt International Airport</option>
-                            <option value="Friedrichshafen Airport">Friedrichshafen Airport</option>
-                            <option value="Hamburg Finkenwerder Airport">Hamburg Finkenwerder Airport</option>
-                            <option value="Hamburg Port">Hamburg Port</option>
-                            <option value="Hamburg-Fuhlsbuttel Airport">Hamburg-Fuhlsbuttel Airport</option>
-                            <option value="Hanover Lengenhagen Airport">Hanover Lengenhagen Airport</option>
-                            <option value="Kiel Port">Kiel Port</option>
-                            <option value="Leipzig Halle Airport">Leipzig Halle Airport</option>
-                            <option value="Munich Airport">Munich Airport</option>
-                            <option value="Nuremberg Airport">Nuremberg Airport</option>
-                        </optgroup>
-                        <optgroup label="Italy">
-                            <option value="Alghero Airport">Alghero Airport</option>
-                            <option value="Bari Airport">Bari Airport</option>
-                            <option value="Bari Port">Bari Port</option>
-                            <option value="Bergamo Airport">Bergamo Airport</option>
-                            <option value="Bologna Airport">Bologna Airport</option>
-                            <option value="Brindisi Airport">Brindisi Airport</option>
-                            <option value="Cagliari Airport">Cagliari Airport</option>
-                            <option value="Florence Airport">Florence Airport</option>
-                            <option value="Florence Train Station">Florence Train Station</option>
-                            <option value="Genoa Airport">Genoa Airport</option>
-                            <option value="Genoa Port">Genoa Port</option>
-                            <option value="Milan Central Train Station">Milan Central Train Station</option>
-                            <option value="Milan City Centre">Milan City Centre</option>
-                            <option value="Naples Airport">Naples Airport</option>
-                        </optgroup>
-                        <optgroup label="Spain">
-                            <option value="Alicante Airport">Alicante Airport</option>
-                            <option value="Almeria Airport">Almeria Airport</option>
-                            <option value="Barcelona Airport">Barcelona Airport</option>
-                            <option value="Granada Airport">Granada Airport</option>
-                            <option value="Jerez de la Frontera">Jerez de la Frontera</option>
-                            <option value="Leon Airport">Leon Airport</option>
-                            <option value="Madrid Atocha Train Station">Madrid Atocha Train Station</option>
-                            <option value="Madrid Barajas Airport">Madrid Barajas Airport</option>
-                            <option value="Pamplona Airport">Pamplona Airport</option>
-                            <option value="Santander Airport">Santander Airport</option>
-                            <option value="Seville Airport">Seville Airport</option>
-                            <option value="Valencia Airport">Valencia Airport</option>
-                            <option value="Zaragoza Airport">Zaragoza Airport</option>
-                        </optgroup>
-                        <optgroup label="United Kingdom">
-                            <option value="Belfast City Airport">Belfast City Airport</option>
-                            <option value="Belfast International Airport">Belfast International Airport</option>
-                            <option value="Bristol Airport">Bristol Airport</option>
-                            <option value="Cardiff Airport">Cardiff Airport</option>
-                            <option value="Edinburgh Airport">Edinburgh Airport</option>
-                            <option value="Glasgow International Airport">Glasgow International Airport</option>
-                            <option value="London City Airport">London City Airport</option>
-                            <option value="London Gatwick Airport">London Gatwick Airport</option>
-                            <option value="London Heathrow Airport">London Heathrow Airport</option>
-                            <option value="London Stansted Airport">London Stansted Airport</option>
-                            <option value="Manchester Airport">Manchester Airport</option>
-                            <option value="Southampton Airport">Southampton Airport</option>
-                        </optgroup>
-                    </select>
-                </div>
-            </div>
-            <!-- //Row -->
+            
 
             <!-- Row -->
             <div class="f-row">

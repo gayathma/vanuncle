@@ -34,12 +34,7 @@
                             <input type="password" id="password" name="password"/>
                         </div>
                     </div>
-                    <div class="f-row">
-                        <div class="full-width check">
-                            <input type="checkbox" id="checkbox" />
-                            <label for="checkbox">Remember me next time</label>
-                        </div>
-                    </div>
+                    
                     <div class="f-row">
                         <div class="full-width">
                             <input type="submit" onclick="login()" value="Login" class="btn color medium full" />

@@ -64,7 +64,12 @@
                         <li class="active"><a href="<?php echo site_url(); ?>" title="">Home</a></li>
                         <li><a href="<?php echo site_url(); ?>/about_us" title="About Us">About Us</a></li>
                         <li><a href="<?php echo site_url(); ?>/contact" title="Contact">Contact</a></li>
-                        <li><a href="<?php echo site_url(); ?>/sign_up">Sign Up</a></li>
+                        <?php if (!$this->session->userdata('USER_LOGGED_IN')) { ?>
+                            <li><a href="<?php echo site_url(); ?>/sign_up">Sign Up</a></li>
+                        <?php } else { ?>                                                                                                                
+                            <li><a href="<?php echo site_url(); ?>/dashboard" >Hi, <?php echo ucfirst($this->session->userdata('USER_FULLNAME')); ?></a></li>
+                            <li><a href="<?php echo site_url(); ?>/login/logout" >Sign Out</a></li>
+                        <?php } ?>
                     </ul>
                 </nav>
                 <!-- //Main Nav -->
