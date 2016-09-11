@@ -47,7 +47,7 @@
 <!-- //Page info -->
 
 <!--- Google map -->
-<div id="map_canvas" class="gmap"></div>
+<img src="<?php echo base_url(); ?>fe_resources/images/contact.jpg" />
 <!--- //Google map -->
 
 <div class="wrap">
