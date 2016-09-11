@@ -68,5 +68,38 @@ class Sign_up extends CI_Controller {
         }
         return $random_string;
     }
+    
+     function check_username() {
+         $driver_service = new Driver_service();
+         
+        if ($driver_service->check_username($_POST['username']))
+            echo 1;
+        else
+            echo -1;
+    }
+    
+    function update_driver_details(){
+        $driver_model   = new Driver_model();
+        $driver_service = new Driver_service();
+
+        $driver_model->set_id($this->session->userdata('USER_ID'));
+        $driver_model->set_name($this->input->post('name', TRUE));
+        $driver_model->set_nic($this->input->post('nic', TRUE));
+        $driver_model->set_mobile($this->input->post('mobile', TRUE));
+        $driver_model->set_updated_date(date("Y-m-d H:i:s"));
+
+        echo $driver_service->update_driver_details($driver_model);
+    }
+    
+    function update_security_details(){
+        $driver_model   = new Driver_model();
+        $driver_service = new Driver_service();
+
+        $driver_model->set_id($this->session->userdata('USER_ID'));
+        $driver_model->set_password(md5($this->input->post('password', TRUE)));
+        $driver_model->set_updated_date(date("Y-m-d H:i:s"));
+
+        echo $driver_service->update_security_details($driver_model);
+    }
 
 }

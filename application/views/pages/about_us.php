@@ -5,7 +5,7 @@
             <h1>About us</h1>
             <nav role="navigation" class="breadcrumbs">
                 <ul>
-                    <li><a href="index-2.html" title="Home">Home</a></li>
+                    <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
                     <li>About us</li>
                 </ul>
             </nav>

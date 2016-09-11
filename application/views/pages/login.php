@@ -6,7 +6,7 @@
             <h1>Login</h1>
             <nav role="navigation" class="breadcrumbs">
                 <ul>
-                    <li><a href="index-2.html" title="Home">Home</a></li>
+                    <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
                     <li>Login</li>
                 </ul>
             </nav>
@@ -25,7 +25,7 @@
                     <div class="f-row">
                         <div class="full-width">
                             <label for="username">Your username</label>
-                            <input type="text" id="username" name="username"/>
+                            <input type="text" id="username" name="username" placeholder="e.g.example@gmail.com"/>
                         </div>
                     </div>
                     <div class="f-row">
@@ -57,7 +57,10 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            username: "required",
+            username:{
+                required: true,
+                email: true
+            },
             password: "required"
         }, submitHandler: function(form) {
         }
@@ -74,15 +77,11 @@ function login() {
             data: "username=" + login_username + "&password=" + login_password,
             success: function(msg) {
                 if (msg == 1) {
-                    $('#login_msg').html('<div class="alert alert-success"><i class="fa fa-check-circle fa-fw fa-lg"></i>Login Successfull!!</div>');
-                    $('#login_msg').fadeIn();
-                    $('#login_msg').fadeOut(4000);
+                    swal("VanUncle.lk", "Login Successfull!!", "success");
                     setTimeout("location.href = site_url+'/login/index';", 100);
                 } else {
                     login_form.reset();
-                    $('#login_msg').html('<div class="alert alert-danger"><i class="fa fa-times-circle fa-fw fa-lg"></i>Invalid Login Details!!</div>');
-                    $('#login_msg').fadeIn();
-                    $('#login_msg').fadeOut(4000);
+                    swal("VanUncle.lk", "Invalid Login Details!!", "error");
                 }
             }
         });
