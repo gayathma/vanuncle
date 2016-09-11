@@ -291,14 +291,7 @@
 </div>
 <!-- //Services iconic -->
 
-<!-- Call to action -->
-<div class="black cta">
-    <div class="wrap">
-        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-        <a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" class="btn huge color right wow fadeInRight">Purchase theme</a>
-    </div>
-</div>
-<!-- //Call to action -->
+
 
 <!-- Services -->
 <div class="services boxed white" id="services">
@@ -364,15 +357,7 @@
 </div>
 <!-- //Services -->
 
-<!-- Testimonials -->
-<div class="testimonials center black">
-    <div class="wrap">
-        <h6 class="wow fadeInDown">Wow, this theme is outstanding!</h6>
-        <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        <p class="meta wow fadeInUp">-John Doe, themeforest</p>
-    </div>
-</div>
-<!-- //Testimonials -->
+
 
 <div class="partners white center">
     <div class="wrap">
@@ -386,11 +371,3 @@
 </div>
 
 
-<!-- Call to action -->
-<div class="color cta">
-    <div class="wrap">
-        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-        <a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" class="btn huge black right wow fadeInRight">Purchase theme</a>
-    </div>
-</div>
-<!-- //Call to action -->
