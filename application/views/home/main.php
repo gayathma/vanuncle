@@ -3,8 +3,8 @@
     <div class="wrap main-label">
         <div class="textwidget" style="padding-top: 120px;">
             <img src="<?php  echo base_url()?>fe_resources/images/uploads/logo-image.png" />
-            <h3 style="padding-top: 25px;">Get started now</h3>
-            <div class="actions" style="    padding-top: 20px;">
+            <h3 style="padding-top: 25px;color: #838381;">Get started now</h3>
+            <div class="actions" >
                 <a href="#services" title="Our services" class="btn large white wow fadeInLeft anchor">Our services</a>
                 <a href="#booking" title="Make a booking" class="btn large color wow fadeInRight anchor">Make a booking</a>
             </div>
@@ -221,7 +221,7 @@
             <!-- //Row -->
 
             <!-- Row -->
-            
+
 
             <!-- Row -->
             <div class="f-row">
@@ -243,7 +243,7 @@
             <div class="one-third wow fadeIn">
                 <span class="circle"><span class="ico telephone"></span></span>
                 <h3>24h customer service</h3>
-                <p>Our team is readily available to provide every customer with a maximized transportation solution; 24 hours a day, 7 days a week, 365 days a year.</p>
+                <p class="p-height">Our team is readily available to provide every customer with a maximized transportation solution; 24 hours a day, 7 days a week, 365 days a year.</p>
             </div>
             <!-- //Item -->
 
@@ -251,7 +251,7 @@
             <div class="one-third wow fadeIn" data-wow-delay=".2s">
                 <span class="circle"><span class="ico shuttle"></span></span>
                 <h3>Quality vehicles</h3>
-                <p>Facilitating quality transportation is the essence of our business; therefore, we consider our network of contracted transportation providers to be the heartbeat of our operation.</p>
+                <p class="p-height">Facilitating quality transportation is the essence of our business; therefore, we consider our network of contracted transportation providers to be the heartbeat of our operation.</p>
             </div>
             <!-- //Item -->
 
@@ -259,7 +259,7 @@
             <div class="one-third wow fadeIn" data-wow-delay=".4s">
                 <span class="circle"><span class="ico heart"></span></span>
                 <h3>Safety</h3>
-                <p>You can be assured of travel safety if you choose to hire professionals instead of trust in your own driving skills.</p>
+                <p class="p-height">You can be assured of travel safety if you choose to hire professionals instead of trust in your own driving skills.</p>
             </div>
             <!-- //Item -->
 
@@ -267,7 +267,7 @@
             <div class="one-third wow fadeIn">
                 <span class="circle"><span class="ico award"></span></span>
                 <h3>Comfortable rides</h3>
-                <p>You get to enjoy utmost travel convenience with the help of an expert driver and a comfortable ride.</p>
+                <p class="p-height">You get to enjoy utmost travel convenience with the help of an expert driver and a comfortable ride.</p>
             </div>
             <!-- //Item -->
 
@@ -275,7 +275,7 @@
             <div class="one-third wow fadeIn" data-wow-delay=".2s">
                 <span class="circle"><span class="ico wand"></span></span>
                 <h3>On time arrivals</h3>
-                <p>No more worries about being late, We’ll get you to your destination on time.</p>
+                <p class="p-height">No more worries about being late, We’ll get you to your destination on time.</p>
             </div>
             <!-- //Item -->
 
@@ -283,7 +283,7 @@
             <div class="one-third wow fadeIn" data-wow-delay=".4s">
                 <span class="circle"><span class="ico clip"></span></span>
                 <h3>Wide range of choice</h3>
-                <p>Our comprehensive data base covers a wide range of transport service providers and service seekers. You can select a service provider of your choice.</p>
+                <p class="p-height">Our comprehensive data base covers a wide range of transport service providers and service seekers. You can select a service provider of your choice.</p>
             </div>
             <!-- //Item -->
         </div>
@@ -291,14 +291,7 @@
 </div>
 <!-- //Services iconic -->
 
-<!-- Call to action -->
-<div class="black cta">
-    <div class="wrap">
-        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-        <a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" class="btn huge color right wow fadeInRight">Purchase theme</a>
-    </div>
-</div>
-<!-- //Call to action -->
+
 
 <!-- Services -->
 <div class="services boxed white" id="services">
@@ -360,19 +353,11 @@
             <p>We can connect you for most cost effective Home moving, Office moving services along with goods transportation.</p>
         </div>
     </article>
-    <!-- //Item -->			
+    <!-- //Item -->
 </div>
 <!-- //Services -->
 
-<!-- Testimonials -->
-<div class="testimonials center black">
-    <div class="wrap">
-        <h6 class="wow fadeInDown">Wow, this theme is outstanding!</h6>
-        <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        <p class="meta wow fadeInUp">-John Doe, themeforest</p>
-    </div>
-</div>
-<!-- //Testimonials -->
+
 
 <div class="partners white center">
     <div class="wrap">
@@ -386,11 +371,5 @@
 </div>
 
 
-<!-- Call to action -->
-<div class="color cta">
-    <div class="wrap">
-        <p class="wow fadeInLeft">Like what you see? Are you ready to stand out? You know what to do.</p>
-        <a href="http://themeforest.net/item/transfers-transport-and-car-hire-html-template/9366018?ref=themeenergy" class="btn huge black right wow fadeInRight">Purchase theme</a>
-    </div>
-</div>
+
 <!-- //Call to action -->
