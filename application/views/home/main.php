@@ -369,7 +369,3 @@
         <div class="one-fifth" data-wow-delay=".8s"><a href="#"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/logo5.jpg" alt="" /></a></div>
     </div>
 </div>
-
-
-
-<!-- //Call to action -->
