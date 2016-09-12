@@ -91,6 +91,7 @@
 
             <!-- Tab -->
             <article class="single" id="tab2">
+                <a href="<?php echo site_url(); ?>/vehicles" class="btn medium back right " style="margin-bottom: 10px;">Add New Vehicle</a>
                 <?php
                 if (count($my_vehicles) > 0) {
                     foreach ($my_vehicles as $my_vehicle) {
