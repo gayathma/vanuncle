@@ -18,7 +18,7 @@
     <div class="row">
         <!--- Content -->
         <div class="full-width content">
-            <h2>Vehicle details</h2>
+            <h2>Vehicle Details</h2>
             <p>Please ensure all of the required fields are completed. This information is imperative to ensure a smooth journey.<br />All fields are required.</p>
         </div>
         <!--- //Content -->
