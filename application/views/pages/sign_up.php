@@ -148,12 +148,15 @@
             {
                 $.post(site_url + '/sign_up/add_new_driver', $('#form_register').serialize(), function (msg)
                 {
-                    if (msg == 1) {
-                        swal("VanUncle.lk", "Registration Successfull!!", "success");
-                        setTimeout("location.href = site_url+'/home';", 1000);
-                    } else {
-                        swal("VanUncle.lk", "Error occured in registration", "error");
-
+                    if($('#agree_checkbox:checked')){
+                        if (msg == 1) {
+                            swal("VanUncle.lk", "Registration Successfull!!", "success");
+                            setTimeout("location.href = site_url+'/home';", 1000);
+                        } else {
+                            swal("VanUncle.lk", "Error occured in registration", "error");
+                        }
+                    }else{
+                        swal("VanUncle.lk", "You must agree to the terms and conditions before registering!", "error");
                     }
                 });
             }
