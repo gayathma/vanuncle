@@ -47,9 +47,11 @@
 <!-- //Page info -->
 
 <!--- Google map -->
+
 <div class="wrap">
 <img src="<?php  echo base_url()?>fe_resources/images/uploads/contact.jpg"/>
 </div>
+
 <!--- //Google map -->
 
 <div class="wrap">

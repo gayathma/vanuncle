@@ -80,8 +80,6 @@ class Login extends CI_Controller {
     }
 
       function logout() {
-        $driver_model   = new Driver_model();
-        $driver_service = new Driver_service();
         
         $this->session->set_userdata('USER_LOGGED_IN', 'FALSE');
         $this->session->sess_destroy();

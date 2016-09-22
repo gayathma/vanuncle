@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/icons.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/animate.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/sweetalert.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="<?php echo base_url(); ?>fe_resources/images/favicon.ico" />
 
@@ -22,7 +23,8 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.uniform.min.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.datetimepicker.js"></script>
-
+        <script src="<?php echo base_url(); ?>fe_resources/js/sweetalert-dev.js"></script>
+        
         <script>
             var base_url = "<?php echo base_url(); ?>";
             var site_url = "<?php echo site_url(); ?>";
@@ -67,7 +69,7 @@
                         <?php if (!$this->session->userdata('USER_LOGGED_IN')) { ?>
                             <li><a href="<?php echo site_url(); ?>/sign_up">Sign Up</a></li>
                         <?php } else { ?>                                                                                                                
-                            <li><a href="<?php echo site_url(); ?>/dashboard" >Hi, <?php echo ucfirst($this->session->userdata('USER_FULLNAME')); ?></a></li>
+                            <li><a href="<?php echo site_url(); ?>/account" ><?php echo ucfirst($this->session->userdata('USER_FULLNAME')); ?>'S Account</a></li>
                             <li><a href="<?php echo site_url(); ?>/login/logout" >Sign Out</a></li>
                         <?php } ?>
                     </ul>

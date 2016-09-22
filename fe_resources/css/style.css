@@ -299,7 +299,7 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 /* 13 MAIN CONTENT */
 .main 		{float:left;width:100%;min-height:600px;padding:0 0 105px;overflow:hidden;max-width:100%;}
 
-.site-title					{float:left;width:100%;border-bottom:1px solid #fff;margin:0 0 35px;}
+.site-title					{float:left;width:100%;border-bottom:1px solid #fff;margin:80px 0 35px;}
 .site-title .container		{height:100px;display:table;color:#fff;width:100%;}
 .site-title h1				{display:table-cell;vertical-align:middle;}
 
@@ -462,7 +462,7 @@ blockquote:before			{content:"";width:41px;height:29px;}
 
 
 /* 18 ERROR PAGE */
-.error 				{color: red;}
+.error 				{color: red !important;}
 .error .content 		{padding-top:70px;}
 .error h2			{font-size:35px;}
 

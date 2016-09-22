@@ -4,7 +4,7 @@
             <h1>Register</h1>
             <nav role="navigation" class="breadcrumbs">
                 <ul>
-                    <li><a href="index-2.html" title="Home">Home</a></li>
+                    <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
                     <li>Sign Up As A Driver</li>
                 </ul>
             </nav>
@@ -35,7 +35,7 @@
                     <div class="f-row">
                         <div class="full-width">
                             <label for="email">Your email address</label>
-                            <input type="email" id="email" name="email"/>
+                            <input type="email" id="email" name="email" onfocusout="check_username()"/>
                         </div>
                     </div>
                     <div class="f-row">
@@ -64,13 +64,13 @@
                     </div>
                     <div class="f-row">
                         <div class="full-width check">
-                            <input type="checkbox" id="checkbox" />
+                            <input type="checkbox" id="checkbox" name="agree_checkbox"/>
                             <label for="checkbox">I agree with terms and conditions.</label>
                         </div>
                     </div>
                     <div class="f-row">
                         <div class="full-width">
-                            <input type="submit" value="Create an account" class="btn color medium full" />
+                            <input type="submit" id="submit_btn" value="Create an account" class="btn color medium full" />
                         </div>
                     </div>
 
@@ -88,13 +88,18 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        $.validator.addMethod("NIC_Validation", function (value, element) {
+            return nicValidate(value);
+        }, "Invalid NIC Number");
+
         $("#form_register").validate({
             rules: {
                 name: {
                     required: true
                 },
                 nic: {
-                    maxlength: 10
+                    required: true,
+                    NIC_Validation: true
                 },
                 email: {
                     required: true,
@@ -112,7 +117,7 @@
                     minlength: 10,
                     maxlength: 10
                 },
-                password:{
+                password: {
                     required: true,
                     minlength: 6
                 },
@@ -124,6 +129,9 @@
             messages: {
                 name: {
                     required: "Please enter your name and surname"
+                },
+                nic: {
+                    required: "Please enter your nic number"
                 },
                 email: {
                     required: "Please enter your email address",
@@ -140,12 +148,15 @@
             {
                 $.post(site_url + '/sign_up/add_new_driver', $('#form_register').serialize(), function (msg)
                 {
-                    if (msg == 1) {
-                        toastr.success("Successfully Registered", "VanUncle.lk");
-                        window.location = site_url + '/home';
-                    } else {
-                        toastr.error("Error in registration", "VanUncle.lk");
-
+                    if($('#agree_checkbox:checked')){
+                        if (msg == 1) {
+                            swal("VanUncle.lk", "Registration Successfull!!", "success");
+                            setTimeout("location.href = site_url+'/home';", 1000);
+                        } else {
+                            swal("VanUncle.lk", "Error occured in registration", "error");
+                        }
+                    }else{
+                        swal("VanUncle.lk", "You must agree to the terms and conditions before registering!", "error");
                     }
                 });
             }
@@ -153,6 +164,45 @@
         });
     });
 
+    function nicValidate(nicno) {
 
+        if (nicno != '') {
+            var last_nino_carector = nicno.charAt(9);
+
+            var numbers = nicno.substring(0, 9);
+            switch (last_nino_carector)
+            {
+                case 'V':
+                    return true;
+                case 'v':
+                    return true;
+                case 'x':
+                    return true;
+                case 'X':
+                    return true;
+                default:
+                    return false;
+            }
+        } else {
+            return true;
+        }
+
+    }
+
+    function check_username() {
+        $(".user_nameError").remove();
+        username = $('#email').val();
+        if (username.length != '') {
+            $.post(site_url + '/sign_up/check_username', {username: username}, function (msg) {
+                if (msg == "-1") {
+                    $('#submit_btn').attr('disabled',true);
+                    $('#email').parent().append('<label for="email" class="error user_nameError">Email already exsists.</label>');
+                } else {
+                    $('#submit_btn').attr('disabled',false);
+                }
+                //alert(msg);
+            });
+        }
+    }
 
 </script>

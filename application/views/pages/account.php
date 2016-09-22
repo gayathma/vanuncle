@@ -4,7 +4,7 @@
             <h1>My account</h1>
             <nav role="navigation" class="breadcrumbs">
                 <ul>
-                    <li><a href="index-2.html" title="Home">Home</a></li>
+                    <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
                     <li>My account</li>
                 </ul>
             </nav>
@@ -23,7 +23,7 @@
             <div class="widget">
                 <ul class="categories">
                     <li class="active"><a href="#tab1">Settings</a></li>
-                    <li><a href="#tab2">My bookings</a></li>
+                    <li><a href="#tab2">My vehicles</a></li>
                 </ul>
             </div>
             <!-- //Widget -->
@@ -37,99 +37,53 @@
                 <div class="box">
                     <h2>General settings</h2>
                     <fieldset>
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="name">Name and surname</label>
-                                <input type="text" id="name" />
+                        <form role="form" id="detail_form" name="detail_form" method="post">
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <label for="name">Name and surname</label>
+                                    <input type="text" id="name" name="name" value="<?php echo $driver->name; ?>"/>
+                                </div>
+                                <div class="one-half">
+                                    <label for="nic">NIC number</label>
+                                    <input type="text" id="nic" name="nic" value="<?php echo $driver->nic; ?>"/>
+                                </div>
                             </div>
-                            <div class="one-half">
-                                <label for="company">Company name</label>
-                                <input type="text" id="company" />
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <label for="email">Email address</label>
+                                    <input type="email" disabled="true" id="email" name="email" value="<?php echo $driver->email; ?>"/>
+                                </div>
+                                <div class="one-half">
+                                    <label for="mobile">Mobile number</label>
+                                    <input type="number" id="mobile" name="mobile" value="<?php echo $driver->mobile; ?>"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="email">Email address</label>
-                                <input type="email" id="email" />
+                            <div class="f-row">
+                                <input type="submit" value="Save Changes" id="submit1" name="submit" class="btn color medium" />
                             </div>
-                            <div class="one-half">
-                                <label for="number">Mobile number</label>
-                                <input type="number" id="number" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="address">Street address</label>
-                                <input type="text" id="address" />
-                            </div>
-                            <div class="one-half">
-                                <label for="zip">Zip code</label>
-                                <input type="text" id="zip" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="city">City</label>
-                                <input type="text" id="city" />
-                            </div>
-                            <div class="one-half">
-                                <label for="country">Country</label>
-                                <input type="text" id="country" />
-                            </div>
-                        </div>
-                        <div class="f-row">
-                            <input type="submit" value="Save Changes" id="submit1" name="submit" class="btn color medium" />
-                        </div>
+                        </form>
                     </fieldset>
                 </div>
 
                 <div class="box">						
                     <h2>Security settings</h2>
                     <fieldset>
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="username">Username</label>
-                                <input type="text" id="username" />
+                        <form role="form" id="security_form" name="security_form" method="post">
+                            <div class="f-row">
+                                <div class="one-half">
+                                    <label for="password">New password</label>
+                                    <input type="password" id="password" name="password"/>
+                                </div>
+                                <div class="one-half">
+                                    <label for="conf_password">Confirm new password</label>
+                                    <input type="password" id="conf_password" name="conf_password"/>
+                                </div>
                             </div>
-                            <div class="one-half">
-                                <label for="password1">Current password</label>
-                                <input type="password" id="password1" />
+
+                            <div class="f-row">
+                                <input type="submit" value="Save Changes" id="submit2" name="submit" class="btn color medium" />
                             </div>
-                        </div>
-
-                        <div class="f-row">
-                            <div class="one-half">
-                                <label for="password2">New password</label>
-                                <input type="password" id="password2" />
-                            </div>
-                            <div class="one-half">
-                                <label for="password3">Confirm new password</label>
-                                <input type="password" id="password3" />
-                            </div>
-                        </div>
-
-                        <div class="f-row">
-                            <input type="submit" value="Save Changes" id="submit2" name="submit" class="btn color medium" />
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="box">						
-                    <h2>Notification settings</h2>
-                    <fieldset>
-                        <div class="f-row check">
-                            <input type="checkbox" id="checkbox1" />
-                            <label for="checkbox1">General promotions, updates, news about Transfers or general promotions for partner campaigns and services, user surveys, inspiration, and love from Transfers.</label>
-                        </div>
-
-                        <div class="f-row check">
-                            <input type="checkbox" id="checkbox2" />
-                            <label for="checkbox2">Reservation and review reminders. </label>
-                        </div>
-
-                        <div class="f-row">
-                            <input type="submit" value="Save Changes" id="submit2" name="submit" class="btn color medium" />
-                        </div>
+                        </form>
                     </fieldset>
                 </div>
             </article>
@@ -137,65 +91,165 @@
 
             <!-- Tab -->
             <article class="single" id="tab2">
-                <!-- Item -->
-                <div class="box history">
-                    <h6>28.08.2014 <small>at</small> 10:00<br />Berlin Schonefeld Airport <small>to</small> Central Train Station</h6>
-                    <div class="row">
-                        <div class="one-third">
-                            <p><span>Vehicle:</span> Private shuttle</p>
+                <a href="<?php echo site_url(); ?>/vehicles" class="btn medium back right " style="margin-bottom: 10px;">Add New Vehicle</a>
+                <?php
+                if (count($my_vehicles) > 0) {
+                    foreach ($my_vehicles as $my_vehicle) {
+                        ?>
+                        <!-- Item -->
+                        <div class="box history">
+                            <h6>28.08.2014 <small>at</small> 10:00<br />Berlin Schonefeld Airport <small>to</small> Central Train Station</h6>
+                            <div class="row">
+                                <div class="one-third">
+                                    <p><span>Vehicle:</span> Private shuttle</p>
+                                </div>
+                                <div class="two-third">
+                                    <p><span>Extras:</span> 2 pieces of baggage up to 15kg</p>
+                                </div>
+                            </div>
+                            <div class="price">450.00 USD</div>
+                            <a href="#" title="Delete">Delete</a> &nbsp;|&nbsp; <a href="#" title="Modify">Modify</a>
                         </div>
-                        <div class="two-third">
-                            <p><span>Extras:</span> 2 pieces of baggage up to 15kg</p>
+                        <!-- //Item -->
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <!-- Item -->
+                    <div class="box history">
+                        <div class="row">
+                            <div class="three-third">
+                                <p>No Vehicles Found.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="price">450.00 USD</div>
-                    <a href="#" title="Cancel">Cancel</a> &nbsp;|&nbsp; <a href="#" title="Modify">Modify</a>
-                </div>
-                <!-- //Item -->
+                    <!-- //Item -->
+                <?php } ?>
 
-                <!-- Item -->
-                <div class="box history">
-                    <h6>28.08.2014 <small>at</small> 10:00<br />Berlin Schonefeld Airport <small>to</small> Central Train Station</h6>
-                    <div class="row">
-                        <div class="one-third">
-                            <p><span>Vehicle:</span> Private shuttle</p>
-                        </div>
-                        <div class="two-third">
-                            <p><span>Extras:</span> 2 pieces of baggage up to 15kg</p>
-                        </div>
-                    </div>
-                    <h6>02.09.2014 <small>at</small> 17:00<br />Berlin Central Train Station <small>to</small> Schonefeld Airport</h6>
-                    <div class="row">
-                        <div class="one-third">
-                            <p><span>Vehicle:</span> Private shuttle</p>
-                        </div>
-                        <div class="two-third">
-                            <p><span>Extras:</span> 2 pieces of baggage up to 15kg</p>
-                        </div>
-                    </div>
-                    <div class="price">840.00 USD</div>
-                    <a href="#" title="Book again">Book again</a>
-                </div>
-                <!-- //Item -->
-
-                <!-- Item -->
-                <div class="box history">
-                    <h6>28.08.2014 <small>at</small> 10:00<br />Berlin Schonefeld Airport <small>to</small> Central Train Station</h6>
-                    <div class="row">
-                        <div class="one-third">
-                            <p><span>Vehicle:</span> Private shuttle</p>
-                        </div>
-                        <div class="two-third">
-                            <p><span>Extras:</span> 2 pieces of baggage up to 15kg</p>
-                        </div>
-                    </div>
-                    <div class="price">750.00 USD</div>
-                    <a href="#" title="Book again">Book again</a>
-                </div>
-                <!-- //Item -->
             </article>
             <!-- //Tab -->
         </div>
         <!--- //Content -->
     </div>
 </div>
+<script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.single').hide().first().show();
+        $('.categories li:first').addClass('active');
+
+        $('.categories a').on('click', function (e) {
+            e.preventDefault();
+            $(this).closest('li').addClass('active').siblings().removeClass('active');
+            $($(this).attr('href')).show().siblings('.single').hide();
+        });
+
+        var hash = $.trim(window.location.hash);
+        if (hash)
+            $('.categories a[href$="' + hash + '"]').trigger('click');
+
+
+        $.validator.addMethod("NIC_Validation", function (value, element) {
+            return nicValidate(value);
+        }, "Invalid NIC Number");
+
+        $("#detail_form").validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                nic: {
+                    required: true,
+                    NIC_Validation: true
+                },
+                mobile: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name and surname"
+                },
+                nic: {
+                    required: "Please enter your nic number"
+                },
+                mobile: "Please enter your mobile number"
+
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/sign_up/update_driver_details', $('#detail_form').serialize(), function (msg)
+                {
+                    if (msg == 1) {
+                        swal("VanUncle.lk", "Deatils Saved Successfully!!", "success");
+                    } else {
+                        swal("VanUncle.lk", "Error occured in saving details", "error");
+
+                    }
+                });
+            }
+
+        });
+        
+        $("#security_form").validate({
+            rules: {
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                conf_password: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: "Please enter a password",
+                conf_password: {
+                    required: "Confirm the password",
+                    equalTo: "Passwords do not match"
+                }
+
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/sign_up/update_security_details', $('#security_form').serialize(), function (msg)
+                {
+                    if (msg == 1) {
+                        swal("VanUncle.lk", "Password Updated Successfully!!", "success");
+                    } else {
+                        swal("VanUncle.lk", "Error occured in saving details", "error");
+
+                    }
+                });
+            }
+
+        });
+    });
+
+    function nicValidate(nicno) {
+
+        if (nicno != '') {
+            var last_nino_carector = nicno.charAt(9);
+
+            var numbers = nicno.substring(0, 9);
+            switch (last_nino_carector)
+            {
+                case 'V':
+                    return true;
+                case 'v':
+                    return true;
+                case 'x':
+                    return true;
+                case 'X':
+                    return true;
+                default:
+                    return false;
+            }
+        } else {
+            return true;
+        }
+
+    }
+</script>
