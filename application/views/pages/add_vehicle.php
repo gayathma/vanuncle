@@ -88,6 +88,20 @@
                     </div>
                 </div>
                 <div class="f-row">
+                   
+                    <div class="one-half">
+                        <label for="seats">Maximum Number Of Seats</label>
+                        <input type="number" id="seats" class="uniform-input number" name="seats"/>
+                    </div>
+                     <div class="one-half">
+                            <label>Features</label>
+                            <br>
+                            <input type="checkbox" id="is_ac" name="is_ac" value="1"/>
+                            <label for="is_ac">Air Conditioning</label>
+                    </div>
+                </div>
+                <div class="f-row">
+
                     <div class="one-half">
                         <label for="service_type">Service Type</label>
                         <select id="service_type" name="service_type">
@@ -97,24 +111,6 @@
                             <option value="special">Special Hires</option>
                             <option value="freight">Freight Transportation</option>
                         </select>
-                    </div>
-                    <div class="one-half">
-                        <label for="seats">Maximum Number Of Seats</label>
-                        <input type="number" id="seats" class="uniform-input number" name="seats"/>
-                    </div>
-                </div>
-                <div class="f-row">
-                    <div class="one-half">
-                        <label for="payment">Select payment type</label>
-                        <select id="payment">
-                            <option selected>Paypal</option>
-                            <option>Credit card</option>
-                            <option>Bank transfer</option>
-                        </select>
-                    </div>
-                    <div class="one-half">
-                        <label for="promo">Do you have a promotional discount code?</label>
-                        <input type="text" id="promo" />
                     </div>
                 </div>
 

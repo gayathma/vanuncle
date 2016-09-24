@@ -4,7 +4,6 @@ class Vehicles_model extends CI_Model {
 
     var $id;
     var $driver_id;
-    var $service_type;
     var $vehicle_image;
     var $seats;
     var $isAc;
@@ -23,10 +22,6 @@ class Vehicles_model extends CI_Model {
 
     function get_driver_id() {
         return $this->driver_id;
-    }
-
-    function get_service_type() {
-        return $this->service_type;
     }
 
     function get_vehicle_image() {
@@ -61,10 +56,6 @@ class Vehicles_model extends CI_Model {
         $this->driver_id = $driver_id;
     }
 
-    function set_service_type($service_type) {
-        $this->service_type = $service_type;
-    }
-
     function set_vehicle_image($vehicle_image) {
         $this->vehicle_image = $vehicle_image;
     }
@@ -90,5 +81,3 @@ class Vehicles_model extends CI_Model {
     }
 
 }
-
-?>

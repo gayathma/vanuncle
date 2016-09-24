@@ -127,10 +127,10 @@
 
                     <nav role="navigation" class="foot-nav">
                         <ul>
-                            <li><a href="#" title="Home">Home</a></li>
-                            <li><a href="#" title="Blog">Blog</a></li>
-                            <li><a href="#" title="About us">About Us</a></li>
-                            <li><a href="#" title="Contact us">Contact Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
+                            <li><a href="<?php echo site_url(); ?>/about_us" title="About us">About Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>/contact" title="Contact us">Contact Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>/terms" title="Terms of use">Terms of use</a></li>
                         </ul>
                     </nav>
                 </div>

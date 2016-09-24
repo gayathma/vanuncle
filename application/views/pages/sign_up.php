@@ -64,8 +64,8 @@
                     </div>
                     <div class="f-row">
                         <div class="full-width check">
-                            <input type="checkbox" id="checkbox" name="agree_checkbox"/>
-                            <label for="checkbox">I agree with terms and conditions.</label>
+                            <input type="checkbox" id="agree_checkbox" name="agree_checkbox"/>
+                            <label for="checkbox">I agree with <a href="<?php echo site_url(); ?>/terms" target="_blank">terms and conditions</a>.</label>
                         </div>
                     </div>
                     <div class="f-row">
@@ -148,7 +148,7 @@
             {
                 $.post(site_url + '/sign_up/add_new_driver', $('#form_register').serialize(), function (msg)
                 {
-                    if($('#agree_checkbox:checked')){
+                    if($('#agree_checkbox').is(":checked")){
                         if (msg == 1) {
                             swal("VanUncle.lk", "Registration Successfull!!", "success");
                             setTimeout("location.href = site_url+'/home';", 1000);
