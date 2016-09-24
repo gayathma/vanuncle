@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2016 at 03:33 PM
+-- Generation Time: Sep 24, 2016 at 07:45 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -94,16 +94,21 @@ CREATE TABLE IF NOT EXISTS `va_drivers` (
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_date` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `va_drivers`
 --
 
 INSERT INTO `va_drivers` (`id`, `name`, `nic`, `mobile`, `land_phone`, `email`, `password`, `profile_pic`, `is_terms_agreed`, `is_deleted`, `added_date`, `updated_date`) VALUES
-(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'c4961b067d274050e43e26beb9d7d19c', 'avatar.png', '0', 0, '2016-09-11 11:54:50', '2016-09-11 08:24:50'),
+(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-11 13:44:20', '2016-09-11 10:14:20'),
 (2, 'dfdfsd', '911622491V', '3243432411', '1111111111', 'fdfdf@dfd.fhf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-10 18:30:00', NULL),
-(3, 'dsdsd', '911622491V', '3243432411', '3212323233', 'weqwe@fsdf.nnf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-10 18:30:00', NULL);
+(3, 'dsdsd', '911622491V', '3243432411', '3212323233', 'weqwe@fsdf.nnf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-10 18:30:00', NULL),
+(4, 'vcvc', '911622491V', '3434444444', '4324344444', 'ddg@sddsg.gdgg', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
+(5, 'fdsfd', '911622491V', '7560201151', '1231111111', 'gayathma13@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
+(6, 'dfdf', '911622491V', '7560201151', '7560201151', 'gayathma33@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
+(7, 'fdfd', '911622491V', '7560201151', '7560201151', 'gayathma23@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
+(8, 'Gayathma Perera', '911622491V', '7560201151', '7560201151', 'gayathma113@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,9 +157,11 @@ INSERT INTO `va_sliders` (`slider_id`, `slider_no`, `slider_title`, `slider_imag
 CREATE TABLE IF NOT EXISTS `va_vehicles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driver_id` int(11) NOT NULL,
+  `make_model` varchar(500) NOT NULL,
   `service_type` enum('school','office','trip','other') NOT NULL,
   `vehicle_image` varchar(300) NOT NULL,
   `seats` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
   `isAc` enum('Y','N') NOT NULL DEFAULT 'N',
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -172,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_routes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driver_id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
-  `cities` text NOT NULL,
+  `service_type` enum('school','office','trip','other') NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
