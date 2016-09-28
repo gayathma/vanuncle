@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/icons.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/animate.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/sweetalert.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/dropzone.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="<?php echo base_url(); ?>fe_resources/images/favicon.ico" />
 
@@ -24,6 +25,8 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.uniform.min.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.datetimepicker.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/sweetalert-dev.js"></script>
+
+        <script src="<?php echo base_url(); ?>fe_resources/js/dropzone.js"></script>
 
         <script>
             var base_url = "<?php echo base_url(); ?>";
@@ -127,10 +130,10 @@
 
                     <nav role="navigation" class="foot-nav">
                         <ul>
-                            <li><a href="#" title="Home">Home</a></li>
-                            <li><a href="#" title="Blog">Blog</a></li>
-                            <li><a href="#" title="About us">About Us</a></li>
-                            <li><a href="#" title="Contact us">Contact Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>" title="Home">Home</a></li>
+                            <li><a href="<?php echo site_url(); ?>/about_us" title="About us">About Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>/contact" title="Contact us">Contact Us</a></li>
+                            <li><a href="<?php echo site_url(); ?>/terms" title="Terms of use">Terms of use</a></li>
                         </ul>
                     </nav>
                 </div>

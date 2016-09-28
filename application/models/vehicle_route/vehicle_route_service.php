@@ -1,6 +1,6 @@
 <?php
 
-class Vehicles_service extends CI_Model {
+class Vehicle_route_service extends CI_Model {
 
     function __construct() {
         parent::__construct();

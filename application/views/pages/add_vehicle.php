@@ -24,7 +24,7 @@
         <!--- //Content -->
 
         <div class="three-fourth">
-            <form>
+            <form method="post" enctype="multipart/form-data">
                 <div class="f-row">
                     <div class="one-half">
                         <label for="make_model">Make and Model</label>
@@ -88,6 +88,20 @@
                     </div>
                 </div>
                 <div class="f-row">
+
+                    <div class="one-half">
+                        <label for="seats">Maximum Number Of Seats</label>
+                        <input type="number" id="seats" class="uniform-input number" name="seats"/>
+                    </div>
+                    <div class="one-half">
+                        <label>Features</label>
+                        <br>
+                        <input type="checkbox" id="is_ac" name="is_ac" value="1"/>
+                        <label for="is_ac">Air Conditioning</label>
+                    </div>
+                </div>
+                <div class="f-row">
+
                     <div class="one-half">
                         <label for="service_type">Service Type</label>
                         <select id="service_type" name="service_type">
@@ -99,22 +113,20 @@
                         </select>
                     </div>
                     <div class="one-half">
-                        <label for="seats">Maximum Number Of Seats</label>
-                        <input type="number" id="seats" class="uniform-input number" name="seats"/>
+                        <label for="route">Route</label>
+                        <input type="text" id="route" name="route"/>
                     </div>
                 </div>
+
                 <div class="f-row">
-                    <div class="one-half">
-                        <label for="payment">Select payment type</label>
-                        <select id="payment">
-                            <option selected>Paypal</option>
-                            <option>Credit card</option>
-                            <option>Bank transfer</option>
-                        </select>
-                    </div>
-                    <div class="one-half">
-                        <label for="promo">Do you have a promotional discount code?</label>
-                        <input type="text" id="promo" />
+                    <div class="one">
+                        <label for="file">Vehicle Images</label>
+                        <div  id="drop" class="dropzone">
+                            <div class="dz-message needsclick">
+                                Drop your vehicle images here or click to upload.<br>
+                                <span class="note needsclick">(You can upload maximum 3 images.)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -173,3 +185,10 @@
         <!--- //Sidebar -->
     </div>
 </div>
+<script type="text/javascript">
+    $("div#drop").dropzone({
+        url: "/file/post",
+        maxFiles: 3,
+        acceptedFiles: "image/*",
+    });
+</script>
