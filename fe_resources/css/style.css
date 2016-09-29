@@ -184,7 +184,11 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .home .main 				{padding:0;}
 .home .advanced-search 	{margin:0;}
 
-.intro 					{background:url(../images/uploads/keyvisual.jpg) 50% 0 no-repeat;height:100vh;overflow:hidden;float:left;width:100%;display:block;}
+.intro 					{    overflow: hidden;
+    float: left;
+    width: 100%;
+    display: block;
+    height: 100vh;}
 .intro .textwidget		{color:#fff;padding-top:24%;text-align:center;}
 .intro .textwidget h1 	{text-transform:uppercase;font-size:61px;margin:0 0 -5px;}
 .intro .textwidget h2 	{text-transform:uppercase;font-size:23px;margin:0;}
@@ -1043,4 +1047,40 @@ div.radio input 						{opacity: 0;filter: alpha(opacity=0);-moz-opacity: 0;borde
   text-align: right;
   width: 100%;
   margin-top: 27%;
+}
+
+.app-stores li::before{
+  content: "";
+
+}
+.app-stores li{
+  padding-left: 0px;
+
+}
+
+.app-stores li a img{
+  width:50%;
+
+}
+ul > li:before {
+    content: "";
+
+}
+ul > li{
+  text-align: left;
+}
+
+.selector{
+  border-radius: 3px!important;
+padding: 5px!important;
+height: 43px!important;
+border: solid black 1px!important;
+}
+div.selector span:before{
+  top:10px;
+}
+
+.form-group div.selector span{
+
+    line-height: 35px;
 }

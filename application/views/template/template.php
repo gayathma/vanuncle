@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/animate.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/sweetalert.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/dropzone.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/select2.min.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" href="<?php echo base_url(); ?>fe_resources/images/favicon.ico" />
 
@@ -121,6 +122,10 @@
                             <li class="twitter"><a href="#" title="twitter">twitter</a></li>
                             <li class="gplus"><a href="#" title="gplus">google plus</a></li>
                         </ul>
+                        <ul class="app-stores">
+                            <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store1.png" alt="app store" /></li>
+                            <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store2.png" alt="play store" /></li>
+                        </ul>
                     </article>
                     <!-- //Column -->
                 </div>
@@ -148,7 +153,7 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/search.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/scripts.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/styler.js"></script>
-
+        <script src="<?php echo base_url(); ?>fe_resources/js/select2.js"></script>
     </body>
 
 </html>
