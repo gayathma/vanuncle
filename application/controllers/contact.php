@@ -41,53 +41,19 @@ class Contact extends CI_Controller {
     }
 
     function send_mail() {
-//echo 2;die();
-        $this->load->helper('captcha');
-        $sliders_model = new Sliders_model();
-        $sliders_service = new Sliders_service();
-
-        $content_model = new Content_model();
-        $content_service = new Content_service();
-
-        $captcha_model = new Captcha_model();
-        $captcha_service = new Captcha_service();
-
-        //delete old captcha records
-
-        $ex = time() - 7200;
-
-        $captcha_service->deleteoldercaptchas($ex);
-
-
-//check captcha exsistance
-
-        $captcha_model->setCaptcha_time($ex);
-        $captcha_model->setIp_address($this->input->ip_address());
-        $captcha_model->setWord($this->input->post('captcha_code'));
-        //$captcha_model->setWord('222');
-
-        $row = $captcha_service->checkcaptchcode($captcha_model);
-//print_r($row);
-//echo 222;
-        // echo '3330' . count($row);
-
-
-        if (count($row) == 1) {
 
             $this->load->library('email');
 
             $this->email->from($this->input->post('email'), $this->input->post('name'));
-            $this->email->to('chula@monarulanka.asia');
-            $this->email->cc('suresh@monarulanka.asia');
-            $this->email->bcc('olga@lankacom.net');
+            $this->email->to('gayathma3@gmail.com');
+            $this->email->cc('gayathma3@gmail.com');
 
-            $this->email->subject('Inquiry From Monaru Lanka Contact Page');
+            $this->email->subject('Inquiry From vanUncle.lk Contact Page');
 
 
             $msg = 'Message : ' . $this->input->post('message');
             $msg .= '<br/>Name : ' . $this->input->post('name');
             $msg .= '<br/>Email : ' . $this->input->post('email');
-            $msg .= '<br/>Conact No : ' . $this->input->post('number');
 
 
             $this->email->message($msg);
@@ -95,13 +61,7 @@ class Contact extends CI_Controller {
             $this->email->send();
 
             echo '<spanv style="color:green;"><b>Thank you - We have now received your mail and will get back to you as soon as possible.</b></span>';
-        } else {
-            echo '<spanv style="color:red;"><b>An error occured.</b></span>';
-        }
-
-        //echo $_POST['name'];die();
-        // print_r($_POST);
-        //die();
+       
     }
 
 }

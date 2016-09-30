@@ -5,24 +5,17 @@
 
         var name = $('#name').val();
         var email = $('#email').val();
-        var number = $('#number').val();
-        var message = $('#message').val();
-        var captcha_code = $('#captcha_code').val();
+        var message = $('#comments').val();
 
 
         $.ajax({
             type: "POST",
             url: "<?php echo site_url(); ?>/contact/send_mail/",
-            data: "name=" + name + "& email=" + email + "& number=" + number + "& message=" + message + "& captcha_code=" + captcha_code,
+            data: "name=" + name + "& email=" + email + "& message=" + message ,
             success: function (msg) {
 
-                document.getElementById("contact_form").reset();
-                $('#msg').html(msg);       //   alert(msg);
-
-
-// setTimeout( "location.href =  <?php //echo site_url();   ?>+'/contact/';", 100);
-
-
+                $("#contact_form").reset();
+                $('#msg').html(msg);       
 
             }
         });
@@ -71,21 +64,23 @@
                 <div class="f-row">
                     <div class="one-half">
                         <label for="name">Name and surname</label>
-                        <input type="text" id="name" />
+                        <input type="text" id="name" name="name"/>
                     </div>
                     <div class="one-half">
                         <label for="email">Email address</label>
-                        <input type="email" id="email" />
+                        <input type="email" id="email" name="email"/>
                     </div>
                 </div>
                 <div class="f-row">
                     <div class="f-row">
                         <label for="comments">Message</label>
-                        <textarea id="comments"></textarea>
+                        <textarea id="comments" name="comments"></textarea>
                     </div>
                 </div>
                 <div class="f-row">
                     <input type="button" value="Submit" id="submit" name="submit" class="btn color medium right" onclick="sendmail()"/>
+                </div>
+                <div class="f-row" id="msg">
                 </div>
             </form>
         </div>
