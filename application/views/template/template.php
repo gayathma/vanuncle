@@ -126,6 +126,7 @@
                         <ul class="app-stores">
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store1.png" alt="app store" /></li>
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store2.png" alt="play store" /></li>
+                            <li><iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2FVanUnclelk-224285404607649&width=450&height=80&layout=standard&size=small&show_faces=true&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
                         </ul>
                     </article>
                     <!-- //Column -->
