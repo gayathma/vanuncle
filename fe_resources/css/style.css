@@ -184,11 +184,10 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .home .main 				{padding:0;}
 .home .advanced-search 	{margin:0;}
 
-.intro 					{    overflow: hidden;
-    float: left;
+.intro 					{   overflow: hidden;
     width: 100%;
     display: block;
-    height: 100vh;}
+    height: 900px;}
 .intro .textwidget		{color:#fff;padding-top:24%;text-align:center;}
 .intro .textwidget h1 	{text-transform:uppercase;font-size:61px;margin:0 0 -5px;}
 .intro .textwidget h2 	{text-transform:uppercase;font-size:23px;margin:0;}
