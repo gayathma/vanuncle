@@ -27,9 +27,20 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="f-row">
                     <div class="one-half">
-                        <label for="make_model">Make and Model</label>
-                        <input type="text" id="make_model" name="make_model" placeholder="e.g. Mazda Axela"/>
+                        <label for="make">Make</label>
+                        <select id="make" name="make">
+                            <?php foreach($makes as $make){?>
+                                <option value="<?php echo $make->id;?>"><?php echo $make->name;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
+                    <div class="one-half">
+                        <label for="model">Model</label>
+                        <select id="model" name="model">
+                        </select>
+                    </div>
+                </div>
+                <div class="f-row">
                     <div class="one-half">
                         <label for="year">Year</label>
                         <select id="year" name="year">
@@ -84,6 +95,14 @@
                             <option value="1970">1970</option>
                             <option value="1969">1969</option>
                             <option value="1968">1968</option>
+                        </select>
+                    </div>
+                    <div class="one-half">
+                        <label for="type">Vehicle Type</label>
+                        <select id="type" name="type">
+                            <option value="bus">Bus</option>
+                            <option value="van">Van</option>
+                            <option value="car">Car</option>
                         </select>
                     </div>
                 </div>

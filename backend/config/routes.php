@@ -38,8 +38,8 @@
 |
 */
 
-$route['default_controller'] = "login_controller";
-$route['404_override'] = "login_controller";
+$route['default_controller'] = "transmission/manage_transmission";
+$route['404_override'] = '';
 
 
 /* End of file routes.php */

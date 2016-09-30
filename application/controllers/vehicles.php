@@ -26,14 +26,20 @@ class Vehicles extends CI_Controller {
         
         $this->load->model('vehicles/vehicles_model');
         $this->load->model('vehicles/vehicles_service');
+
+        $this->load->model('make/make_model');
+        $this->load->model('make/make_service');
     }
 
     public function index() {
         if ($this->session->userdata('USER_LOGGED_IN')) {
             
+            $make_service =  new Make_service();
+            $data['makes'] = $make_service->get_all_makes();
+
                         
             $parials = array('content' => 'pages/add_vehicle');
-            $this->template->load('template/template', $parials);
+            $this->template->load('template/template', $parials,$data);
         } else {
             $partials = array('content' => 'pages/login');
             $this->template->load('template/template', $partials);

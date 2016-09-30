@@ -1,117 +1,152 @@
 <?php
 
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
-class Login extends CI_Controller{
-    
-    public function __construct() {
+class Login extends CI_Controller {
+
+    function __construct() {
         parent::__construct();
-        $this->load->model('admin_users/Users_model');
-        $this->load->model('admin_users/Users_model_service');
-        
-        $this->load->model('reg_users/Reg_users_model');
-        $this->load->model('reg_users/Reg_users_model_service');
-        
+
+        $this->load->model('users/user_model');
+        $this->load->model('users/user_service');
+        $this->load->model('access_controll/access_controll_service');
     }
-    
-    
-    public function index(){
-        
-        if($this->session->userdata('Logged_In')){
-            
-            $redirect_url = trim($this->session->userdata('Redirect_URL'));
-            $this->session->set_userdata('Redirect_URL', '');
 
-            if(empty($redirect_url))
-            {
-                $Reg_users_model = new Reg_users_model();
-                $Reg_users_model_service = new Reg_users_model_service();
+    function load_login() {
+        if ($this->session->userdata('USER_LOGGED_IN')) {
 
-                $data['user_count'] = count($Reg_users_model_service->getAllPublishedRegisteredUsers());
-                $data['title_menu_main'] = ""; //aisgn the title
+            redirect(site_url() . '/dashboard');
+            //$this->template->load('template/main_template');
+        } else {
+            $this->template->load('template/login');
+        }
+    }
 
-                $partials = array('content' => 'dashbaord/dashbaord'); //load the view		              
-                $this->template->load('backend_template/primio_template', $partials, $data);
-                
+    //Login details checking function 
+    function authenticate_user() {
+
+        $user_model   = new User_model();
+        $user_service = new User_service();
+
+        $user_model->set_user_name($this->input->post('login_username', TRUE));
+        $user_model->set_password(md5($this->input->post('login_password', TRUE)));
+
+        $result_user = $user_service->authenticate_user_with_password($user_model);
+
+        if (count($result_user) == 0) {
+            $logged_user_result = false;
+        } else {
+            $logged_user_result = true;
+        }
+
+        if ($logged_user_result) {
+
+            $this->session->set_userdata('USER_ID', $result_user->id);
+            $this->session->set_userdata('USER_FULLNAME', $result_user->name);
+            $this->session->set_userdata('USER_NAME', $result_user->user_name);
+            $this->session->set_userdata('USER_TYPE', $result_user->user_type);
+            $this->session->set_userdata('USER_EMAIL', $result_user->email);
+            $this->session->set_userdata('USER_PROFILE_PIC', $result_user->profile_pic);
+            $this->session->set_userdata('USER_ONLINE', 'Y');
+            $this->session->set_userdata('USER_LOGGED_IN', 'TRUE');
+
+            $user_model->set_id($this->session->userdata('USER_ID'));
+            $user_model->set_is_online('1');
+            $user_service->update_user_online_status($user_model);
+
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
+
+    function logout() {
+
+        $user_model   = new User_model();
+        $user_service = new User_service();
+
+        $user_model->set_is_online('0');
+        $user_model->set_id($this->session->userdata('USER_ID'));
+        $user_service->update_user_online_status($user_model);
+
+        $this->session->set_userdata('USER_ONLINE', 'N');
+        $this->session->set_userdata('USER_LOGGED_IN', 'FALSE');
+
+        $this->session->sess_destroy();
+        redirect(site_url() . '/login/load_login');
+    }
+
+    function forget_password() {
+
+        $user_service = new User_service();
+
+        $reg_user_list = $user_service->get_admin_details();
+        $input_email   = trim($this->input->post('reset_pw_email', TRUE));
+
+        foreach ($reg_user_list as $user) {
+
+            if (strcmp($user->email, $input_email) == 0) {
+
+                //send email
+                $email_to          = $user->email; //'heshani7.herath@gmail.com';
+                $email_subject     = "AutoVille Password Reset";
+                $data['name']      = $user->name;
+                $data['user_name'] = $user->user_name;
+                $data['pasword']   = 'asda';
+
+                $msg = $this->load->view('template/mail_template/forgot_password', $data, TRUE);
+
+                $headers = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                $headers .= 'From: AutoVille <info.autovillle@gmail.com>' . "\r\n";
+                // $headers .= 'Cc: info.autovillle@gmail.com' . "\r\n";
+
+                if (mail($email_to, $email_subject, $msg, $headers)) {
+                    echo "1";
+                    die();
+                } else {
+                    echo "2";
+                    die();
+                }
             }
-            
-            else
-            {
-                redirect($redirect_url);
+        }
+
+        echo '0';
+    }
+
+    function reset_password() {
+        $this->template->load('template/reset_password');
+    }
+
+    function update_password() {
+
+        $user_service = new User_service();
+
+        $reg_user_list  = $user_service->get_admin_details();
+        $input_username = trim($this->input->post('username', TRUE));
+
+        foreach ($reg_user_list as $user) {
+
+            if (strcmp($user->user_name, $input_username) == 0) {
+
+                $user_model = new User_model();
+                $user_model->set_id($user->id);
+                $user_model->set_password(md5($this->input->post('password', TRUE)));
+
+                $result = $user_service->update_password($user_model);
+
+                if ($result == '1') {
+                    echo "1";
+                    die();
+                } else {
+                    echo "2";
+                    die();
+                }
             }
-            
         }
-        
-        else {
-            $this->load->view('login');
-        }
-        
-    }
-    
-    
-    public function authenticateUser(){
-        
-        $users_model = new Users_model();
-        $users_model_service = new Users_model_service();
-        
-        $users_model->setUsername($this->input->post('username', TRUE));
-        $users_model->setPassword(md5($this->input->post('password', TRUE)));
-        
-        $users = $users_model_service->authenticateUser($users_model);
-        
-        
-        
-        if(count($users) == 1){
-            
-            $userdata = array(
-                'User_Id' => $users->id,
-                'Name' => $users->name,
-                'Username' => $users->username,
-               // 'Email' => $users->email,
-                'Logged_In' => TRUE,
-                'Custom_Msg' => 'Welcome to the system ########## success canhide'
-            );
-            
-            $this->session->set_userdata($userdata);
-            
-            session_start();
-            $_SESSION['Logged_In'] = TRUE;
 
-            echo 'Welcome to the system ########## success canhide';
-            
-        }
-        
-        else
-        {
-            echo 'Invalid Login Details. ########## warning';
-        }
-        
-        
+        echo '0';
     }
-    
-    function userLogout()
-    {
-        $user_data = array(
-            'User_Id' => NULL,
-            'Name' => NULL,
-            'Username' => NULL,
-            'Email' => NULL,
-            'Logged_In' => FALSE,
-            'Custom_Msg' => 'Log Out Success ########## success'
-        );
 
-        $this->session->unset_userdata($user_data);
-        
-        session_start();
-        $_SESSION['Logged_In'] = FALSE;
-
-        redirect(base_url().'backend.php');
-    }
-    
-    
 }
-
-
-
-
-?>
