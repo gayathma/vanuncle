@@ -114,7 +114,7 @@
                     </div>
                     <div class="one-half">
                         <label for="route">Route</label>
-                        <input type="text" id="route" name="route"/>
+                        <input type="text" id="route" name="route" placeholder="Type Names Of Cities,Schools,Places "/>
                     </div>
                 </div>
 
@@ -191,4 +191,13 @@
         maxFiles: 3,
         acceptedFiles: "image/*",
     });
+
+    function initialize() {
+        var input = document.getElementById('route');
+        var options = {componentRestrictions: {country: 'us'}};
+        
+        new google.maps.places.Autocomplete(input, options);
+    }
+    
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>

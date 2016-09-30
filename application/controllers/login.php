@@ -37,25 +37,6 @@ class Login extends CI_Controller {
         }
     }
 
-    function add_new_driver() {
-
-        $driver_model   = new Driver_model();
-        $driver_service = new Driver_service();
-
-        $driver_model->set_name($this->input->post('name', TRUE));
-        $driver_model->set_nic($this->input->post('nic', TRUE));
-        $driver_model->set_mobile($this->input->post('mobile', TRUE));
-        $driver_model->set_land_phone($this->input->post('land_phone', TRUE));
-        $driver_model->set_email(trim($this->input->post('email', TRUE)));
-        $driver_model->set_profile_pic('avatar.png');
-        $driver_model->set_password(md5($this->input->post('password', TRUE)));
-        $driver_model->set_is_deleted('0');
-        $driver_model->set_added_date(date('Y-m-d'));
-
-        echo $driver_service->add_new_driver($driver_model);
-
-    }
-
      function authenticate_driver() {
         $driver_model   = new Driver_model();
         $driver_service = new Driver_service();
@@ -71,6 +52,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('USER_EMAIL', $result_user->email);
             $this->session->set_userdata('USER_MOBILE', $result_user->mobile);
             $this->session->set_userdata('USER_PROFILE_PIC', $result_user->profile_pic);
+            $this->session->set_userdata('USER_TYPE', $result_user->user_type);
             $this->session->set_userdata('USER_LOGGED_IN', 'TRUE');
 
             echo 1;

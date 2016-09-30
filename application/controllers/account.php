@@ -21,11 +21,15 @@ class Account extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-        $this->load->model('driver/driver_model');
-        $this->load->model('driver/driver_service');
-        
-        $this->load->model('vehicles/vehicles_model');
-        $this->load->model('vehicles/vehicles_service');
+         if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/index');
+        } else {
+            $this->load->model('driver/driver_model');
+            $this->load->model('driver/driver_service');
+
+            $this->load->model('vehicles/vehicles_model');
+            $this->load->model('vehicles/vehicles_service');
+        }
     }
 
     public function index() {
@@ -43,6 +47,22 @@ class Account extends CI_Controller {
             $partials = array('content' => 'pages/login');
             $this->template->load('template/template', $partials);
         }
+    }
+
+     function upload_driver_profile_pic() {
+        $uploaddir = './uploads/drivers/';
+        $unique_tag = 'dri_';
+        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $file = $uploaddir . $filename; // this is the full path of the uploaded file
+        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+            echo $filename;
+        } else {
+            echo "error";
+        }
+    }
+
+    function add_vehicle(){
+        
     }
 
 }

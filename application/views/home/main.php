@@ -196,7 +196,7 @@ function StudioExports() {
                 </div>
                 <div class="form-group  one-third">
                     <label>Pick up location</label>
-                    <select class="pick-up-location" multiple="multiple">
+                    <select class="pick-up-location" id="pick_up_loc" >
 
                         <option value="Ambalangoda">Ambalangoda</option>
                         <option value="Ampara">Ampara</option>
@@ -290,7 +290,7 @@ function StudioExports() {
                 </div>
                 <div class="form-group select one-third">
                     <label>Drop off location</label>
-                    <select>
+                    <select id="drop_off_loc">
                         <option selected>&nbsp;</option>
                         <option value="Ambalangoda">Ambalangoda</option>
                         <option value="Ampara">Ampara</option>
