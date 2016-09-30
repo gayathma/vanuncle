@@ -23,7 +23,11 @@ class Home extends CI_Controller {
      */
     public function __construct() {
         parent::__construct();
-        // Your own constructor code
+
+        $this->load->model('vehicles/vehicles_model');
+        $this->load->model('vehicles/vehicles_service');
+
+        $this->load->library('pagination');
 
     }
 
@@ -31,6 +35,26 @@ class Home extends CI_Controller {
         $data['data'] = '';
         $partials = array('content' => 'home/main');
         $this->template->load('template/template', $partials, $data);
+    }
+
+    public function search($start = 0){
+        $config = array();
+        $config["base_url"] = site_url() . "/home/search/";
+        $config["per_page"] = 10;
+        $config["uri_segment"] = 3;
+        $config["num_links"] = 4;
+
+        $service_type = $this->input->post('service_type', TRUE);
+        $pickup_location = $this->input->post('pick_up_loc', TRUE);
+        $dropoff_location = $this->input->post('drop_off_loc', TRUE);
+
+
+        $this->pagination->initialize($config);
+        $data["links"] = $this->pagination->create_links();
+
+        $parials = array('content' => 'pages/search_results');
+        $this->template->load('template/template', $parials, $data);
+
     }
 
 }

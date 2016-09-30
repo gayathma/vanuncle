@@ -181,7 +181,7 @@ function StudioExports() {
 <!-- Search -->
 <div class="advanced-search color" id="booking">
     <div class="wrap">
-        <form role="form" action="http://themeenergy.com/themes/html/transfers/search-results.html" method="post">
+        <form role="form" action="<?php echo site_url(); ?>/home/search" method="post">
             <!-- Row -->
             <div class="f-row">
                 <div class="form-group datepicker one-third">
@@ -196,7 +196,7 @@ function StudioExports() {
                 </div>
                 <div class="form-group  one-third">
                     <label>Pick up location</label>
-                    <select class="pick-up-location" id="pick_up_loc" >
+                    <select class="pick-up-location" id="pick_up_loc" name="pick_up_loc">
 
                         <option value="Ambalangoda">Ambalangoda</option>
                         <option value="Ampara">Ampara</option>
@@ -290,7 +290,7 @@ function StudioExports() {
                 </div>
                 <div class="form-group select one-third">
                     <label>Drop off location</label>
-                    <select id="drop_off_loc">
+                    <select id="drop_off_loc" name="drop_off_loc">
                         <option selected>&nbsp;</option>
                         <option value="Ambalangoda">Ambalangoda</option>
                         <option value="Ampara">Ampara</option>
