@@ -183,16 +183,74 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .home .header 			{position:fixed;top:0;left:0;z-index:999;}
 .home .main 				{padding:0;}
 .home .advanced-search 	{margin:0;}
+html, body {
+  margin: 0;
+}
 
-.intro 					{   overflow: hidden;
-    width: 100%;
-    display: block;
-    height: 900px;}
 .intro .textwidget		{color:#fff;padding-top:24%;text-align:center;}
 .intro .textwidget h1 	{text-transform:uppercase;font-size:61px;margin:0 0 -5px;}
 .intro .textwidget h2 	{text-transform:uppercase;font-size:23px;margin:0;}
 .intro .actions			{margin:6px 0 0;padding:6px 0 0;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
 .intro .actions .btn		{margin:0 10px;}
+.floating{
+    float: left;
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+
+}
+
+
+.van{
+  position: relative;
+  width: 414px;
+  height: 149px;
+
+}
+
+.smoke{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+}
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 15px);}
+    to {-moz-transform: translate(0, -0px);}
+}
+
+
+
+.van-holder{
+  position: absolute;
+  margin-top: 24%;
+  width: 500px;
+  height: 300px;
+  transform: translate3D(0,150px,20px);
+}
+.van-holder-wrapper {
+  width: 100%;
+  animation: moveme 10s linear infinite;
+}
+
+@keyframes moveme {
+  0% { transform: translate(0%, 0px) }
+  100% { transform: translate(100%, 0px) }
+}
 
 .services							{float:left;width:100%;}
 .services.boxed article  				{padding:0;}
