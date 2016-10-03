@@ -42,7 +42,7 @@ $(document).ready(function(){
                 </div>
                 <div class="form-group  one-third">
                     <label>Pick up location</label>
-                    <select class="pick-up-location" id="pick_up_loc" name="pick_up_loc">
+                    <select class="pick-up-location" id="pick_up_loc" name="pick_up_loc"  multiple="multiple">
 
                         <option value="Ambalangoda">Ambalangoda</option>
                         <option value="Ampara">Ampara</option>
