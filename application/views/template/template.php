@@ -28,7 +28,7 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/sweetalert-dev.js"></script>
 
         <script src="<?php echo base_url(); ?>fe_resources/js/dropzone.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBTopYuLNQfMccXBucNQVoLQmND-StZpYM&sensor=false&libraries=places"></script>
 
         <script>
             var base_url = "<?php echo base_url(); ?>";
