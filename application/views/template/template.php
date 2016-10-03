@@ -45,6 +45,7 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/sweetalert-dev.js"></script>
 
         <script src="<?php echo base_url(); ?>fe_resources/js/dropzone.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
 
         <script>
             var base_url = "<?php echo base_url(); ?>";
@@ -142,6 +143,7 @@
                         <ul class="app-stores">
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store1.png" alt="app store" /></li>
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store2.png" alt="play store" /></li>
+                            <li><iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2FVanUnclelk-224285404607649&width=450&height=80&layout=standard&size=small&show_faces=true&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
                         </ul>
                     </article>
                     <!-- //Column -->
@@ -171,7 +173,20 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/scripts.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/styler.js"></script>
         <script src="<?php echo base_url(); ?>fe_resources/js/select2.js"></script>
+
         <script src="<?php echo base_url(); ?>fe_resources/js/jquery.vide.js"></script>
+
+
+        <script type="text/javascript">
+            function initialize() {
+                var input = document.getElementById('pick_up_loc');
+                var options = {componentRestrictions: {country: 'sl'}};
+
+                new google.maps.places.Autocomplete(input, options);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
 
     </body>
 

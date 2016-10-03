@@ -10,6 +10,7 @@ class Driver_model extends CI_Model {
     var $email;
     var $password;
     var $profile_pic;
+    var $user_type;
     var $is_deleted;
     var $added_date;
     var $updated_date;
@@ -51,6 +52,10 @@ class Driver_model extends CI_Model {
         return $this->profile_pic;
     }
 
+    function get_user_type() {
+        return $this->user_type;
+    }
+
     function get_is_deleted() {
         return $this->is_deleted;
     }
@@ -89,6 +94,10 @@ class Driver_model extends CI_Model {
 
     function set_password($password) {
         $this->password = $password;
+    }
+
+     function set_user_type($user_type) {
+        $this->user_type = $user_type;
     }
 
     function set_profile_pic($profile_pic) {

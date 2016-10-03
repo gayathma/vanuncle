@@ -4,7 +4,10 @@ class Vehicles_model extends CI_Model {
 
     var $id;
     var $driver_id;
-    var $vehicle_image;
+    var $make;
+    var $model;
+    var $type;
+    var $year;
     var $seats;
     var $isAc;
     var $is_deleted;

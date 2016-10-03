@@ -53,6 +53,7 @@ class Sign_up extends CI_Controller {
         $driver_model->set_email(trim($this->input->post('email', TRUE)));
         $driver_model->set_profile_pic('avatar.png');
         $driver_model->set_password(md5($this->input->post('password', TRUE)));
+        $driver_model->set_user_type(1);
         $driver_model->set_is_deleted('0');
         $driver_model->set_added_date(date('Y-m-d'));
 

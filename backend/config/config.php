@@ -1,12 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
- * Devoloper : Viran Fernando
- * Date : 2013-10-05
- * Contact Details : 0716388833 - fviran@gmail.com
- */
-
-/*
 |--------------------------------------------------------------------------
 | Base Site URL
 |--------------------------------------------------------------------------
@@ -97,7 +91,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;//edited
 
 
 /*
@@ -132,7 +126,8 @@ $config['subclass_prefix'] = 'MY_';
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+//$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = '';//edited
 
 
 /*
@@ -230,7 +225,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'MON214$^&';
+$config['encryption_key'] = 'My_AUTOVILLE';//edited
 
 /*
 |--------------------------------------------------------------------------
@@ -250,12 +245,12 @@ $config['encryption_key'] = 'MON214$^&';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_sessionmns';
+$config['sess_cookie_name']		= 'ci_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= FALSE;
-$config['sess_table_name']		= 'ci_sessionsmnc';
+$config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
 $config['sess_time_to_update']	= 300;
