@@ -57,7 +57,26 @@ class Sign_up extends CI_Controller {
         $driver_model->set_is_deleted('0');
         $driver_model->set_added_date(date('Y-m-d'));
 
-        echo $driver_service->add_new_driver($driver_model);
+        if($driver_service->add_new_driver($driver_model)){
+
+            $email             = trim($this->input->post('email', TRUE));  
+            $email_subject     = "Thanks for your interest in VanUncle.lk";
+            $msg               = "Hi ".$this->input->post('name', TRUE)." ,";
+            $msg               .= "<br/> Thanks for using VanUncle.lk";
+            $msg               .= "<br/> Your reference number is ....";
+            $msg               .= "<br/> Thanks,";
+            $msg               .= "<br/> VanUncle.lk Team";
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: VanUncle.lk <info@vanuncle.lk>' . "\r\n";
+            $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
+            if (mail($email, $email_subject, $msg, $headers)) {
+                echo "1";
+                $this->session->set_flashdata('info', 'Please go to your email account and continue the registration process');
+            } else {
+                echo "0";
+            }
+        }
 
     }
 

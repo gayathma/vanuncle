@@ -18,9 +18,9 @@
                             </div>
                             <div class="value">
                                 <h1 class="count">
-                                    <?php echo $reg_user_count; ?>
+                                    <?php echo $drivers_count; ?>
                                 </h1>
-                                <p>New Users</p>
+                                <p>Registerd Drivers</p>
                             </div>
                         </section>
                     </div>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="value">
                                 <h1 class=" count2">
-                                    <?php echo $pending_count; ?>
+                                    <?php //echo $pending_count; ?>
                                 </h1>
                                 <p>Pending Advertisements</p>
                             </div>
@@ -44,7 +44,7 @@
                             </div>
                             <div class="value">
                                 <h1 class=" count3">
-                                    <?php echo $approved_count; ?>
+                                    <?php //echo $approved_count; ?>
                                 </h1>
                                 <p>Approved  Advertisements</p>
                             </div>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="value">
                                 <h1 class=" count4">
-                                    <?php echo $reviews_count; ?>
+                                    <?php //echo $reviews_count; ?>
                                 </h1>
                                 <p>New Reviews</p>
                             </div>

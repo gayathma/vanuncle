@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "transmission/manage_transmission";
+$route['default_controller'] = "dashboard/index";
 $route['404_override'] = '';
 
 

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://tocsl.loc/';
 
 /*
 |--------------------------------------------------------------------------
@@ -225,7 +225,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'My_AUTOVILLE';//edited
+$config['encryption_key'] = 'VANUCLES8*3@F';//edited
 
 /*
 |--------------------------------------------------------------------------

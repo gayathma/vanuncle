@@ -62,6 +62,14 @@
     </head>
 
     <body class="home" >
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
         <!-- Preloader -->
         <div class="preloader">
             <div id="followingBallsG">
@@ -143,7 +151,7 @@
                         <ul class="app-stores">
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store1.png" alt="app store" /></li>
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store2.png" alt="play store" /></li>
-                            <li><iframe src="https://www.facebook.com/plugins/follow.php?href=https%3A%2F%2Fwww.facebook.com%2FVanUnclelk-224285404607649&width=450&height=80&layout=standard&size=small&show_faces=true&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></li>
+                            <li><div class="fb-page" data-href="https://www.facebook.com/VanUnclelk-224285404607649/" data-width="340" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"></div></li>
                         </ul>
                     </article>
                     <!-- //Column -->

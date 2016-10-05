@@ -1,5 +1,5 @@
 <header class="panel-heading">
-    Manage Registered Users
+    Manage Registered Drivers
     <span class="tools pull-right">
         <a href="javascript:;" class="fa fa-chevron-down"></a>
         <a href="javascript:;" class="fa fa-times"></a>
@@ -173,7 +173,7 @@
         }
 
         function load_after_deleted(user_id) {
-            if (confirm('Are you sure want to delete this user?')) {
+            if (confirm('Are you sure want to delete this Driver?')) {
                 $.ajax({
                     type: "POST",
                     url: site_url + '/reg_users/delete_reg_users',

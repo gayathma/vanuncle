@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Reg_Users extends CI_Controller {
+class Driver extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -11,21 +11,21 @@ class Reg_Users extends CI_Controller {
         if (!$this->session->userdata('USER_LOGGED_IN')) {
             redirect(site_url() . '/login/load_login');
         } else {
-            $this->load->model('reg_users/reg_user_model');
-            $this->load->model('reg_users/reg_user_service');
+            $this->load->model('driver/driver_model');
+            $this->load->model('driver/driver_service');
 
             $this->load->model('access_controll/access_controll_service');
         }
     }
 
-    function manage_registered_users() {
-        $reg_user_service = new Reg_User_service();
-        $reg_user_model = new Reg_User_model();
+    function manage_drivers() {
+        $driver_service = new Driver_service();
+        $driver_model = new Driver_model();
 
-        $data['heading'] = "Manage Registered Users";
-        $data['results'] = $reg_user_service->get_reg_user_details();        
+        $data['heading'] = "Manage Registered Drivers";
+        $data['results'] = $driver_service->get_drivers();        
 
-        $parials = array('content' => 'reg_users/manage_reg_user_view');
+        $parials = array('content' => 'driver/manage_driver_view');
         $this->template->load('template/main_template', $parials, $data);
     }
 
