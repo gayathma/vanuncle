@@ -12,43 +12,7 @@
     </div>
 </header>
 <!-- //Page info -->
-<script src="<?php echo base_url(); ?>fe_resources/js/ajaxupload.3.5.js" type="text/javascript"></script>
-<script>
-                                            //upload manufacture logo
-                                            $(function () {
-                                                var btnUpload = $('#upload');
-                                                var status = $('#status');
-                                                new AjaxUpload(btnUpload, {
-                                                    action: '<?php echo site_url(); ?>/account/upload_driver_profile_pic',
-                                                    name: 'uploadfile',
-                                                    onSubmit: function (file, ext) {
-                                                        if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                                            // extension is not allowed 
-                                                            status.text('Only JPG, PNG or GIF files are allowed');
-                                                            return false;
-                                                        }
-                                                        //status.text('Uploading...Please wait');
-                                                        //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
-                                                    },
-                                                    onComplete: function (file, response) {
-                                                        //On completion clear the status
-                                                        //status.text('');
-                                                        $("#files").html("");
-                                                        $("#sta").html("");
-                                                        //Add uploaded file to list
-                                                        if (response != "error") {
-                                                            $('#files').html("");
-                                                            $('<div></div>').appendTo('#files').html('<img src="<?php echo base_url(); ?>uploads/drivers/' + response + '"   width="100px" height="68px" /><br />');
-                                                            picFileName = response;
-                                                            document.getElementById('logo').value = response;
-                                                            //                    document.getElementById('cover_image').value = response;
-                                                        } else {
-                                                            $('<div></div>').appendTo('#files').text(file).addClass('error');
-                                                        }
-                                                    }
-                                                });
-});
-</script>
+
 <div class="wrap">
     <div class="row">
         <!--- Content -->
@@ -56,17 +20,7 @@
             <!--Login-->
             <div class="box">
                 <form role="form" id="form_register" name="form_register" method="post" >
-                    <div class="f-row">
-                        <div class="full-width">
-                            <div id="upload">
 
-                                <label class="form-label">Upload Profile Picture</label>
-                                <button type="button" class="btn btn-info" id="browse">Browse</button>
-                                <input type="text" id="logo" name="logo" style="visibility: hidden" value=""/>
-                            </div>
-                            <div id="sta"><span id="status" ></span></div>
-                        </div>
-                    </div>
                     <div class="f-row">
                         <div class="full-width">
                             <div id="files" class="project-logo">

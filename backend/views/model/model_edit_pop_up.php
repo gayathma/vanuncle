@@ -1,25 +1,24 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Vehicle Model Quick Edit</h4>
+    <h4 class="modal-title">Model Quick Edit</h4>
 </div>
 <form id="edit_vehicle_model_form" name="edit_vehicle_model_form">
     <div class="modal-body">
 
         <div class="form-group">
-            <label for="manufacturer">Manufacturer<span class="mandatory">*</span></label>
-            <select name="manufacturer" id="manufacture" title="manufacturer" data-live-search="true">
-                <!--<option value="<?php echo $vehicle_model->manufacturer_id; ?>"><?php echo $manufacturer->name; ?></option>  -->
-                <?php foreach ($manufacturer_results as $manufacturer_result) { ?>
-                    <option value="<?php echo $manufacturer_result->id; ?>" <?php
-                        if ($manufacturer_result->id == $vehicle_model->manufacturer_id) { ?> selected="true" <?php } ?> >
-                        <?php echo $manufacturer_result->name; ?></option>
+            <label for="make">Make<span class="mandatory">*</span></label>
+            <select class="form-control" name="make" id="make" title="make" data-live-search="true">
+                <?php foreach ($makes as $make) { ?>
+                    <option value="<?php echo $make->id; ?>" <?php
+                        if ($make->id == $model->make_id) { ?> selected="true" <?php } ?> >
+                        <?php echo $make->name; ?></option>
                 <?php } ?>
             </select>
         </div>
         <div class="form-group">
-            <label for="name">Vehicle Model<span class="mandatory">*</span></label>
-            <input id="name" class="form-control" name="name" type="text" value="<?php echo $vehicle_model->name; ?>">
-            <input id="vehicle_model_id"  name="vehicle_model_id" type="hidden" value="<?php echo $vehicle_model->id; ?>">
+            <label for="name">Model<span class="mandatory">*</span></label>
+            <input id="name" class="form-control" name="name" type="text" value="<?php echo $model->name; ?>">
+            <input id="model_id"  name="model_id" type="hidden" value="<?php echo $model->id; ?>">
         </div>
         <span id="rtn_msg_edit"></span>
     </div>
@@ -36,10 +35,10 @@
             name: "required"
         },
         messages: {
-            name: "Please enter a Vehicle Model"
+            name: "Please enter a Model"
         }, submitHandler: function (form) {
 
-            $.post(site_url + '/vehicle_model/edit_vehicle_model', $('#edit_vehicle_model_form').serialize(), function (msg)
+            $.post(site_url + '/vehicle_model/edit_model', $('#edit_vehicle_model_form').serialize(), function (msg)
             {
                 if (msg == 1) {
                     $('#rtn_msg_edit').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');

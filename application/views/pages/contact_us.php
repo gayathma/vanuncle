@@ -97,6 +97,9 @@
                 </div>
             </div>
             <!-- //Widget -->
+            <div class="widget">
+                <div class="fb-page" data-href="https://www.facebook.com/VanUnclelk-224285404607649/" data-width="340"  data-show-facepile="true" data-show-posts="false"></div>
+            </div>
 
         </aside>
         <!--- //Sidebar -->

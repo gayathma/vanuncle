@@ -96,12 +96,12 @@ class Driver_model extends CI_Model {
         $this->password = $password;
     }
 
-     function set_user_type($user_type) {
-        $this->user_type = $user_type;
-    }
-
     function set_profile_pic($profile_pic) {
         $this->profile_pic = $profile_pic;
+    }
+
+    function set_user_type($user_type) {
+        $this->user_type = $user_type;
     }
 
     function set_is_deleted($is_deleted) {
@@ -115,6 +115,8 @@ class Driver_model extends CI_Model {
     function set_updated_date($updated_date) {
         $this->updated_date = $updated_date;
     }
+
+
 
 }
 

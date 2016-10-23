@@ -18,12 +18,6 @@
         </ul>
     </li>
 
-
-    <?php
-    $perm = Access_controll_service::check_access('ADD_ADVERTISEMENT');
-    if ($perm) 
-        {
-        ?>
         <li class="sub-menu">
             <a href="javascript:;" id="advertisements_menu">
                 <i class="fa fa-film"></i>
@@ -37,7 +31,6 @@
                 <li><a  href="<?php echo site_url(); ?>/spare_part_advertisement/get_approved_advertisements">Featured Spare parts</a></li>
             </ul>
         </li>
-    <?php } ?>
 
 
     <li class="sub-menu">

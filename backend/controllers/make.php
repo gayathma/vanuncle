@@ -42,7 +42,6 @@ class Make extends CI_Controller {
         $make_service = new Make_service();
 
         $make_model->set_name($this->input->post('name', TRUE));
-        $make_model->set_description($this->input->post('description', TRUE));
         $make_model->set_added_by($this->session->userdata('USER_ID'));
         $make_model->set_added_date(date("Y-m-d H:i:s"));
         $make_model->set_updated_by(1);
@@ -80,12 +79,12 @@ class Make extends CI_Controller {
      */
 
     function load_edit_make_content() {
-        $manufacure_model = new Make_model();
-        $manufacure_service = new Make_service();
+        $make_model = new Make_model();
+        $make_service = new Make_service();
 
-        $manufacure_model->set_id(trim($this->input->post('make_id', TRUE)));
-        $manufacure = $manufacure_service->get_manufacure_by_id($manufacure_model);
-        $data['make'] = $manufacure;
+        $make_model->set_id(trim($this->input->post('make_id', TRUE)));
+        $make = $make_service->get_make_by_id($make_model);
+        $data['make'] = $make;
 
         echo $this->load->view('make/make_edit_pop_up', $data, TRUE);
     }
@@ -95,15 +94,15 @@ class Make extends CI_Controller {
      */
 
     function edit_make() {
-        $manufacure_model = new Make_model();
-        $manufacure_service = new Make_service();
+        $make_model = new Make_model();
+        $make_service = new Make_service();
 
-        $manufacure_model->set_id($this->input->post('make_id', TRUE));
-        $manufacure_model->set_name($this->input->post('name', TRUE));
-        $manufacure_model->set_updated_by($this->session->userdata('USER_ID'));
-        $manufacure_model->set_updated_date(date("Y-m-d H:i:s"));
+        $make_model->set_id($this->input->post('make_id', TRUE));
+        $make_model->set_name($this->input->post('name', TRUE));
+        $make_model->set_updated_by($this->session->userdata('USER_ID'));
+        $make_model->set_updated_date(date("Y-m-d H:i:s"));
    
-        echo $manufacure_service->update_manufacure($manufacure_model);
+        echo $make_service->update_make($make_model);
     }
 
 

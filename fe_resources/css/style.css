@@ -275,7 +275,7 @@ html, body {
 
 
 /* 10 ADVANCED SEARCH */
-.advanced-search			{float:left;width:100%;color:#fff;font-size:15px;text-transform:uppercase;padding:35px 0 28px;margin:0 0 35px;border-bottom:1px solid #fff;}
+.advanced-search			{float:left;width:100%;color:#fff;font-size:15px;text-transform:uppercase;padding:108px 0 28px;margin:0 0 35px;border-bottom:1px solid #fff;}
 .advanced-search h3 			{font-size:20px;margin:0 0 35px;}
 .advanced-search .f-row 				{margin:0 0 30px;padding:0 0 30px;border-bottom:1px solid rgba(0,0,0,.15);-webkit-box-shadow:0 1px 0 rgba(255,255,255,.3);-moz-box-shadow:0 1px 0 rgba(255,255,255,.3);box-shadow:0 1px 0 rgba(255,255,255,.3);}
 .advanced-search .f-row:last-child 	{margin:0;padding:0;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}

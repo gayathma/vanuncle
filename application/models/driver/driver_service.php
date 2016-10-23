@@ -42,6 +42,7 @@ class Driver_service extends CI_Model {
             'name'         => $driver_model->get_name(),
             'nic'          => $driver_model->get_nic(),
             'mobile'       => $driver_model->get_mobile(),
+            'profile_pic'       => $driver_model->get_profile_pic(),
             'updated_date' => $driver_model->get_updated_date()
         );
 

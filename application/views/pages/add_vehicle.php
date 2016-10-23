@@ -29,6 +29,7 @@
                     <div class="one-half">
                         <label for="make">Make</label>
                         <select id="make" name="make">
+                            <option value="">Select Make</option>
                             <?php foreach($makes as $make){?>
                                 <option value="<?php echo $make->id;?>"><?php echo $make->name;?></option>
                             <?php } ?>
@@ -37,6 +38,7 @@
                     <div class="one-half">
                         <label for="model">Model</label>
                         <select id="model" name="model">
+                            <option value="">Select Model</option>
                         </select>
                     </div>
                 </div>
@@ -100,6 +102,7 @@
                     <div class="one-half">
                         <label for="type">Vehicle Type</label>
                         <select id="type" name="type">
+                            <option value="">Select Vehicle Type</option>
                             <option value="bus">Bus</option>
                             <option value="van">Van</option>
                             <option value="car">Car</option>

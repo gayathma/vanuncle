@@ -36,8 +36,57 @@
             <article class="single" id="tab1">
                 <div class="box">
                     <h2>General settings</h2>
+                    <script src="<?php echo base_url(); ?>fe_resources/js/ajaxupload.3.5.js" type="text/javascript"></script>
+                    <script>
+                        //upload manufacture logo
+                        $(function () {
+                            var btnUpload = $('#upload');
+                            var status = $('#status');
+                            new AjaxUpload(btnUpload, {
+                                action: '<?php echo site_url(); ?>/account/upload_driver_profile_pic',
+                                name: 'uploadfile',
+                                onSubmit: function (file, ext) {
+                                    if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                        // extension is not allowed 
+                                        status.text('Only JPG, PNG or GIF files are allowed');
+                                        return false;
+                                    }
+                                    //status.text('Uploading...Please wait');
+                                    //                                            $("#files").html("<i id='animate-icon' class='fa fa-spinner fa fa-2x fa-spin'></i>");
+                                },
+                                onComplete: function (file, response) {
+                                    //On completion clear the status
+                                    //status.text('');
+                                    $("#files").html("");
+                                    $("#sta").html("");
+                                    //Add uploaded file to list
+                                    if (response != "error") {
+                                        $('#files').html("");
+                                        $('<div></div>').appendTo('#files').html('<img src="<?php echo base_url(); ?>uploads/drivers/' + response + '"   width="100px" height="100px" /><br />');
+                                        picFileName = response;
+                                        document.getElementById('logo').value = response;
+                                        //                    document.getElementById('cover_image').value = response;
+                                    } else {
+                                        $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                    }
+                                }
+                            });
+                        });
+                    </script>
                     <fieldset>
                         <form role="form" id="detail_form" name="detail_form" method="post">
+                            <div class="f-row">
+                                <div class="full-width">
+                                    <div id="upload">
+
+                                        <label class="form-label">Upload Profile Picture</label>
+                                        <button type="button" class="btn btn-info" id="browse">Browse</button>
+                                        <input type="text" id="logo" name="logo" style="visibility: hidden" value=""/>
+                                    </div>
+                                    <div id="files"><img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $driver->profile_pic; ?>"   width="100px" height="100px" /></div>
+                                    <div id="sta"><span id="status" ></span></div>
+                                </div>
+                            </div>
                             <div class="f-row">
                                 <div class="one-half">
                                     <label for="name">Name and surname</label>
@@ -193,7 +242,7 @@
             }
 
         });
-        
+
         $("#security_form").validate({
             rules: {
                 password: {

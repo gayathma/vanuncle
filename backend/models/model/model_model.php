@@ -1,9 +1,9 @@
 <?php
 
-class Vehicle_model_model extends CI_Model {
-
+class Model_model extends CI_Model {
+    
     var $id;
-    var $manufacturer_id;
+    var $make_id;
     var $name;
     var $is_published;
     var $is_deleted;
@@ -20,12 +20,12 @@ class Vehicle_model_model extends CI_Model {
         return $this->id;
     }
 
-    function get_manufacturer_id() {
-        return $this->manufacturer_id;
+    function get_make_id() {
+        return $this->make_id;
     }
 
-    function set_manufacturer_id($manufacturer_id) {
-        $this->manufacturer_id = $manufacturer_id;
+    function set_make_id($make_id) {
+        $this->make_id = $make_id;
     }
 
     function get_name() {
@@ -87,5 +87,6 @@ class Vehicle_model_model extends CI_Model {
     function set_updated_by($updated_by) {
         $this->updated_by = $updated_by;
     }
+
 
 }

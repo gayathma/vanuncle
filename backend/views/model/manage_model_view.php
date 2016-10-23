@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <section class="panel">
             <header class="panel-heading">
-                Manage Vehicle Models
+                Manage Models
                 <span class="tools pull-right">
                     <a href="javascript:;" class="fa fa-chevron-down"></a>
                     <a href="javascript:;" class="fa fa-times"></a>
@@ -12,17 +12,17 @@
                 <div class="adv-table">
                     <div class="clearfix">
                         <div class="btn-group">
-                            <a id="editable-sample_new" class="btn btn-shadow btn-primary" href="#vehicle_model_add_modal" data-toggle="modal">
+                            <a id="editable-sample_new" class="btn btn-shadow btn-primary" href="#model_add_modal" data-toggle="modal">
                                 Add New
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>                
                     </div>                        
-                    <table  class="display table table-bordered table-striped" id="vehicle_model_table">
+                    <table  class="display table table-bordered table-striped" id="model_table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Manufacturer</th>
+                                <th>Make</th>
                                 <th>Model Name</th>                                
                                 <!--<th>Added Date</th>-->
                                 <th>Active Status</th>
@@ -34,7 +34,7 @@
                             $i = 0;
                             foreach ($results as $result) {
                                 ?>
-                                <tr id="vehicle_model_<?php echo $result->id; ?>">
+                                <tr id="model_<?php echo $result->id; ?>">
                                     <td><?php echo ++$i; ?></td>
                                     <td><?php echo $result->manufacturer; ?></td>
                                     <td><?php echo $result->name; ?></td>
@@ -43,15 +43,15 @@
 
                                     <td align="center">
                                         <?php if ($result->is_published) { ?>
-                                            <a class="btn btn-success btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 0, this)" title="click to deactivate vehicle model"><i class="fa fa-check"></i></a>
+                                            <a class="btn btn-success btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 0, this)" title="click to deactivate model"><i class="fa fa-check"></i></a>
                                         <?php } else { ?>
-                                            <a class="btn btn-warning btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 1, this)" title="click to activate vehicle model"><i class="fa fa-exclamation-circle"></i></a>
+                                            <a class="btn btn-warning btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 1, this)" title="click to activate model"><i class="fa fa-exclamation-circle"></i></a>
                                         <?php } ?>
                                     </td>
 
                                     <td align="center">
-                                        <a class="btn btn-primary btn-xs" onclick="display_edit_vehicle_model_pop_up(<?php echo $result->id; ?>)"><i class="fa fa-pencil"  data-original-title="Update"></i></a>                                        
-                                        <a class="btn btn-danger btn-xs" onclick="delete_vehicle_model(<?php echo $result->id; ?>)"><i class="fa fa-trash-o " title="" data-original-title="Remove"></i></a>
+                                        <a class="btn btn-primary btn-xs" onclick="display_edit_model_pop_up(<?php echo $result->id; ?>)"><i class="fa fa-pencil"  data-original-title="Update"></i></a>                                        
+                                        <a class="btn btn-danger btn-xs" onclick="delete_model(<?php echo $result->id; ?>)"><i class="fa fa-trash-o " title="" data-original-title="Remove"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -65,30 +65,30 @@
     </div>
 </div>
 
-<!--Vehicle Model Add Modal -->
-<div class="modal fade " id="vehicle_model_add_modal" tabindex="-1" role="dialog" aria-labelledby="vehicle_model_add_modal_label" aria-hidden="true">
+<!--Model Add Modal -->
+<div class="modal fade " id="model_add_modal" tabindex="-1" role="dialog" aria-labelledby="model_add_modal_label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Add New Vehicle Model</h4>
+                <h4 class="modal-title">Add New Model</h4>
             </div>
 
-            <form id="vehicle_model_add_form" name="vehicle_model_add_form">
+            <form id="model_add_form" name="model_add_form">
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="manufacturer">Manufacturer<span class="mandatory">*</span></label>
-                        <select class="form-control" name="manufacturer" id="manufacturer" title="manufacturer" data-live-search="true">
-                            <option value="">Select Manufacturer</option>
-                            <?php foreach ($manufacturer_results as $manufacturer_result) { ?>
-                                <option value="<?php echo $manufacturer_result->id; ?>"><?php echo $manufacturer_result->name; ?></option>
+                        <label for="make">Make<span class="mandatory">*</span></label>
+                        <select class="form-control" name="make" id="make" title="make" data-live-search="true">
+                            <option value="">Select Make</option>
+                            <?php foreach ($makes as $make) { ?>
+                                <option value="<?php echo $make->id; ?>"><?php echo $make->name; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">                        
-                        <label for="name">Vehicle Model<span class="mandatory">*</span></label>
-                        <input id="name" name="name" class="form-control" type="text" placeholder="Enter Vehicle Model">
+                        <label for="name">Model<span class="mandatory">*</span></label>
+                        <input id="name" name="name" class="form-control" type="text" placeholder="Enter Model">
                     </div>
 
                     <span id="rtn_msg"></span>
@@ -103,10 +103,10 @@
 </div>
 <!-- modal -->
 
-<!--Vehicle Model Edit Modal -->
-<div  class="modal fade " id="vehicle_model_edit_div" tabindex="-1" role="dialog" aria-hidden="true">
+<!--Model Edit Modal -->
+<div  class="modal fade " id="model_edit_div" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content" id="vehicle_model_edit_content">
+        <div class="modal-content" id="model_edit_content">
 
         </div>
     </div>
@@ -122,21 +122,21 @@
 
                                             //var manufacturer = $('#manufacturer').val();
 
-                                            $('#vehicle_model_table').dataTable();
+                                            $('#model_table').dataTable();
 
-                                            $("#vehicle_model_add_form").validate({
+                                            $("#model_add_form").validate({
                                                 rules: {
                                                     name: "required"
                                                 },
                                                 messages: {
-                                                    name: "Please enter a Vehicle Model"
+                                                    name: "Please enter a Model"
                                                 }, submitHandler: function (form)
                                                 {
-                                                    $.post(site_url + '/vehicle_model/add_new_vehicle_model', $('#vehicle_model_add_form').serialize(), function (msg)
+                                                    $.post(site_url + '/vehicle_model/add_new_model', $('#model_add_form').serialize(), function (msg)
                                                     {
                                                         if (msg == 1) {
                                                             $('#rtn_msg').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');
-                                                            vehicle_model_add_form.reset();
+                                                            model_add_form.reset();
                                                             window.location = site_url + '/vehicle_model/manage_models';
                                                         } else {
                                                             $('#rtn_msg').html('<div class="alert alert-block alert-danger fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>An error occured.</strong></div>');
@@ -149,19 +149,19 @@
                                         });
 
 
-                                        //vehicle model delete function
-                                        function delete_vehicle_model(id) {
+                                        //model delete function
+                                        function delete_model(id) {
 
-                                            if (confirm('Are you sure want to delete this Vehicle Model ?')) {
+                                            if (confirm('Are you sure want to delete this Model ?')) {
 
                                                 $.ajax({
                                                     type: "POST",
-                                                    url: site_url + '/vehicle_model/delete_vehicle_model',
+                                                    url: site_url + '/vehicle_model/delete_model',
                                                     data: "id=" + id,
                                                     success: function (msg) {
                                                         if (msg == 1) {
-                                                            $("#vehicle_model_" + id).hide();
-                                                            toastr.success("Successfully deleted !!", "AutoVille");
+                                                            $("#model_" + id).hide();
+                                                            toastr.success("Successfully deleted !!", "VanUncle.lk");
 
                                                         } else if (msg == 2) {
                                                             alert('Cannot be deleted!');
@@ -173,25 +173,25 @@
                                         }
 
 
-                                        //vehicle model public status changing function
-                                        function change_publish_status(vehicle_model_id, value, element) {
+                                        //model public status changing function
+                                        function change_publish_status(model_id, value, element) {
 
-                                            var condition = 'Do you want to activate this vehicle model ?';
+                                            var condition = 'Do you want to activate this model ?';
                                             if (value == 0) {
-                                                condition = 'Do you want to deactivate this vehicle model ?';
+                                                condition = 'Do you want to deactivate this model ?';
                                             }
 
                                             if (confirm(condition)) {
                                                 $.ajax({
                                                     type: "POST",
                                                     url: site_url + '/vehicle_model/change_publish_status',
-                                                    data: "id=" + vehicle_model_id + "&value=" + value,
+                                                    data: "id=" + model_id + "&value=" + value,
                                                     success: function (msg) {
                                                         if (msg == 1) {
                                                             if (value == 1) {
-                                                                $(element).parent().html('<a class="btn btn-success btn-xs" onclick="change_publish_status(' + vehicle_model_id + ',0,this)" title="click to deactivate vehicle model"><i class="fa fa-check"></i></a>');
+                                                                $(element).parent().html('<a class="btn btn-success btn-xs" onclick="change_publish_status(' + model_id + ',0,this)" title="click to deactivate model"><i class="fa fa-check"></i></a>');
                                                             } else {
-                                                                $(element).parent().html('<a class="btn btn-warning btn-xs" onclick="change_publish_status(' + vehicle_model_id + ',1,this)" title="click to activate vehicle model"><i class="fa fa-exclamation-circle"></i></a>');
+                                                                $(element).parent().html('<a class="btn btn-warning btn-xs" onclick="change_publish_status(' + model_id + ',1,this)" title="click to activate model"><i class="fa fa-exclamation-circle"></i></a>');
                                                             }
 
                                                         } else if (msg == 2) {
@@ -202,13 +202,13 @@
                                             }
                                         }
 
-                                        function display_edit_vehicle_model_pop_up(vehicle_model_id) {
+                                        function display_edit_model_pop_up(model_id) {
 
-                                            $.post(site_url + '/vehicle_model/load_edit_vehicle_model_content', {vehicle_model_id: vehicle_model_id}, function (msg) {
+                                            $.post(site_url + '/vehicle_model/load_edit_model_content', {model_id: model_id}, function (msg) {
 
-                                                $('#vehicle_model_edit_content').html('');
-                                                $('#vehicle_model_edit_content').html(msg);
-                                                $('#vehicle_model_edit_div').modal('show');
+                                                $('#model_edit_content').html('');
+                                                $('#model_edit_content').html(msg);
+                                                $('#model_edit_div').modal('show');
                                             });
 
 

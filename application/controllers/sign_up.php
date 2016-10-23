@@ -106,6 +106,7 @@ class Sign_up extends CI_Controller {
         $driver_model->set_name($this->input->post('name', TRUE));
         $driver_model->set_nic($this->input->post('nic', TRUE));
         $driver_model->set_mobile($this->input->post('mobile', TRUE));
+        $driver_model->set_profile_pic($this->input->post('logo', TRUE));
         $driver_model->set_updated_date(date("Y-m-d H:i:s"));
 
         echo $driver_service->update_driver_details($driver_model);

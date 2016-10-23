@@ -279,11 +279,7 @@
                         <!-- user login dropdown start-->
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                 <?php if (($this->session->userdata('USER_PROFILE_PIC') == '')) { ?>
-                                   <img height="30" width="30" src="<?php echo base_url(); ?>/uploads/user_avatars/avatar.png" >
-                                <?php } else { ?>
-                                    <img height="30" width="30" src="<?php echo base_url(); ?>/uploads/user_avatars/<?php echo $this->session->userdata('USER_PROFILE_PIC'); ?>" >
-                                <?php } ?> 
+                                   <img height="30" width="30" src="<?php echo base_url(); ?>/uploads/users/avatar.jpg" >
                                 <span class="username"><?php echo ucfirst($this->session->userdata('USER_FULLNAME')); ?></span>
                                 <b class="caret"></b>
                             </a>

@@ -12,7 +12,7 @@ class User_service extends CI_Model {
 
     function authenticate_user_with_password($user_model) {
 
-        $data = array('cms_user_email' => $user_model->get_user_name(), 'cms_user_password' => $user_model->get_password(), 'cms_user_status' => '1');
+        $data = array('cms_user_email' => $user_model->get_cms_user_name(), 'cms_user_password' => $user_model->get_cms_user_password(), 'cms_user_status' => '1');
 
         $this->db->select('va_cms_users.*');
         $this->db->from('va_cms_users');

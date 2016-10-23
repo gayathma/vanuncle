@@ -45,7 +45,7 @@
         <script src="<?php echo base_url(); ?>fe_resources/js/sweetalert-dev.js"></script>
 
         <script src="<?php echo base_url(); ?>fe_resources/js/dropzone.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBTopYuLNQfMccXBucNQVoLQmND-StZpYM&sensor=false&libraries=places"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTopYuLNQfMccXBucNQVoLQmND-StZpYM&sensor=false&libraries=places"></script>
 
         <script>
             var base_url = "<?php echo base_url(); ?>";
@@ -151,7 +151,7 @@
                         <ul class="app-stores">
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store1.png" alt="app store" /></li>
                             <li ><a href="#" title="gplus"><img src="<?php echo base_url(); ?>fe_resources/images/uploads/store2.png" alt="play store" /></li>
-                            <li><div class="fb-page" data-href="https://www.facebook.com/VanUnclelk-224285404607649/" data-width="340" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"></div></li>
+                            <div class="fb-follow" data-href="https://www.facebook.com/VanUnclelk-224285404607649/" data-layout="button" data-size="small" data-show-faces="true"></div>
                         </ul>
                     </article>
                     <!-- //Column -->
@@ -188,9 +188,11 @@
         <script type="text/javascript">
             function initialize() {
                 var input = document.getElementById('pick_up_loc');
-                var options = {componentRestrictions: {country: 'sl'}};
+                var input2 = document.getElementById('drop_off_loc');
+                var options = {componentRestrictions: {country: 'LK'}};
 
                 new google.maps.places.Autocomplete(input, options);
+                new google.maps.places.Autocomplete(input2, options);
             }
 
             google.maps.event.addDomListener(window, 'load', initialize);

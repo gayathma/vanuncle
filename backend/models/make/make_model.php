@@ -11,68 +11,69 @@ class Make_model extends CI_Model {
     var $updated_date;
     var $updated_by;
 
-    public function get_id() {
+    function get_id() {
         return $this->id;
     }
 
-    public function get_name() {
+    function get_name() {
         return $this->name;
     }
 
-    public function get_is_published() {
+    function get_is_published() {
         return $this->is_published;
     }
 
-    public function get_is_deleted() {
+    function get_is_deleted() {
         return $this->is_deleted;
     }
 
-    public function get_added_date() {
+    function get_added_date() {
         return $this->added_date;
     }
 
-    public function get_added_by() {
+    function get_added_by() {
         return $this->added_by;
     }
 
-    public function get_updated_date() {
+    function get_updated_date() {
         return $this->updated_date;
     }
 
-    public function get_updated_by() {
+    function get_updated_by() {
         return $this->updated_by;
     }
 
-    public function set_id($id) {
+    function set_id($id) {
         $this->id = $id;
     }
 
-    public function set_name($name) {
+    function set_name($name) {
         $this->name = $name;
     }
 
-    public function set_is_published($is_published) {
+    function set_is_published($is_published) {
         $this->is_published = $is_published;
     }
 
-    public function set_is_deleted($is_deleted) {
+    function set_is_deleted($is_deleted) {
         $this->is_deleted = $is_deleted;
     }
 
-    public function set_added_date($added_date) {
+    function set_added_date($added_date) {
         $this->added_date = $added_date;
     }
 
-    public function set_added_by($added_by) {
+    function set_added_by($added_by) {
         $this->added_by = $added_by;
     }
 
-    public function set_updated_date($updated_date) {
+    function set_updated_date($updated_date) {
         $this->updated_date = $updated_date;
     }
 
-    public function set_updated_by($updated_by) {
+    function set_updated_by($updated_by) {
         $this->updated_by = $updated_by;
     }
+
 
 }
