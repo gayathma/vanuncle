@@ -31,9 +31,9 @@
                             </div>
                             <div class="value">
                                 <h1 class=" count2">
-                                    <?php //echo $pending_count; ?>
+                                    <?php echo $vehicle_post_count; ?>
                                 </h1>
-                                <p>Pending Advertisements</p>
+                                <p>Vehicle Posts</p>
                             </div>
                         </section>
                     </div>

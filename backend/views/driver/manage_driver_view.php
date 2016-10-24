@@ -37,71 +37,46 @@
 <div class="directory-info-row">
     <div class="row" id="reg_user_filter_content">
 
-        <?php
-        $i = 0;
-        $n = 0;
-        foreach ($results as $result) {
-            ?>
-            <div class="col-md-6 col-sm-6"id="reg_user<?php echo $result->id; ?>" >
-                <?php ++$i; ?>
-                <div class="panel" >
+        <table  class="display table table-bordered table-striped" id="make_table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>NIC</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $i = 0;
+                foreach ($results as $result) {
+                    ?>
+                    <tr id="driver_<?php echo $result->id; ?>">
+                        <td><?php echo ++$i; ?></td>
+                        <td align="center">
+                            <?php if(!empty($result->profile_pic)){ ?>
+                            <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>" width="60px" />
+                            <?php }else{ ?>
+                            <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png" width="60px" />
+                            <?php } ?>
+                        </td>
+                        <td><?php echo $result->name; ?></td>
+                        <td><?php echo $result->nic; ?></td>
+                        <td><?php echo $result->email; ?></td>
+                        <td><?php echo $result->mobile; ?></td>
 
-                    <div class="panel-body">
-                        <div class="media" >
+                        <td align="center">
+                            <a class="btn btn-danger btn-xs" onclick="delete_driver(<?php echo $result->id; ?>)" ><i class="fa fa-trash-o " title="" data-original-title="Remove"></i></a>
 
+                        </td>
+                    </tr>
+                    <?php } ?>
 
-                            <a class="pull-left" href="#">
-                                <?php if (empty($result->profile_pic)) { ?>
-                                    <img alt="" class="thumb media-object" height="120" width="100" src="<?php echo base_url(); ?>/uploads/user_avatars/avatar.jpg" >
-                                <?php } else { ?>
-                                    <img alt="" class="thumb media-object" height="120" width="100" src="<?php echo base_url(); ?>/uploads/user_avatars/<?php echo $result->profile_pic; ?>" >
-                                <?php } ?>
-                            </a>
+                </tbody>
 
-                            <div class="media-body" >
-                                <?php if ($result->is_online) { ?>
-                                    <h4><i class="fa  fa-circle  text-success"></i>
-                                        <?php echo $result->title; ?> <?php echo $result->name; ?> <span class="text-muted small"> - <?php echo $result->type; ?></span></h4>
-                                    <?php } else { ?>
-                                    <h4><i class="fa  fa-circle  text-danger"></i>
-                                        <?php echo $result->name; ?> <span class="text-muted small"> - <?php echo $result->type; ?></span></h4>
-
-                                <?php } ?>
-                                <!--                                <ul class="social-links">
-                                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#" data-original-title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                                                    <li><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="#" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                                                                </ul>-->
-
-                                <address>Address : <?php echo $result->address; ?><br>
-                                    <abbr title="Phone">Tel:</abbr> <?php echo $result->contact_no_1; ?><br>
-
-                                    <email>E-mail : <?php echo $result->email; ?></email><br>
-                                </address>
-                                <br>
-                                <span class="p-team">
-                                    <span>
-                                        <?php if ($result->is_published) { ?>
-                                            <a class="btn btn-success btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 0, this)" title="click to disable user"><i class="fa fa-check"></i></a>
-                                        <?php } else { ?>
-                                            <a class="btn btn-warning btn-xs" onclick="change_publish_status(<?php echo $result->id; ?>, 1, this)" title="click to enable user"><i class="fa fa-exclamation-circle"></i></a>
-                                        <?php } ?>
-                                    </span>
-
-
-
-                                    <a class="btn btn-danger btn-xs" onclick="load_after_deleted(<?php echo $result->id; ?>)" ><i class="fa fa-trash-o " title="" title="Remove"></i></a>
-                                    <a class="btn btn-info btn-xs" href="<?php echo site_url(); ?>/user_privilege/manage_user_privileges/<?php echo $result->id; ?>">Assign Privileges</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-
-
+            </table>
     </div>
 </div>
 <!-- page end-->
@@ -110,78 +85,16 @@
 
         $('#user_menu').addClass('active');
 
-        function change_online_status(user_id, value, element) {
-
-            $.ajax({
-                type: "POST",
-                url: site_url + '/reg_users/change_online_status',
-                data: "id=" + user_id + "&value=" + value,
-                success: function(msg) {
-                    if (msg == 1) {
-                        if (value == 1) {
-                            $(element).parent().html('<h4><i class="fa  fa-circle  text-success"></i><?php echo $result->name; ?> <span class="text-muted small"> - Registered User</span></h4>');
-                        } else {
-                            $(element).parent().html('<h4><i class="fa  fa-circle  text-danger"></i><?php echo $result->name; ?> <span class="text-muted small"> - Registered User</span></h4>');
-                        }
-                    }
-                    else if (msg == 2) {
-                        alert("Error!!");
-                    }
-                }
-            });
-
-        }
-        //load registered users by letter
-        function load_reg_users_by_letter(letter) {
-            $.ajax({
-                type: "POST",
-                url: site_url + '/reg_users/load_reg_users_by_letter',
-                data: "myletter=" + letter,
-                success: function(msg)
-                {
-                    $('#reg_user_filter_content').html(msg);
-                }
-            });
-        }
-
-        function change_publish_status(user_id, value, element) {
-
-            var condition = 'Do you want to enable this user ?';
-            if (value == 0) {
-                condition = 'Do you want to disable this user?';
-            }
-
-            if (confirm(condition)) {
-                $.ajax({
-                    type: "POST",
-                    url: site_url + '/reg_users/change_publish_status',
-                    data: "id=" + user_id + "&value=" + value,
-                    success: function(msg) {
-                        if (msg == 1) {
-                            if (value == 1) {
-                                $(element).parent().html('<a class="btn btn-success btn-xs" onclick="change_publish_status(' + user_id + ',0,this)" title="click to disable user"><i class="fa fa-check"></i></a>');
-                            } else {
-                                $(element).parent().html('<a class="btn btn-warning btn-xs" onclick="change_publish_status(' + user_id + ',1,this)" title="click to enable user"><i class="fa fa-exclamation-circle"></i></a>');
-                            }
-
-                        } else if (msg == 2) {
-                            alert('Error!!');
-                        }
-                    }
-                });
-            }
-        }
-
-        function load_after_deleted(user_id) {
+        function delete_driver(user_id) {
             if (confirm('Are you sure want to delete this Driver?')) {
                 $.ajax({
                     type: "POST",
-                    url: site_url + '/reg_users/delete_reg_users',
-                    data: "user_id=" + user_id,
+                    url: site_url + '/driver/delete_driver',
+                    data: "driver_id=" + user_id,
                     success: function(msg)
                     {
                         if (msg == 1) {
-                            $('#reg_user' + user_id).hide();
+                            $('#driver_' + user_id).hide();
                         }
                         else if (msg == 2) {
                             alert('Error!!');

@@ -18,4 +18,10 @@ class Driver_service extends CI_Model {
         return $query->result();
     }
 
+    public function delete($driver_id) {
+        $data = array('is_deleted' => '1');
+        $this->db->where('id', $driver_id);
+        return $this->db->update('va_drivers', $data);
+    }
+
 }

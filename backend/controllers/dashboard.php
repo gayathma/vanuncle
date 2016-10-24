@@ -28,8 +28,8 @@ class Dashboard extends CI_Controller {
         $this->load->model('driver/driver_model');
         $this->load->model('driver/driver_service');
 
-        $this->load->model('vehicle_advertisments/vehicle_advertisments_model');
-        $this->load->model('vehicle_advertisments/vehicle_advertisments_service');
+        $this->load->model('vehicles/vehicles_model');
+        $this->load->model('vehicles/vehicles_service');
 
         $this->load->model('comments/comments_model');
         $this->load->model('comments/comments_service');
@@ -43,8 +43,8 @@ class Dashboard extends CI_Controller {
 
         $data['heading']        = 'Dashboard';
         $data['drivers_count']  = count($driver_service->get_drivers());
-        /*$data['approved_count'] = count($vehicle_advertisements_service->get_approved_advertisements());
-        $data['pending_count']  = count($vehicle_advertisements_service->get_pending_advertisements());
+        $data['vehicle_post_count'] = count($vehicle_service->get_vehicles());
+        /*$data['pending_count']  = count($vehicle_advertisements_service->get_pending_advertisements());
         $data['reviews_count']  = count($comments_service->get_all_comments());*/
 
 
