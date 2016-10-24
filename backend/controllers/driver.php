@@ -20,7 +20,6 @@ class Driver extends CI_Controller {
 
     function manage_drivers() {
         $driver_service = new Driver_service();
-        $driver_model = new Driver_model();
 
         $data['heading'] = "Manage Registered Drivers";
         $data['results'] = $driver_service->get_drivers();        

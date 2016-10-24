@@ -23,29 +23,32 @@ class Dashboard extends CI_Controller {
     function __construct() {
 
         parent::__construct();
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/load_login');
+        } else {
 
+            $this->load->model('driver/driver_model');
+            $this->load->model('driver/driver_service');
 
-        $this->load->model('driver/driver_model');
-        $this->load->model('driver/driver_service');
+            $this->load->model('vehicles/vehicles_model');
+            $this->load->model('vehicles/vehicles_service');
 
-        $this->load->model('vehicles/vehicles_model');
-        $this->load->model('vehicles/vehicles_service');
-
-        $this->load->model('comments/comments_model');
-        $this->load->model('comments/comments_service');
+            $this->load->model('comments/comments_model');
+            $this->load->model('comments/comments_service');
+        }
     }
 
     function index() {
 
-        $driver_service               = new Driver_service();
-        $vehicle_advertisements_service = new Vehicle_advertisments_service();
-        $comments_service               = new Comments_service();
+        $driver_service   = new Driver_service();
+        $vehicle_service  = new Vehicles_service();
+        $comments_service = new Comments_service();
 
-        $data['heading']        = 'Dashboard';
-        $data['drivers_count']  = count($driver_service->get_drivers());
+        $data['heading']            = 'Dashboard';
+        $data['drivers_count']      = count($driver_service->get_drivers());
         $data['vehicle_post_count'] = count($vehicle_service->get_vehicles());
-        /*$data['pending_count']  = count($vehicle_advertisements_service->get_pending_advertisements());
-        $data['reviews_count']  = count($comments_service->get_all_comments());*/
+        /* $data['pending_count']  = count($vehicle_advertisements_service->get_pending_advertisements());
+          $data['reviews_count']  = count($comments_service->get_all_comments()); */
 
 
         $partials = array('content' => 'dashboard/dashboard_view');

@@ -24,14 +24,14 @@
         <!--- //Content -->
 
         <div class="three-fourth">
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="add_vehicle_form" name="add_vehicle_form">
                 <div class="f-row">
                     <div class="one-half">
                         <label for="make">Make</label>
                         <select id="make" name="make">
                             <option value="">Select Make</option>
-                            <?php foreach($makes as $make){?>
-                                <option value="<?php echo $make->id;?>"><?php echo $make->name;?></option>
+                            <?php foreach ($makes as $make) { ?>
+                                <option value="<?php echo $make->id; ?>"><?php echo $make->name; ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="actions">
-                    <a href="booking-step3.html" class="btn medium color right">Submit</a>
+                    <input type="submit" class="btn medium color right" value="Submit"/>
                 </div>
             </form>
         </div>
@@ -216,23 +216,56 @@
 
     function initialize() {
         var input = document.getElementById('route');
-        var options = {componentRestrictions: {country: 'us'}};
-        
+        var options = {componentRestrictions: {country: 'LK'}};
+
         new google.maps.places.Autocomplete(input, options);
     }
-    
+
     google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
     //Make on change 
-    $('#make').on('change', function(e) {
+    $('#make').on('change', function (e) {
 
         var make = $(this).val();
 
-        $.post(site_url + '/vehicles/get_models_for_make', {make: make}, function(msg)
+        $.post(site_url + '/vehicles/get_models_for_make', {make: make}, function (msg)
         {
             $('#model').html(msg);
         });
+    });
+
+    $(document).ready(function () {
+
+        $("#add_vehicle_form").validate({
+            rules: {
+                make: "required",
+                model: "required",
+                year: "required",
+                type: "required",
+                seats: "required"
+            },
+            messages: {
+
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/vehicles/add_make', $('#add_vehicle_form').serialize(), function (msg)
+                {
+                    if (msg == 1) {
+                        $('#rtn_msg').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');
+
+                        add_vehicle_form.reset();
+                        window.location = site_url + '/make/manage_makes';
+                    } else {
+                        $('#rtn_msg').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');
+
+                    }
+                });
+
+
+            }
+        });
+
     });
 </script>
