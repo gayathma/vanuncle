@@ -222,4 +222,17 @@
     }
     
     google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    //Make on change 
+    $('#make').on('change', function(e) {
+
+        var make = $(this).val();
+
+        $.post(site_url + '/vehicles/get_models_for_make', {make: make}, function(msg)
+        {
+            $('#model').html(msg);
+        });
+    });
 </script>

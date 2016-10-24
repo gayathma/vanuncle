@@ -27,6 +27,9 @@ class Home extends CI_Controller {
         $this->load->model('vehicles/vehicles_model');
         $this->load->model('vehicles/vehicles_service');
 
+        $this->load->model('vehicle_route/vehicle_route_model');
+        $this->load->model('vehicle_route/vehicle_route_service');
+
         $this->load->library('pagination');
 
     }
@@ -38,6 +41,8 @@ class Home extends CI_Controller {
     }
 
     public function search($start = 0){
+        $vehicle_route_service = new Vehicle_route_service();
+
         $config = array();
         $config["base_url"] = site_url() . "/home/search/";
         $config["per_page"] = 10;
@@ -47,6 +52,10 @@ class Home extends CI_Controller {
         $service_type = $this->input->post('service_type', TRUE);
         $pickup_location = $this->input->post('pick_up_loc', TRUE);
         $dropoff_location = $this->input->post('drop_off_loc', TRUE);
+
+         $data['results'] = $vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], $start, 'half');
+
+        $config["total_rows"] = count($vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], 0, 'all'));
 
 
         $this->pagination->initialize($config);
