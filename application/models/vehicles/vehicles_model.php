@@ -7,9 +7,11 @@ class Vehicles_model extends CI_Model {
     var $make;
     var $model;
     var $type;
+    var $vehicle_no;
     var $year;
     var $seats;
     var $isAc;
+    var $description;
     var $is_deleted;
     var $added_date;
     var $updated_date;
@@ -27,8 +29,24 @@ class Vehicles_model extends CI_Model {
         return $this->driver_id;
     }
 
-    function get_vehicle_image() {
-        return $this->vehicle_image;
+    function get_make() {
+        return $this->make;
+    }
+
+    function get_model() {
+        return $this->model;
+    }
+
+    function get_type() {
+        return $this->type;
+    }
+
+    function get_vehicle_no() {
+        return $this->vehicle_no;
+    }
+
+    function get_year() {
+        return $this->year;
     }
 
     function get_seats() {
@@ -37,6 +55,10 @@ class Vehicles_model extends CI_Model {
 
     function get_isAc() {
         return $this->isAc;
+    }
+
+    function get_description() {
+        return $this->description;
     }
 
     function get_is_deleted() {
@@ -59,8 +81,24 @@ class Vehicles_model extends CI_Model {
         $this->driver_id = $driver_id;
     }
 
-    function set_vehicle_image($vehicle_image) {
-        $this->vehicle_image = $vehicle_image;
+    function set_make($make) {
+        $this->make = $make;
+    }
+
+    function set_model($model) {
+        $this->model = $model;
+    }
+
+    function set_type($type) {
+        $this->type = $type;
+    }
+
+    function set_vehicle_no($vehicle_no) {
+        $this->vehicle_no = $vehicle_no;
+    }
+
+    function set_year($year) {
+        $this->year = $year;
     }
 
     function set_seats($seats) {
@@ -69,6 +107,10 @@ class Vehicles_model extends CI_Model {
 
     function set_isAc($isAc) {
         $this->isAc = $isAc;
+    }
+
+    function set_description($description) {
+        $this->description = $description;
     }
 
     function set_is_deleted($is_deleted) {
@@ -82,5 +124,6 @@ class Vehicles_model extends CI_Model {
     function set_updated_date($updated_date) {
         $this->updated_date = $updated_date;
     }
+
 
 }

@@ -27,8 +27,8 @@
             <form method="post" enctype="multipart/form-data" id="add_vehicle_form" name="add_vehicle_form">
                 <div class="f-row">
                     <div class="one-half">
-                        <label for="make">Make</label>
-                        <select id="make" name="make">
+                        <label for="make">Make</label><span class="error">*</span>
+                        <select id="make" name="make" class="uniform-input">
                             <option value="">Select Make</option>
                             <?php foreach ($makes as $make) { ?>
                                 <option value="<?php echo $make->id; ?>"><?php echo $make->name; ?></option>
@@ -36,7 +36,7 @@
                         </select>
                     </div>
                     <div class="one-half">
-                        <label for="model">Model</label>
+                        <label for="model">Model</label><span class="error">*</span>
                         <select id="model" name="model">
                             <option value="">Select Model</option>
                         </select>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="f-row">
                     <div class="one-half">
-                        <label for="year">Year</label>
+                        <label for="year">Year</label><span class="error">*</span>
                         <select id="year" name="year">
                             <option value=""  selected="">Choose a year</option>
                             <option value="2017">2017</option>
@@ -100,7 +100,7 @@
                         </select>
                     </div>
                     <div class="one-half">
-                        <label for="type">Vehicle Type</label>
+                        <label for="type">Vehicle Type</label><span class="error">*</span>
                         <select id="type" name="type">
                             <option value="">Select Vehicle Type</option>
                             <option value="bus">Bus</option>
@@ -109,13 +109,18 @@
                         </select>
                     </div>
                 </div>
+                
                 <div class="f-row">
 
-                    <div class="one-half">
-                        <label for="seats">Maximum Number Of Seats</label>
+                    <div class="one-third">
+                        <label for="seats"> Number Of Seats</label>
                         <input type="number" id="seats" class="uniform-input number" name="seats"/>
                     </div>
-                    <div class="one-half">
+                    <div class="one-third">
+                        <label for="vehicle_no">Vehicle Registration Number</label><span class="error">*</span>
+                        <input type="text" name="vehicle_no" id="vehicle_no" class="uniform-input"/>
+                    </div>
+                    <div class="one-third">
                         <label>Features</label>
                         <br>
                         <input type="checkbox" id="is_ac" name="is_ac" value="1"/>
@@ -149,6 +154,13 @@
                                 <span class="note needsclick">(You can upload maximum 3 images.)</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <div class="f-row">
+                    <div class="one">
+                        <label for="type">Description</label>
+                        <textarea name="description" id="description" placeholder="Description of charges i.e.Per Km Charge, Waiting time charge,etc"></textarea>
                     </div>
                 </div>
 
@@ -207,6 +219,7 @@
         <!--- //Sidebar -->
     </div>
 </div>
+<script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
     $("div#drop").dropzone({
         url: "/file/post",
@@ -235,37 +248,65 @@
             $('#model').html(msg);
         });
     });
-
+    
+    
     $(document).ready(function () {
-
+    
         $("#add_vehicle_form").validate({
+            ignore:":hidden:not('select')",
             rules: {
-                make: "required",
-                model: "required",
-                year: "required",
-                type: "required",
-                seats: "required"
+                make: {
+                    required: true
+                },
+                model: {
+                    required: true
+                },
+                year: {
+                    required: true
+                },
+                type: {
+                    required: true
+                },
+                vehicle_no: {
+                    required: true
+                }
             },
             messages: {
-
+                make: {
+                    required: "Please select make of your vehicle"
+                },
+                model: {
+                    required: "Please select model of your vehicle"
+                },
+                year: {
+                    required: "Please select year"
+                },
+                type: {
+                    required: "Please select vehicle type"
+                },
+                vehicle_no: {
+                    required: "Please enter vehicle registration number"
+                }
             }, submitHandler: function (form)
             {
-                $.post(site_url + '/vehicles/add_make', $('#add_vehicle_form').serialize(), function (msg)
+                $.post(site_url + '/vehicles/add_new_vehicle', $('#add_vehicle_form').serialize(), function (msg)
                 {
-                    if (msg == 1) {
-                        $('#rtn_msg').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');
-
-                        add_vehicle_form.reset();
-                        window.location = site_url + '/make/manage_makes';
-                    } else {
-                        $('#rtn_msg').html('<div class="alert alert-success fade in"><button class="close close-sm" type="button" data-dismiss="alert"><i class="fa fa-times"></i></button><strong>Successfully saved!!.</strong></div>');
-
+                    if($('#agree_checkbox').is(":checked")){
+                        if (msg == 1) {
+                            swal("VanUncle.lk", "Registration Successfull!!", "success");
+                            setTimeout("location.href = site_url+'/home';", 1000);
+                        } else {
+                            swal("VanUncle.lk", "Error occured in registration", "error");
+                        }
+                    }else{
+                        swal("VanUncle.lk", "You must agree to the terms and conditions before registering!", "error");
                     }
                 });
-
-
             }
-        });
 
+        });
     });
+
+
+
 </script>

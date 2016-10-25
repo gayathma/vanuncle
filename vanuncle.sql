@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2016 at 07:45 AM
+-- Generation Time: Oct 25, 2016 at 06:49 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `va_drivers` (
   `email` varchar(300) NOT NULL,
   `password` varchar(300) NOT NULL,
   `profile_pic` varchar(300) NOT NULL,
+  `user_type` int(11) NOT NULL,
   `is_terms_agreed` enum('1','0') NOT NULL DEFAULT '0',
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -100,15 +101,66 @@ CREATE TABLE IF NOT EXISTS `va_drivers` (
 -- Dumping data for table `va_drivers`
 --
 
-INSERT INTO `va_drivers` (`id`, `name`, `nic`, `mobile`, `land_phone`, `email`, `password`, `profile_pic`, `is_terms_agreed`, `is_deleted`, `added_date`, `updated_date`) VALUES
-(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-11 13:44:20', '2016-09-11 10:14:20'),
-(2, 'dfdfsd', '911622491V', '3243432411', '1111111111', 'fdfdf@dfd.fhf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-10 18:30:00', NULL),
-(3, 'dsdsd', '911622491V', '3243432411', '3212323233', 'weqwe@fsdf.nnf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-10 18:30:00', NULL),
-(4, 'vcvc', '911622491V', '3434444444', '4324344444', 'ddg@sddsg.gdgg', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
-(5, 'fdsfd', '911622491V', '7560201151', '1231111111', 'gayathma13@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
-(6, 'dfdf', '911622491V', '7560201151', '7560201151', 'gayathma33@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
-(7, 'fdfd', '911622491V', '7560201151', '7560201151', 'gayathma23@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL),
-(8, 'Gayathma Perera', '911622491V', '7560201151', '7560201151', 'gayathma113@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', '0', 0, '2016-09-23 18:30:00', NULL);
+INSERT INTO `va_drivers` (`id`, `name`, `nic`, `mobile`, `land_phone`, `email`, `password`, `profile_pic`, `user_type`, `is_terms_agreed`, `is_deleted`, `added_date`, `updated_date`) VALUES
+(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'dri_1477222581-531709_575297122495442_553449702_n.jpg', 1, '0', 0, '2016-10-24 14:24:17', '2016-10-23 08:06:22'),
+(2, 'dfdfsd', '911622491V', '3243432411', '1111111111', 'fdfdf@dfd.fhf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:19', NULL),
+(3, 'dsdsd', '911622491V', '3243432411', '3212323233', 'weqwe@fsdf.nnf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:21', NULL),
+(4, 'vcvc', '911622491V', '3434444444', '4324344444', 'ddg@sddsg.gdgg', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:23', NULL),
+(5, 'fdsfd', '911622491V', '7560201151', '1231111111', 'gayathma13@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:25', NULL),
+(6, 'dfdf', '911622491V', '7560201151', '7560201151', 'gayathma33@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:27', NULL),
+(7, 'fdfd', '911622491V', '7560201151', '7560201151', 'gayathma23@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:29', NULL),
+(8, 'Gayathma Perera', '911622491V', '7560201151', '7560201151', 'gayathma113@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:31', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `va_make`
+--
+
+CREATE TABLE IF NOT EXISTS `va_make` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `is_deleted` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `added_by` int(11) NOT NULL,
+  `updated_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_by` int(11) DEFAULT NULL,
+  `is_published` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `va_make`
+--
+
+INSERT INTO `va_make` (`id`, `name`, `is_deleted`, `added_date`, `added_by`, `updated_date`, `updated_by`, `is_published`) VALUES
+(1, 'Toyota', 0, '2016-10-25 12:18:53', 1, '2016-10-25 15:48:53', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `va_model`
+--
+
+CREATE TABLE IF NOT EXISTS `va_model` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `make_id` int(11) NOT NULL,
+  `is_deleted` int(11) NOT NULL,
+  `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `added_by` int(11) NOT NULL,
+  `updated_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_by` int(11) DEFAULT NULL,
+  `is_published` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `va_model`
+--
+
+INSERT INTO `va_model` (`id`, `name`, `make_id`, `is_deleted`, `added_date`, `added_by`, `updated_date`, `updated_by`, `is_published`) VALUES
+(1, 'Aqua', 1, 0, '2016-10-25 12:19:02', 1, '2016-10-25 15:49:02', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -157,17 +209,38 @@ INSERT INTO `va_sliders` (`slider_id`, `slider_no`, `slider_title`, `slider_imag
 CREATE TABLE IF NOT EXISTS `va_vehicles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driver_id` int(11) NOT NULL,
-  `make_model` varchar(500) NOT NULL,
-  `service_type` enum('school','office','trip','other') NOT NULL,
-  `vehicle_image` varchar(300) NOT NULL,
+  `model` int(11) NOT NULL,
+  `make` int(11) NOT NULL,
+  `type` enum('school','office','trip','other') NOT NULL,
+  `vehicle_no` varchar(300) NOT NULL,
   `seats` int(11) NOT NULL,
   `year` int(11) NOT NULL,
   `isAc` enum('Y','N') NOT NULL DEFAULT 'N',
+  `description` text,
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `va_vehicle_images`
+--
+
+CREATE TABLE IF NOT EXISTS `va_vehicle_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vehicle_id` int(11) NOT NULL,
+  `caption` varchar(500) DEFAULT NULL,
+  `image_path` varchar(500) NOT NULL,
+  `is_deleted` enum('0','1') NOT NULL DEFAULT '0',
+  `added_date` timestamp NULL DEFAULT NULL,
+  `added_by` int(11) NOT NULL,
+  `updated_date` timestamp NULL DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 -- --------------------------------------------------------
 
@@ -180,6 +253,7 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_routes` (
   `driver_id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
   `service_type` enum('school','office','trip','other') NOT NULL,
+  `route` text NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

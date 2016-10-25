@@ -6,6 +6,7 @@ class Vehicle_route_model extends CI_Model {
     var $driver_id;
     var $vehicle_id;
     var $service_type;
+    var $route;
     var $added_date;
 
     function __construct() {
@@ -29,6 +30,10 @@ class Vehicle_route_model extends CI_Model {
         return $this->service_type;
     }
 
+    function get_route() {
+        return $this->route;
+    }
+
     function get_added_date() {
         return $this->added_date;
     }
@@ -47,6 +52,10 @@ class Vehicle_route_model extends CI_Model {
 
     function set_service_type($service_type) {
         $this->service_type = $service_type;
+    }
+
+    function set_route($route) {
+        $this->route = $route;
     }
 
     function set_added_date($added_date) {

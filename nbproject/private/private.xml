@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/controllers/driver.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/views/make/manage_make_view.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/controllers/make.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/models/driver/driver_service.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/controllers/dashboard.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/backend/config/database.php</file>
+            <file>file:/C:/xampp/htdocs/vanuncle/application/views/pages/add_vehicle.php</file>
+        </group>
     </open-files>
 </project-private>
