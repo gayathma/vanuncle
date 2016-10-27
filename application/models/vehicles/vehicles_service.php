@@ -17,4 +17,8 @@ class Vehicles_service extends CI_Model {
         return $query->result();
     }
 
+    function add_new_vehicle($vehicle_model) {
+        return $this->db->insert('va_vehicles', $vehicle_model);
+    }
+
 }

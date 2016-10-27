@@ -103,9 +103,11 @@
                         <label for="type">Vehicle Type</label><span class="error">*</span>
                         <select id="type" name="type">
                             <option value="">Select Vehicle Type</option>
-                            <option value="bus">Bus</option>
                             <option value="van">Van</option>
                             <option value="car">Car</option>
+                            <option value="coaster_bus">Coaster Bus</option>
+                            <option value="leyland_bus">Leyland Bus</option>
+                            <option value="freight_vehicle">Freight Vehicle</option>
                         </select>
                     </div>
                 </div>

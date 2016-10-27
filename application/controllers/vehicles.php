@@ -66,4 +66,23 @@ class Vehicles extends CI_Controller {
         echo '</select>';
     }
 
+    public function add_new_vehicle(){
+        $vehicles_service = new Vehicles_service();
+        $vehicles_model = new Vehicles_model();
+
+        $vehicles_model->set_driver_id($this->session->userdata('USER_ID'));
+        $vehicles_model->set_make($this->input->post('make', TRUE));
+        $vehicles_model->set_model($this->input->post('model', TRUE));
+        $vehicles_model->set_type($this->input->post('type', TRUE));
+        $vehicles_model->set_vehicle_no($this->input->post('vehicle_no', TRUE));
+        $vehicles_model->set_year($this->input->post('year', TRUE));
+        $vehicles_model->set_seats($this->input->post('seats', TRUE));
+        $vehicles_model->set_isAc($this->input->post('is_ac', TRUE));
+        $vehicles_model->set_description($this->input->post('description', TRUE));
+        $vehicles_model->set_is_deleted('0');
+        $vehicles_model->set_added_date(date("Y-m-d H:i:s"));
+
+        echo $vehicles_service->add_new_vehicle($vehicles_model);
+    }
+
 }
