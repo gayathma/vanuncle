@@ -222,6 +222,7 @@
     </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
+
 <script type="text/javascript">
     $("div#drop").dropzone({
         url: "/file/post",

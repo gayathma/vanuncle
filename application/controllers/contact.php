@@ -51,16 +51,14 @@ class Contact extends CI_Controller {
             $this->email->subject('Inquiry From vanUncle.lk Contact Page');
 
 
-            $msg = 'Message : ' . $this->input->post('message');
+            $msg = 'Message : ' . $this->input->post('comments');
             $msg .= '<br/>Name : ' . $this->input->post('name');
             $msg .= '<br/>Email : ' . $this->input->post('email');
 
 
             $this->email->message($msg);
 
-            $this->email->send();
-
-            echo '<spanv style="color:green;"><b>Thank you - We have now received your mail and will get back to you as soon as possible.</b></span>';
+            echo $this->email->send();
        
     }
 
