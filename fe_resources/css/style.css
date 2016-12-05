@@ -1141,3 +1141,62 @@ div.selector span:before{
 
     line-height: 35px;
 }
+
+.route-label{
+  float:left;
+  display: block;
+  width: 100%;
+}
+
+.route-text{
+  width: 80%!important;
+  display: inline!important;
+  float: left!important;
+}
+
+.route-add{
+  float: right;
+display: block;
+width: 20%;
+padding: 12px 15px;
+}
+
+.route-list li{
+
+width: 100%;
+}
+
+.route-item{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+}
+
+.route-list li span{
+  float: RIGHT;
+  background: #cecece;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.route-list{
+  display: inline-block;
+padding: 10px;
+margin-bottom: 0px;
+width: 100%;
+}
+
+.clse:hover{
+  cursor: hand;
+}
+
+#files img{
+  width: 200px;
+  height: 200px;
+  border-radius: 7px;
+}

@@ -47,7 +47,7 @@
                                 name: 'uploadfile',
                                 onSubmit: function (file, ext) {
                                     if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                        // extension is not allowed 
+                                        // extension is not allowed
                                         status.text('Only JPG, PNG or GIF files are allowed');
                                         return false;
                                     }
@@ -83,7 +83,7 @@
                                         <button type="button" class="btn btn-info" id="browse">Browse</button>
                                         <input type="text" id="logo" name="logo" style="visibility: hidden" value=""/>
                                     </div>
-                                    <div id="files"><img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $driver->profile_pic; ?>"   width="100px" height="100px" /></div>
+                                    <div id="files"><img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $driver->profile_pic; ?>"  /></div>
                                     <div id="sta"><span id="status" ></span></div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                     </fieldset>
                 </div>
 
-                <div class="box">						
+                <div class="box">
                     <h2>Security settings</h2>
                     <fieldset>
                         <form role="form" id="security_form" name="security_form" method="post">

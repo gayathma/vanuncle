@@ -111,7 +111,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="f-row">
 
                     <div class="one-third">
@@ -142,8 +142,13 @@
                         </select>
                     </div>
                     <div class="one-half">
-                        <label for="route">Route</label>
-                        <input type="text" id="route" name="route" placeholder="Type Names Of Cities,Schools,Places "/>
+                        <label for="route" class="route-label">Route</label>
+                        <input type="text" id="route" name="route" placeholder="Type Names Of Cities,Schools,Places " class="route-text"/>
+                        <input type="button" id="add" value="Add" class="route-add"/>
+
+                        <ul class="route-list">
+
+                        </ul>
                     </div>
                 </div>
 
@@ -158,7 +163,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="f-row">
                     <div class="one">
                         <label for="type">Description</label>
@@ -230,6 +235,17 @@
         acceptedFiles: "image/*",
     });
 
+    $('.route-add').click(function(){
+        if($('#route').val()!=''){
+            $('.route-list').append('<li><p class="route-item">'+$('#route').val()+'</p><span class="clse">remove</span></li>');
+            $('#route').val('');
+        }
+    });
+    $('.route-list').on('click', '.clse', function() {
+      $(this).parent().remove();
+    });
+    
+
     function initialize() {
         var input = document.getElementById('route');
         var options = {componentRestrictions: {country: 'LK'}};
@@ -241,7 +257,7 @@
 
 
 
-    //Make on change 
+    //Make on change
     $('#make').on('change', function (e) {
 
         var make = $(this).val();
@@ -251,10 +267,10 @@
             $('#model').html(msg);
         });
     });
-    
-    
+
+
     $(document).ready(function () {
-    
+
         $("#add_vehicle_form").validate({
             ignore:":hidden:not('select')",
             rules: {
