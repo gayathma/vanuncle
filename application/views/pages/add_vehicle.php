@@ -230,21 +230,23 @@
 
 <script type="text/javascript">
     $("div#drop").dropzone({
-        url: site_url +"/vehicles/upload_vehicle_images",
+        url: site_url + "/vehicles/upload_vehicle_images",
         maxFiles: 3,
-        acceptedFiles: "image/*",
+        acceptedFiles: "image/*"
     });
 
-    $('.route-add').click(function(){
-        if($('#route').val()!=''){
-            $('.route-list').append('<li><p class="route-item">'+$('#route').val()+'</p><span class="clse">remove</span></li>');
+
+
+    $('.route-add').click(function () {
+        if ($('#route').val() != '') {
+            $('.route-list').append('<li><p class="route-item">' + $('#route').val() + '</p><span class="clse">remove</span></li>');
             $('#route').val('');
         }
     });
-    $('.route-list').on('click', '.clse', function() {
-      $(this).parent().remove();
+    $('.route-list').on('click', '.clse', function () {
+        $(this).parent().remove();
     });
-    
+
 
     function initialize() {
         var input = document.getElementById('route');
@@ -272,7 +274,7 @@
     $(document).ready(function () {
 
         $("#add_vehicle_form").validate({
-            ignore:":hidden:not('select')",
+            ignore: ":hidden:not('select')",
             rules: {
                 make: {
                     required: true
@@ -310,14 +312,14 @@
             {
                 $.post(site_url + '/vehicles/add_new_vehicle', $('#add_vehicle_form').serialize(), function (msg)
                 {
-                    if($('#agree_checkbox').is(":checked")){
+                    if ($('#agree_checkbox').is(":checked")) {
                         if (msg == 1) {
                             swal("VanUncle.lk", "Registration Successfull!!", "success");
                             setTimeout("location.href = site_url+'/home';", 1000);
                         } else {
                             swal("VanUncle.lk", "Error occured in registration", "error");
                         }
-                    }else{
+                    } else {
                         swal("VanUncle.lk", "You must agree to the terms and conditions before registering!", "error");
                     }
                 });

@@ -67,11 +67,11 @@ class Vehicles extends CI_Controller {
     }
     
     function upload_vehicle_images() {
-        $uploaddir = './uploads/drivers/';
+        $uploaddir = './uploads/vehicles/';
         $unique_tag = 'dri_';
-        $filename = $unique_tag . time() . '-' . basename($_FILES['uploadfile']['name']); //this is the file name
+        $filename = $unique_tag . time() . '-' . basename($_FILES['file']['name']); //this is the file name
         $file = $uploaddir . $filename; // this is the full path of the uploaded file
-        if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $file)) {
+        if (move_uploaded_file($_FILES['file']['tmp_name'], $file)) {
             echo $filename;
         } else {
             echo "error";

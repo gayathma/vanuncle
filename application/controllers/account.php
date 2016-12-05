@@ -61,8 +61,4 @@ class Account extends CI_Controller {
         }
     }
 
-    function add_vehicle(){
-        
-    }
-
 }
