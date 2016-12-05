@@ -1195,6 +1195,9 @@ width: 100%;
   cursor: hand;
 }
 
+.terms{
+  text-align: justify;
+}
 #files img{
   width: 200px;
   height: 200px;
