@@ -54,7 +54,7 @@ class Home extends CI_Controller {
         $dropoff_location = $this->input->post('drop_off_loc', TRUE);
 
          $data['results'] = $vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], $start, 'half');
-
+         
         $config["total_rows"] = count($vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], 0, 'all'));
 
 

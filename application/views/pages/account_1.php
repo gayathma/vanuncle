@@ -41,13 +41,13 @@
                         //upload manufacture logo
                         $(function () {
                             var btnUpload = $('#upload');
-                            var status = $('#sta');
+                            var status = $('#status');
                             new AjaxUpload(btnUpload, {
                                 action: '<?php echo site_url(); ?>/account/upload_driver_profile_pic',
                                 name: 'uploadfile',
                                 onSubmit: function (file, ext) {
                                     if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                        // extension is not allowed
+                                        // extension is not allowed 
                                         status.text('Only JPG, PNG or GIF files are allowed');
                                         return false;
                                     }
@@ -77,15 +77,14 @@
                         <form role="form" id="detail_form" name="detail_form" method="post">
                             <div class="f-row">
                                 <div class="full-width">
-                                    <label class="form-label">Upload Profile Picture</label>
-
-                                    <div id="files"><img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $driver->profile_pic; ?>"  /></div>
-                                    </br>
                                     <div id="upload">
+
+                                        <label class="form-label">Upload Profile Picture</label>
                                         <button type="button" class="btn btn-info" id="browse">Browse</button>
                                         <input type="text" id="logo" name="logo" style="visibility: hidden" value=""/>
                                     </div>
-                                    <div id="sta" class="error"><span id="status" ></span></div>
+                                    <div id="files"><img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $driver->profile_pic; ?>"   width="100px" height="100px" /></div>
+                                    <div id="sta"><span id="status" ></span></div>
                                 </div>
                             </div>
                             <div class="f-row">
@@ -115,7 +114,7 @@
                     </fieldset>
                 </div>
 
-                <div class="box">
+                <div class="box">						
                     <h2>Security settings</h2>
                     <fieldset>
                         <form role="form" id="security_form" name="security_form" method="post">
@@ -193,121 +192,121 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
 
 <script>
-                        $(document).ready(function () {
-                            $('.single').hide().first().show();
-                            $('.categories li:first').addClass('active');
+    $(document).ready(function () {
+        $('.single').hide().first().show();
+        $('.categories li:first').addClass('active');
 
-                            $('.categories a').on('click', function (e) {
-                                e.preventDefault();
-                                $(this).closest('li').addClass('active').siblings().removeClass('active');
-                                $($(this).attr('href')).show().siblings('.single').hide();
-                            });
+        $('.categories a').on('click', function (e) {
+            e.preventDefault();
+            $(this).closest('li').addClass('active').siblings().removeClass('active');
+            $($(this).attr('href')).show().siblings('.single').hide();
+        });
 
-                            var hash = $.trim(window.location.hash);
-                            if (hash)
-                                $('.categories a[href$="' + hash + '"]').trigger('click');
+        var hash = $.trim(window.location.hash);
+        if (hash)
+            $('.categories a[href$="' + hash + '"]').trigger('click');
 
 
-                            $.validator.addMethod("NIC_Validation", function (value, element) {
-                                return nicValidate(value);
-                            }, "Invalid NIC Number");
+        $.validator.addMethod("NIC_Validation", function (value, element) {
+            return nicValidate(value);
+        }, "Invalid NIC Number");
 
-                            $("#detail_form").validate({
-                                rules: {
-                                    name: {
-                                        required: true
-                                    },
-                                    nic: {
-                                        required: true,
-                                        NIC_Validation: true
-                                    },
-                                    mobile: {
-                                        required: true,
-                                        digits: true,
-                                        minlength: 10,
-                                        maxlength: 10
-                                    }
-                                },
-                                messages: {
-                                    name: {
-                                        required: "Please enter your name and surname"
-                                    },
-                                    nic: {
-                                        required: "Please enter your nic number"
-                                    },
-                                    mobile: "Please enter your mobile number"
+        $("#detail_form").validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                nic: {
+                    required: true,
+                    NIC_Validation: true
+                },
+                mobile: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name and surname"
+                },
+                nic: {
+                    required: "Please enter your nic number"
+                },
+                mobile: "Please enter your mobile number"
 
-                                }, submitHandler: function (form)
-                                {
-                                    $.post(site_url + '/sign_up/update_driver_details', $('#detail_form').serialize(), function (msg)
-                                    {
-                                        if (msg == 1) {
-                                            swal("VanUncle.lk", "Deatils Saved Successfully!!", "success");
-                                        } else {
-                                            swal("VanUncle.lk", "Error occured in saving details", "error");
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/sign_up/update_driver_details', $('#detail_form').serialize(), function (msg)
+                {
+                    if (msg == 1) {
+                        swal("VanUncle.lk", "Deatils Saved Successfully!!", "success");
+                    } else {
+                        swal("VanUncle.lk", "Error occured in saving details", "error");
 
-                                        }
-                                    });
-                                }
+                    }
+                });
+            }
 
-                            });
+        });
 
-                            $("#security_form").validate({
-                                rules: {
-                                    password: {
-                                        required: true,
-                                        minlength: 6
-                                    },
-                                    conf_password: {
-                                        required: true,
-                                        equalTo: "#password"
-                                    }
-                                },
-                                messages: {
-                                    password: "Please enter a password",
-                                    conf_password: {
-                                        required: "Confirm the password",
-                                        equalTo: "Passwords do not match"
-                                    }
+        $("#security_form").validate({
+            rules: {
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                conf_password: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: "Please enter a password",
+                conf_password: {
+                    required: "Confirm the password",
+                    equalTo: "Passwords do not match"
+                }
 
-                                }, submitHandler: function (form)
-                                {
-                                    $.post(site_url + '/sign_up/update_security_details', $('#security_form').serialize(), function (msg)
-                                    {
-                                        if (msg == 1) {
-                                            swal("VanUncle.lk", "Password Updated Successfully!!", "success");
-                                        } else {
-                                            swal("VanUncle.lk", "Error occured in saving details", "error");
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/sign_up/update_security_details', $('#security_form').serialize(), function (msg)
+                {
+                    if (msg == 1) {
+                        swal("VanUncle.lk", "Password Updated Successfully!!", "success");
+                    } else {
+                        swal("VanUncle.lk", "Error occured in saving details", "error");
 
-                                        }
-                                    });
-                                }
+                    }
+                });
+            }
 
-                            });
-                        });
+        });
+    });
 
-                        function nicValidate(nicno) {
+    function nicValidate(nicno) {
 
-                            if (nicno != '') {
-                                var last_nino_carector = nicno.charAt(9);
+        if (nicno != '') {
+            var last_nino_carector = nicno.charAt(9);
 
-                                var numbers = nicno.substring(0, 9);
-                                switch (last_nino_carector)
-                                {
-                                    case 'V':
-                                        return true;
-                                    case 'v':
-                                        return true;
-                                    case 'x':
-                                        return true;
-                                    case 'X':
-                                        return true;
-                                    default:
-                                        return false;
-                                }
-                            } else {
-                                return true;
-                            }
+            var numbers = nicno.substring(0, 9);
+            switch (last_nino_carector)
+            {
+                case 'V':
+                    return true;
+                case 'v':
+                    return true;
+                case 'x':
+                    return true;
+                case 'X':
+                    return true;
+                default:
+                    return false;
+            }
+        } else {
+            return true;
+        }
 
-                        }
+    }
 </script>
