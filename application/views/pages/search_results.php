@@ -45,13 +45,19 @@
             <h2>Select transfer type for your DEPARTURE</h2>
 
             <div class="results">
-                <?php if(!is_null($results)){?>
+                <?php if(!is_null($results) && count($results) > 0){?>
                     <?php foreach($results as $result){?>
                         <!-- Item -->
                         <article class="result">
-                            <div class="one-fourth heightfix"><img src="images/uploads/car.jpg" alt="" /></div>
+                            <div class="one-fourth heightfix">
+                                <?php if($result->image_path != ''):?>
+                                    <img src="<?php echo base_url(); ?>uploads/vehicles/<?php echo $result->image_path; ?>"  class="image-responsive" />
+                                <?php else:?>
+                                    <img src="<?php echo base_url(); ?>uploads/vehicles/default.png"  class="image-responsive"/>
+                                <?php endif;?>
+                            </div>
                             <div class="one-half heightfix">
-                                <h3><?php echo $result->make_name.' '.$result->model_name;?> <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
+                                <h3><?php echo $result->make_name.' '.$result->model_name.' '.$result->year;?> <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
                                 <ul>
                                     <li>
                                         <span class="ico people"></span>
@@ -76,7 +82,7 @@
                             </div>
                             <div class="full-width information">	
                                 <a href="javascript:void(0)" class="close color" title="Close">x</a>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                                <p><?php echo $result->description; ?></p>
                             </div>
                         </article>
                         <!-- //Item -->

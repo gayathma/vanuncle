@@ -37,7 +37,6 @@ class Vehicle_route_service extends CI_Model {
             $this->db->limit($limit, $start);
         }
         $query = $this->db->get();
-
         return $query->result();
     }
 
