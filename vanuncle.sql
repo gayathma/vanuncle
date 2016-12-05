@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2016 at 06:49 PM
+-- Generation Time: Dec 05, 2016 at 06:21 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -221,7 +221,15 @@ CREATE TABLE IF NOT EXISTS `va_vehicles` (
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `va_vehicles`
+--
+
+INSERT INTO `va_vehicles` (`id`, `driver_id`, `model`, `make`, `type`, `vehicle_no`, `seats`, `year`, `isAc`, `description`, `is_deleted`, `added_date`, `updated_date`) VALUES
+(1, 1, 1, 1, 'school', '312323', 3, 2016, 'N', 'vcxvcv', 0, '2016-12-05 15:37:38', '0000-00-00 00:00:00'),
+(2, 1, 1, 1, 'school', '312323', 3, 2016, 'N', 'vcxvcv', 0, '2016-12-05 15:37:38', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -240,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_images` (
   `updated_date` timestamp NULL DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -252,11 +260,18 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_routes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driver_id` int(11) NOT NULL,
   `vehicle_id` int(11) NOT NULL,
-  `service_type` enum('school','office','trip','other') NOT NULL,
+  `service_type` enum('school','staff','special','freight') NOT NULL,
   `route` text NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `va_vehicle_routes`
+--
+
+INSERT INTO `va_vehicle_routes` (`id`, `driver_id`, `vehicle_id`, `service_type`, `route`, `added_date`) VALUES
+(1, 1, 1, 'school', 'panadura', '2016-12-05 16:08:56');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

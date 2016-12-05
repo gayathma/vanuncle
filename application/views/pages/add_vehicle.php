@@ -230,7 +230,7 @@
 
 <script type="text/javascript">
     $("div#drop").dropzone({
-        url: "/file/post",
+        url: site_url +"/vehicles/upload_vehicle_images",
         maxFiles: 3,
         acceptedFiles: "image/*",
     });
