@@ -78,7 +78,6 @@
                             <div class="f-row">
                                 <div class="full-width">
                                     <div id="upload">
-
                                         <label class="form-label">Upload Profile Picture</label>
                                         <button type="button" class="btn btn-info" id="browse">Browse</button>
                                         <input type="text" id="logo" name="logo" style="visibility: hidden" value=""/>
