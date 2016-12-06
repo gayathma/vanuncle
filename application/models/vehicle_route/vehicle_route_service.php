@@ -19,7 +19,7 @@ class Vehicle_route_service extends CI_Model {
         $this->db->join('va_vehicle_images', 'va_vehicle_images.vehicle_id = va_vehicles.id', 'left');
         $this->db->where('va_vehicles.is_deleted', '0');
         $this->db->where('va_drivers.is_deleted', '0');
-        $this->db->group_by('va_vehicles.id');
+        
 
         if (!empty($service_type) && !is_null($service_type)) {
             $this->db->where('va_vehicle_routes.service_type', $service_type);
@@ -36,6 +36,8 @@ class Vehicle_route_service extends CI_Model {
         if ($type == 'half') {
             $this->db->limit($limit, $start);
         }
+        $this->db->group_by('va_vehicles.id');
+        
         $query = $this->db->get();
         return $query->result();
     }

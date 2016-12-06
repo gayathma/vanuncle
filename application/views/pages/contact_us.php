@@ -1,50 +1,4 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
-<script type="text/javascript">
-   
-    $(document).ready(function () {
-    
-        $("#contact_form").validate({
-            rules: {
-                name: {
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email:true
-                },
-                comments: {
-                    required: true
-                }
-            },
-            messages: {
-                name: {
-                    required: "Please enter your name"
-                },
-                email: {
-                    required: "Please enter your email address",
-                    email: "Email is invalid.Please enter correct email address",
-                },
-                comments: {
-                    required: "Please enter comments"
-                }
-            }, submitHandler: function (form)
-            {
-                $.post(site_url + '/contact/send_mail', $('#contact_form').serialize(), function (msg)
-                {
-                        if (msg == 1) {
-                            $("#contact_form").reset();
-                            swal("VanUncle.lk", "Thank you - We have now received your mail and will get back to you as soon as possible.", "success");
-                        } else {
-                            swal("VanUncle.lk", "Error occured in sending your message", "error");
-                        }
-
-                });
-            }
-
-        });
-    });
-</script>
-
 <header class="site-title color" >
     <div class="wrap">
         <div class="container">
@@ -126,3 +80,48 @@
         <!--- //Sidebar -->
     </div>
 </div>
+<script type="text/javascript">
+   
+    $(document).ready(function () {
+    
+        var contact = $("#contact_form").validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true,
+                    email:true
+                },
+                comments: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter your name"
+                },
+                email: {
+                    required: "Please enter your email address",
+                    email: "Email is invalid.Please enter correct email address",
+                },
+                comments: {
+                    required: "Please enter comments"
+                }
+            }, submitHandler: function (form)
+            {
+                $.post(site_url + '/contact/send_mail', $('#contact_form').serialize(), function (msg)
+                {
+                        if (msg == 1) {
+                            $("#contact_form")[0].reset();
+                            swal("VanUncle.lk", "Thank you - We have now received your mail and will get back to you as soon as possible.", "success");
+                        } else {
+                            swal("VanUncle.lk", "Error occured in sending your message", "error");
+                        }
+
+                });
+            }
+
+        });
+    });
+</script>
