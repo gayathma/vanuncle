@@ -149,6 +149,7 @@
                         <ul class="route-list">
 
                         </ul>
+                        <div id="route_inputs"></div>
                     </div>
                 </div>
 
@@ -162,6 +163,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="vehicle_uploaded_images">
                 </div>
 
                 <div class="f-row">
@@ -232,7 +235,11 @@
     $("div#drop").dropzone({
         url: site_url + "/vehicles/upload_vehicle_images",
         maxFiles: 3,
-        acceptedFiles: "image/*"
+        acceptedFiles: "image/*",
+        success: function (file, response) {
+            obj = jQuery.parseJSON(response);
+            $('#vehicle_uploaded_images').append('<input type="hidden" name="vehi_images[]" value="' + obj.filename + '" />');
+        }
     });
 
 
@@ -240,6 +247,7 @@
     $('.route-add').click(function () {
         if ($('#route').val() != '') {
             $('.route-list').append('<li><p class="route-item">' + $('#route').val() + '</p><span class="clse">remove</span></li>');
+            $('#route_inputs').append('<input type="hidden" name="vehi_routes[]" value="' + $('#route').val() + '" />');
             $('#route').val('');
         }
     });
@@ -312,16 +320,13 @@
             {
                 $.post(site_url + '/vehicles/add_new_vehicle', $('#add_vehicle_form').serialize(), function (msg)
                 {
-                    if ($('#agree_checkbox').is(":checked")) {
-                        if (msg == 1) {
-                            swal("VanUncle.lk", "Registration Successfull!!", "success");
-                            setTimeout("location.href = site_url+'/home';", 1000);
-                        } else {
-                            swal("VanUncle.lk", "Error occured in registration", "error");
-                        }
+                    if (msg == 1) {
+                        swal("VanUncle.lk", "Vehicle Successfully Saved!!", "success");
+                        setTimeout("location.href = site_url+'/account';", 1000);
                     } else {
-                        swal("VanUncle.lk", "You must agree to the terms and conditions before registering!", "error");
+                        swal("VanUncle.lk", "Error occured in saving the vehicle", "error");
                     }
+
                 });
             }
 

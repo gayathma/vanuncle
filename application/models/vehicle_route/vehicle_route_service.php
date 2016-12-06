@@ -6,6 +6,9 @@ class Vehicle_route_service extends CI_Model {
         parent::__construct();
     }
 
+     function add_new_route($vehicle_route_model) {
+        return $this->db->insert('va_vehicle_routes', $vehicle_route_model);
+    }
 
 
     public function search_vehicles($service_type, $pickup_location, $dropoff_location, $limit, $start, $type) {
@@ -21,15 +24,16 @@ class Vehicle_route_service extends CI_Model {
         $this->db->where('va_drivers.is_deleted', '0');
         
 
-        if (!empty($service_type) && !is_null($service_type)) {
+        if ((!empty($service_type)) && (!is_null($service_type))) {
             $this->db->where('va_vehicle_routes.service_type', $service_type);
         }
         
-        if (!empty($pickup_location) && !is_null($pickup_location)) {
+        if ((!empty($pickup_location) && !is_null($pickup_location)) && (empty($dropoff_location) || is_null($dropoff_location))) {
             $this->db->like('va_vehicle_routes.route', $pickup_location);
-        }
-        if (!empty($dropoff_location) && !is_null($dropoff_location)) {
+        }elseif ((!empty($dropoff_location) && !is_null($dropoff_location)) && (empty($pickup_location) || is_null($pickup_location))) {
             $this->db->like('va_vehicle_routes.route', $dropoff_location);
+        }elseif(!empty($pickup_location) && !is_null($pickup_location) && !empty($dropoff_location) && !is_null($dropoff_location) ){
+            $this->db->where('(va_vehicle_routes.route like "%'.$pickup_location.'%" OR va_vehicle_routes.route like "%'.$dropoff_location.'%")');
         }
 
         $this->db->order_by("va_vehicles.added_date", "desc");

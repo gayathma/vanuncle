@@ -32,7 +32,7 @@ $(document).ready(function(){
                 <div class="form-group datepicker one-third">
                     <label for="service_type">Service</label>
                     <select id="service_type" class="form-control" name="service_type">
-                        <option selected>&nbsp;</option>
+                        <option selected value="">&nbsp;</option>
                         <option value="staff">Staff Services</option>
                         <option value="school">School Services</option>
                         <option value="special">Special Hires</option>

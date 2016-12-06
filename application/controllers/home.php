@@ -31,39 +31,42 @@ class Home extends CI_Controller {
         $this->load->model('vehicle_route/vehicle_route_service');
 
         $this->load->library('pagination');
-
     }
 
     public function index() {
         $data['data'] = '';
-        $partials = array('content' => 'home/main');
+        $partials     = array('content' => 'home/main');
         $this->template->load('template/template', $partials, $data);
     }
 
-    public function search($start = 0){
+    public function search($start = 0) {
         $vehicle_route_service = new Vehicle_route_service();
 
-        $config = array();
-        $config["base_url"] = site_url() . "/home/search/";
-        $config["per_page"] = 10;
+        $config                = array();
+        $config["base_url"]    = site_url() . "/home/search/";
+        $config["per_page"]    = 2;
         $config["uri_segment"] = 3;
-        $config["num_links"] = 4;
+        $config["num_links"]   = 4;
 
-        $service_type = $this->input->post('service_type', TRUE);
-        $pickup_location = $this->input->post('pick_up_loc', TRUE);
+        $service_type     = $this->input->post('service_type', TRUE);
+        $pickup_location  = $this->input->post('pick_up_loc', TRUE);
         $dropoff_location = $this->input->post('drop_off_loc', TRUE);
 
-         $data['results'] = $vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], $start, 'half');
-         
+        $data['results'] = $vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], $start, 'half');
+
         $config["total_rows"] = count($vehicle_route_service->search_vehicles($service_type, $pickup_location, $dropoff_location, $config["per_page"], 0, 'all'));
 
 
         $this->pagination->initialize($config);
         $data["links"] = $this->pagination->create_links();
+        
+        $data["service_type"] = $service_type;
+        $data["pick_up_loc"] = $pickup_location;
+        $data["drop_off_loc"] = $dropoff_location;
 
         $parials = array('content' => 'pages/search_results');
+        
         $this->template->load('template/template', $parials, $data);
-
     }
 
 }

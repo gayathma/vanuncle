@@ -1,26 +1,54 @@
 <!-- Search -->
 <div class="advanced-search color">
     <div class="wrap">
-        <form role="form">
+        <form role="form" action="<?php echo site_url(); ?>/home/search" method="post">
             <!-- Row -->
             <div class="f-row">
                 <div class="form-group datepicker one-third">
                     <label for="service_type">Service</label>
                     <select id="service_type" class="form-control" name="service_type">
-                        <option selected>&nbsp;</option>
-                        <option value="staff">Staff Services</option>
-                        <option value="school">School Services</option>
-                        <option value="special">Special Hires</option>
-                        <option value="freight">Freight Transportation</option>
+                        <option <?php
+                        if (isset($service_type) && ($service_type == '')) {
+                            echo 'selected';
+                        }
+                        ?> value="">&nbsp;</option>
+                        <option <?php
+                        if (isset($service_type) && ($service_type == 'staff')) {
+                            echo 'selected';
+                        }
+                        ?> value="staff">Staff Services</option>
+                        <option <?php
+                        if (isset($service_type) && ($service_type == 'school')) {
+                            echo 'selected';
+                        }
+                        ?> value="school">School Services</option>
+                        <option <?php
+                        if (isset($service_type) && ($service_type == 'special')) {
+                            echo 'selected';
+                        }
+                        ?> value="special">Special Hires</option>
+                        <option <?php
+                        if (isset($service_type) && ($service_type == 'freight')) {
+                            echo 'selected';
+                        }
+                        ?> value="freight">Freight Transportation</option>
                     </select>
                 </div>
                 <div class="form-group select one-third">
                     <label>Pick up location</label>
-                    <input type="text" id="pick_up_loc" name="pick_up_loc"/>
+                    <input type="text" id="pick_up_loc" name="pick_up_loc" value="<?php
+                    if (isset($pick_up_loc)) {
+                        echo $pick_up_loc;
+                    }
+                    ?>"/>
                 </div>
                 <div class="form-group select one-third">
                     <label>Drop off location</label>
-                    <input type="text" id="drop_off_loc" name="drop_off_loc"/>
+                    <input type="text" id="drop_off_loc" name="drop_off_loc" value="<?php
+                    if (isset($drop_off_loc)) {
+                        echo $drop_off_loc;
+                    }
+                    ?>"/>
                 </div>
             </div>
             <!-- //Row -->
@@ -45,23 +73,23 @@
             <h2>Select transfer type for your DEPARTURE</h2>
 
             <div class="results">
-                <?php if(!is_null($results) && count($results) > 0){?>
-                    <?php foreach($results as $result){?>
+                <?php if (!is_null($results) && count($results) > 0) { ?>
+                    <?php foreach ($results as $result) { ?>
                         <!-- Item -->
                         <article class="result">
                             <div class="one-fourth heightfix">
-                                <?php if($result->image_path != ''):?>
+                                <?php if ($result->image_path != ''): ?>
                                     <img src="<?php echo base_url(); ?>uploads/vehicles/<?php echo $result->image_path; ?>"  class="image-responsive" />
-                                <?php else:?>
+                                <?php else: ?>
                                     <img src="<?php echo base_url(); ?>uploads/vehicles/default.png"  class="image-responsive"/>
-                                <?php endif;?>
+                                <?php endif; ?>
                             </div>
                             <div class="one-half heightfix">
-                                <h3><?php echo $result->make_name.' '.$result->model_name.' '.$result->year;?> <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
+                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?> <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
                                 <ul>
                                     <li>
                                         <span class="ico people"></span>
-                                        <p><strong><?php echo $result->seats;?> seats</strong></p>
+                                        <p><strong><?php echo $result->seats; ?> seats</strong></p>
                                     </li>
                                     <li>
                                         <span class="ico luggage"></span>
@@ -86,13 +114,17 @@
                             </div>
                         </article>
                         <!-- //Item -->
-                    <?php }?>
-                <?php }else{?>
-                        <h3>No results found. <a href="<?php echo site_url(); ?>/contact">Please click here to make an inquiry.</a></h3>
-                <?php }?>
+                    <?php } ?>
+                <?php }else { ?>
+                    <h3>No results found. <a href="<?php echo site_url(); ?>/contact">Please click here to make an inquiry.</a></h3>
+                <?php } ?>
             </div>
 
         </div>
         <!--- //Content -->
+
+        <div class="pagination">
+            <?php echo $links; ?>
+        </div>
     </div>
 </div>
