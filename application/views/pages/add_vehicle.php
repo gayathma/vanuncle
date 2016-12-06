@@ -23,7 +23,7 @@
         </div>
         <!--- //Content -->
 
-        <div class="three-fourth">
+        <div class="four-fourth">
             <form method="post" enctype="multipart/form-data" id="add_vehicle_form" name="add_vehicle_form">
                 <div class="f-row">
                     <div class="one-half">
@@ -180,53 +180,7 @@
             </form>
         </div>
 
-        <!--- Sidebar -->
-        <aside class="one-fourth sidebar right">
-            <!-- Widget -->
-            <div class="widget">
-                <h4>Booking summary</h4>
-                <div class="summary">
-                    <div>
-                        <h5>DEPARTURE</h5>
-                        <dl>
-                            <dt>Date</dt>
-                            <dd>28.08.2014 10:00</dd>
-                            <dt>From</dt>
-                            <dd>London bus station</dd>
-                            <dt>To</dt>
-                            <dd>London airport</dd>
-                            <dt>Vehicle</dt>
-                            <dd>Private shuttle</dd>
-                            <dt>Extras</dt>
-                            <dd>2 pieces of baggage up to 15kg</dd>
-                        </dl>
-                    </div>
-
-                    <div>
-                        <h5>RETURN</h5>
-                        <dl>
-                            <dt>Date</dt>
-                            <dd>02.09.2014 17:00</dd>
-                            <dt>From</dt>
-                            <dd>London airport</dd>
-                            <dt>To</dt>
-                            <dd>London bus station</dd>
-                            <dt>Vehicle</dt>
-                            <dd>Private shuttle</dd>
-                            <dt>Extras</dt>
-                            <dd>2 pieces of baggage up to 15kg</dd>
-                        </dl>
-                    </div>
-
-                    <dl class="total">
-                        <dt>Total</dt>
-                        <dd>840,00 usd</dd>
-                    </dl>
-                </div>
-            </div>
-            <!-- //Widget -->
-        </aside>
-        <!--- //Sidebar -->
+        
     </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>

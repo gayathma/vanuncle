@@ -13,7 +13,7 @@
             <span>Users & Drivers</span>
         </a> 
         <ul class="sub">
-            <li><a  href="<?php echo site_url(); ?>/users/manage_admins" onclick="">Manage Administrators</a></li>
+<!--            <li><a  href="<?php echo site_url(); ?>/users/manage_admins" onclick="">Manage Administrators</a></li>-->
             <li><a  href="<?php echo site_url(); ?>/driver/manage_drivers">Manage Registered Drivers</a></li>
         </ul>
     </li>
@@ -24,16 +24,16 @@
                 <span>Advertisements</span>
             </a>
             <ul class="sub">
-                <li><a  href="<?php echo site_url(); ?>/vehicle_advertisements/manage_advertisements">Vehicle Advertisements</a></li>
-                <li><a  href="<?php echo site_url(); ?>/vehicle_advertisements/get_Approved_advertisements">Featured Advertisements</a></li>
+<!--                <li><a  href="<?php echo site_url(); ?>/vehicle_advertisements/manage_advertisements">Vehicle Advertisements</a></li>-->
+<!--                <li><a  href="<?php echo site_url(); ?>/vehicle_advertisements/get_Approved_advertisements">Featured Advertisements</a></li>
                 <li><a  href="<?php echo site_url(); ?>/website_advertisements/manage_advertisements">Website Advertisements</a></li>
                 <li><a  href="<?php echo site_url(); ?>/spare_part_advertisement/manage_advertisements">Spare parts Advertisements</a></li>
-                <li><a  href="<?php echo site_url(); ?>/spare_part_advertisement/get_approved_advertisements">Featured Spare parts</a></li>
+                <li><a  href="<?php echo site_url(); ?>/spare_part_advertisement/get_approved_advertisements">Featured Spare parts</a></li>-->
             </ul>
         </li>
 
 
-    <li class="sub-menu">
+<!--    <li class="sub-menu">
         <a href="javascript:;" id="pages_menu">
             <i class="fa fa-folder-open"></i>
             <span>Manage Pages</span>
@@ -46,9 +46,9 @@
             <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/WELCOMEINNERPAGE">Welcomer Message </a></li>
             <li><a href="<?php echo site_url(); ?>/contents/load_contents_by_hcode/WHYUS">Why Us</a></li>
         </ul>
-    </li>
+    </li>-->
     
-     <li class="sub-menu">
+<!--     <li class="sub-menu">
         <a href="javascript:;" id="campaign_menu">
             <i class="fa fa-rss"></i>
             <span>Campaign</span>
@@ -57,9 +57,9 @@
             <li><a  href="<?php echo site_url(); ?>/subscribe/manage_newsletters">Newsletters</a></li>
             <li><a  href="<?php echo site_url(); ?>/subscribe/manage_subscribers">Subscribers</a></li>
         </ul>
-    </li>
+    </li>-->
 
-    <li class="sub-menu">
+<!--    <li class="sub-menu">
         <a href="javascript:;" id="comments_menu">
             <i class="fa fa-comment-o"></i>
             <span>Reviews</span>
@@ -69,7 +69,7 @@
             <li><a  href="<?php echo site_url(); ?>/vehicle_news/manage_vehicle_news">Vehicle News</a></li>
             <li><a  href="<?php echo site_url(); ?>/faq/manage_faq">Manage FAQ's</a></li>
         </ul>
-    </li>
+    </li>-->
 
     <li class="sub-menu">
         <a href="javascript:;" id="vehicle_spec_menu">
@@ -82,7 +82,7 @@
         </ul>        
     </li>
 
-    <li class="sub-menu">
+<!--    <li class="sub-menu">
         <a href="javascript:;" id="settings_menu">
             <i class="fa  fa-wrench"></i>
             <span>Settings</span>
@@ -92,6 +92,6 @@
             <li><a  href="<?php echo site_url(); ?>/privilege/manage_privileges">Manage Privileges</a></li>
 
         </ul>        
-    </li>
+    </li>-->
 </ul>
 

@@ -7,11 +7,7 @@
                 <div class="form-group datepicker one-third">
                     <label for="service_type">Service</label>
                     <select id="service_type" class="form-control" name="service_type">
-                        <option <?php
-                        if (isset($service_type) && ($service_type == '')) {
-                            echo 'selected';
-                        }
-                        ?> value="">&nbsp;</option>
+
                         <option <?php
                         if (isset($service_type) && ($service_type == 'staff')) {
                             echo 'selected';
@@ -70,7 +66,22 @@
     <div class="row">
         <!--- Content -->
         <div class="full-width content">
-            <h2>Select transfer type for your DEPARTURE</h2>
+            <h2>
+                <?php
+                if (isset($service_type) && ($service_type == 'staff')) {
+                    echo 'Staff Services';
+                }
+                if (isset($service_type) && ($service_type == 'school')) {
+                    echo 'School Services';
+                }
+                if (isset($service_type) && ($service_type == 'special')) {
+                    echo 'Special Hires';
+                }
+                if (isset($service_type) && ($service_type == 'freight')) {
+                    echo 'Freight Transportation';
+                }
+                ?>
+            </h2>
 
             <div class="results">
                 <?php if (!is_null($results) && count($results) > 0) { ?>
@@ -85,7 +96,7 @@
                                 <?php endif; ?>
                             </div>
                             <div class="one-half heightfix">
-                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?> <a href="javascript:void(0)" class="trigger color" title="Read more">?</a></h3>
+                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?> <a href="javascript:void(0)" class="trigger color" title="View Route">?</a></h3>
                                 <ul>
                                     <li>
                                         <span class="ico people"></span>
@@ -93,19 +104,17 @@
                                     </li>
                                     <li>
                                         <span class="ico luggage"></span>
-                                        <p>Max <strong>3 suitcases</strong> <br />per vehicle</p>
+                                        <p><?php if($result->isAc == 'Y'){ echo 'Air Conditioned'; }else{ echo 'No Air Condition';} ?></p>
                                     </li>
                                     <li>
-                                        <span class="ico time"></span>
-                                        <p>Estimated time <br /><strong>50 mins</strong></p>
+                                        <span>Panadura,Moratuwa,Colombo</span>
                                     </li>
                                 </ul>
                             </div>
                             <div class="one-fourth heightfix">
                                 <div>
-                                    <div class="price">130,00 <small>USD</small></div>
-                                    <span class="meta">per passenger</span>
-                                    <a href="booking-step1.html" class="btn grey large">select</a>
+                                    <span class="meta">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
+                                    <a href="booking-step1.html" class="btn grey large">Contact</a>
                                 </div>
                             </div>
                             <div class="full-width information">	
