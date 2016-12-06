@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2016 at 06:21 PM
+-- Generation Time: Dec 06, 2016 at 05:56 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `va_drivers` (
 --
 
 INSERT INTO `va_drivers` (`id`, `name`, `nic`, `mobile`, `land_phone`, `email`, `password`, `profile_pic`, `user_type`, `is_terms_agreed`, `is_deleted`, `added_date`, `updated_date`) VALUES
-(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'dri_1477222581-531709_575297122495442_553449702_n.jpg', 1, '0', 0, '2016-10-24 14:24:17', '2016-10-23 08:06:22'),
+(1, 'Gayathma Perera', '911622491V', '3243432411', '3243432411', 'gayathma3@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-12-06 16:41:00', '2016-10-23 08:06:22'),
 (2, 'dfdfsd', '911622491V', '3243432411', '1111111111', 'fdfdf@dfd.fhf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:19', NULL),
 (3, 'dsdsd', '911622491V', '3243432411', '3212323233', 'weqwe@fsdf.nnf', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:21', NULL),
 (4, 'vcvc', '911622491V', '3434444444', '4324344444', 'ddg@sddsg.gdgg', 'e10adc3949ba59abbe56e057f20f883e', 'avatar.png', 1, '0', 0, '2016-10-24 14:24:23', NULL),
@@ -221,15 +221,16 @@ CREATE TABLE IF NOT EXISTS `va_vehicles` (
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `va_vehicles`
 --
 
 INSERT INTO `va_vehicles` (`id`, `driver_id`, `model`, `make`, `type`, `vehicle_no`, `seats`, `year`, `isAc`, `description`, `is_deleted`, `added_date`, `updated_date`) VALUES
-(1, 1, 1, 1, 'school', '312323', 3, 2016, 'N', 'vcxvcv', 0, '2016-12-05 15:37:38', '0000-00-00 00:00:00'),
-(2, 1, 1, 1, 'school', '312323', 3, 2016, 'N', 'vcxvcv', 0, '2016-12-05 15:37:38', '0000-00-00 00:00:00');
+(1, 1, 1, 1, '', '123456', 6, 2013, 'Y', 'fdsfdfdfdfdfdf', 0, '2016-12-06 12:13:11', '2016-12-06 16:43:11'),
+(2, 1, 1, 1, '', '123456789', 5, 2017, 'Y', 'fsdfsdfdf', 0, '2016-12-06 12:14:22', '2016-12-06 16:44:22'),
+(3, 1, 1, 1, '', '1234567890', 7, 2013, 'Y', '', 0, '2016-12-06 12:15:26', '2016-12-06 16:45:26');
 
 -- --------------------------------------------------------
 
@@ -248,7 +249,16 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_images` (
   `updated_date` timestamp NULL DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `va_vehicle_images`
+--
+
+INSERT INTO `va_vehicle_images` (`id`, `vehicle_id`, `caption`, `image_path`, `is_deleted`, `added_date`, `added_by`, `updated_date`, `updated_by`) VALUES
+(1, 1, NULL, 'dri_1481042584-car.jpg', '0', '2016-12-06 12:13:11', 1, NULL, NULL),
+(2, 2, NULL, 'dri_1481042659-img.jpg', '0', '2016-12-06 12:14:22', 1, NULL, NULL),
+(3, 3, NULL, 'dri_1481042724-van.jpg', '0', '2016-12-06 12:15:26', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -264,14 +274,21 @@ CREATE TABLE IF NOT EXISTS `va_vehicle_routes` (
   `route` text NOT NULL,
   `added_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `va_vehicle_routes`
 --
 
 INSERT INTO `va_vehicle_routes` (`id`, `driver_id`, `vehicle_id`, `service_type`, `route`, `added_date`) VALUES
-(1, 1, 1, 'school', 'panadura', '2016-12-05 16:08:56');
+(1, 1, 1, 'staff', 'Panadura, Western Province, Sri Lanka', '2016-12-06 12:13:11'),
+(2, 1, 1, 'staff', 'Moratuwa, Western Province, Sri Lanka', '2016-12-06 12:13:11'),
+(3, 1, 1, 'staff', 'Mount Lavinia, Colombo, Western Province, Sri Lanka', '2016-12-06 12:13:11'),
+(4, 1, 1, 'staff', 'Kollupitiya, Colombo, Western Province, Sri Lanka', '2016-12-06 12:13:11'),
+(5, 1, 2, 'staff', 'Panadura, Western Province, Sri Lanka', '2016-12-06 12:14:22'),
+(6, 1, 2, 'staff', 'Wadduwa, Western Province, Sri Lanka', '2016-12-06 12:14:22'),
+(7, 1, 2, 'staff', 'Kalutara, Western Province, Sri Lanka', '2016-12-06 12:14:22'),
+(8, 1, 3, 'staff', 'Colombo, Western Province, Sri Lanka', '2016-12-06 12:15:26');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
