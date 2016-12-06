@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2016 at 05:56 PM
+-- Generation Time: Dec 06, 2016 at 06:34 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `va_cms_users` (
 --
 
 INSERT INTO `va_cms_users` (`cms_user_id`, `cms_user_email`, `cms_user_password`, `cms_user_name`, `cms_user_added_date`, `cms_user_status`) VALUES
-(1, 'gayathma3@gmail.com', 'c4961b067d274050e43e26beb9d7d19c', 'Gayathma Perera', '2016-06-22 13:20:50', '1');
+(1, 'info@vanuncle.lk', 'e10adc3949ba59abbe56e057f20f883e', 'Gayathma Perera', '2016-12-06 17:34:14', '1');
 
 -- --------------------------------------------------------
 
