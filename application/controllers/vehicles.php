@@ -112,7 +112,7 @@ class Vehicles extends CI_Controller {
         $routes     = $this->input->post('vehi_routes', TRUE);
         $msg        = 1;
 
-        if (!empty($vehicle_id) && count($images) > 0) {
+        if ((!empty($vehicle_id)) && (!empty($images))) {
             foreach ($images as $image) {
                 $vehicle_images_model->set_image_path($image);
                 $vehicle_images_model->set_vehicle_id($vehicle_id);
@@ -124,7 +124,7 @@ class Vehicles extends CI_Controller {
             }
         }
 
-        if (count($routes) > 0) {
+        if (!empty($routes)) {
             foreach ($routes as $route) {
                 $vehicle_route_model->set_driver_id($this->session->userdata('USER_ID'));
                 $vehicle_route_model->set_vehicle_id($vehicle_id);

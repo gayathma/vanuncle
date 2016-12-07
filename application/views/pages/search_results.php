@@ -134,7 +134,7 @@
         </div>
         <!--- //Content -->
 
-        <div class="pagination">
+        <div class="pagination pull-right">
             <?php echo $links; ?>
         </div>
     </div>

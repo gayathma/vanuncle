@@ -99,6 +99,7 @@
                         <li><a href="<?php echo site_url(); ?>/contact" title="Contact">Contact</a></li>
                         <?php if (!$this->session->userdata('USER_LOGGED_IN')) { ?>
                             <li><a href="<?php echo site_url(); ?>/sign_up">Driver Registration</a></li>
+                            <li><a href="<?php echo site_url(); ?>/login">Sign In</a></li>
                         <?php } else { ?>
                             <li><a href="<?php echo site_url(); ?>/account" ><?php echo ucfirst($this->session->userdata('USER_FULLNAME')); ?>'S Account</a></li>
                             <li><a href="<?php echo site_url(); ?>/login/logout" >Sign Out</a></li>

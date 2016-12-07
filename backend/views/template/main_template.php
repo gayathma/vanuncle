@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Armates">
-        <meta name="keyword" content="AutoVille">
+        <meta name="keyword" content="VanUncle.lk">
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url(); ?>backend_resources/img/fav/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url(); ?>backend_resources/img/fav/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>backend_resources/img/fav/apple-icon-72x72.png">
