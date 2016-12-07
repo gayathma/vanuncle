@@ -66,7 +66,7 @@
     <div class="row">
         <!--- Content -->
         <div class="full-width content">
-            <h2>
+            <h2  class="heading">
                 <?php
                 if (isset($service_type) && ($service_type == 'staff')) {
                     echo 'Staff Services';
@@ -96,28 +96,30 @@
                                 <?php endif; ?>
                             </div>
                             <div class="one-half heightfix">
-                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?> <a href="javascript:void(0)" class="trigger color" title="View Route">?</a></h3>
+                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?>  <a href="javascript:void(0)" class="trigger color" title="View Route"><i class="fa fa-sort-desc" aria-hidden="true"></i></a></h3>
                                 <ul>
                                     <li>
-                                        <span class="ico people"></span>
-                                        <p><strong><?php echo $result->seats; ?> seats</strong></p>
+                                        <i class="fa fa-taxi icn-size" aria-hidden="true"></i>
+                                        <p><?php echo $result->seats; ?> seats</p>
                                     </li>
                                     <li>
-                                        <span class="ico luggage"></span>
+                                        <i class="fa fa-snowflake-o icn-size" aria-hidden="true"></i>
                                         <p><?php if($result->isAc == 'Y'){ echo 'Air Conditioned'; }else{ echo 'No Air Condition';} ?></p>
                                     </li>
-                                    <li>
-                                        <span>Panadura,Moratuwa,Colombo</span>
+                                    <li  class="route-sp">
+                                        <span>Panadura</span>
+                                        <span>Moratuwa</span>
+                                        <span>Colombo</span>
                                     </li>
                                 </ul>
                             </div>
                             <div class="one-fourth heightfix">
                                 <div>
                                     <span class="meta">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
-                                    <a href="booking-step1.html" class="btn grey large">Contact</a>
+                                    <a  class="btn grey large contact">Contact</a>
                                 </div>
                             </div>
-                            <div class="full-width information">	
+                            <div class="full-width information">
                                 <a href="javascript:void(0)" class="close color" title="Close">x</a>
                                 <p><?php echo $result->description; ?></p>
                             </div>
@@ -137,3 +139,28 @@
         </div>
     </div>
 </div>
+
+<script>
+$('.contact').click(function(){
+    swal({
+    title: "Give us your contact details to reach you",
+    text: '<input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="text" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/>',
+    html: true,
+    showCancelButton: true,
+    closeOnCancel: true,
+    type: "info",
+    closeOnConfirm: false,
+  },
+  function(){
+    console.log($( "input[name='username']" ).val());
+    var username =$( "input[name='username']" ).val();
+    var email =$( "input[name='email']" ).val();
+    var phone =$( "input[name='phone']" ).val();
+    if(username!='' && (email!='' || phone !='')){
+      //place ajax call here
+      swal("Thanks for the information. We will contact you soon.");
+    }
+
+  });
+});
+</script>

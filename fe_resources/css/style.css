@@ -1203,3 +1203,21 @@ width: 100%;
   height: 200px;
   border-radius: 7px;
 }
+
+.icn-size{
+  font-size: 2em;
+  padding: 5px;
+}
+
+.route-sp span{
+  padding: 5px;
+  background: #feb12d;
+  color: white;
+  border-radius: 5px;
+  margin: 2px;
+  display: inline-block;
+}
+
+.heading{
+  padding: 10px 0 10px;
+}

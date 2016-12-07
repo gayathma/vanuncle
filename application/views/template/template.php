@@ -27,6 +27,7 @@
         <title>VanUncle.lk</title>
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/styler.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/font-awesome.min.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/theme-pink.css" id="template-color" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>fe_resources/css/icons.css" />
