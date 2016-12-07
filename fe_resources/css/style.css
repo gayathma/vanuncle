@@ -1221,3 +1221,16 @@ width: 100%;
 .heading{
   padding: 10px 0 10px;
 }
+
+.pagination{
+  text-align: CENTER;
+margin-bottom: 13px;
+}
+
+.pagination strong,.pagination a{
+  font-size: 1.5em;
+      background-color: #ffffff;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 1px;
+}
