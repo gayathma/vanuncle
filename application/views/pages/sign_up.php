@@ -119,7 +119,6 @@
                     maxlength: 10
                 },
                 land_phone: {
-                    required: true,
                     digits: true,
                     minlength: 10,
                     maxlength: 10
