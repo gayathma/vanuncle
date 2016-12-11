@@ -85,10 +85,10 @@
 
             <div class="results">
                 <?php if (!is_null($results) && count($results) > 0) { ?>
-                <?php $vehicle_route_service = new Vehicle_route_service(); ?>
-                    <?php 
-                    foreach ($results as $result) { 
-                        $routes  = $vehicle_route_service->get_routes_for_vehicle($result->driver_id, $result->id, $service_type);
+                    <?php $vehicle_route_service = new Vehicle_route_service(); ?>
+                    <?php
+                    foreach ($results as $result) {
+                        $routes = $vehicle_route_service->get_routes_for_vehicle($result->driver_id, $result->id, $service_type);
                         ?>
                         <!-- Item -->
                         <article class="result">
@@ -108,13 +108,19 @@
                                     </li>
                                     <li>
                                         <i class="fa fa-snowflake-o icn-size" aria-hidden="true"></i>
-                                        <p><?php if($result->isAc == 'Y'){ echo 'Air Conditioned'; }else{ echo 'No Air Condition';} ?></p>
+                                        <p><?php
+                                            if ($result->isAc == 'Y') {
+                                                echo 'Air Conditioned';
+                                            } else {
+                                                echo 'No Air Condition';
+                                            }
+                                            ?></p>
                                     </li>
                                     <?php if (!empty($routes)): ?>
                                         <li  class="route-sp">
-                                            <?php foreach ($routes as $route) {?>
-                                            <?php $route = explode(',', $route->route)?>
-                                            <span><?php echo $route[0]; ?></span>
+                                            <?php foreach ($routes as $route) { ?>
+                                                <?php $route = explode(',', $route->route) ?>
+                                                <span><?php echo $route[0]; ?></span>
                                             <?php } ?>
                                         </li>
                                     <?php endif; ?>   
@@ -122,15 +128,14 @@
                             </div>
                             <div class="one-fourth heightfix">
                                 <div>
-                                    <span class="meta">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
-                                    <div>
-                                        <?php if ($result->profile_pic != ''): ?>
-                                            <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>"  class="image-responsive" />
-                                        <?php else: ?>
-                                            <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png"  class="image-responsive"/>
-                                        <?php endif; ?>
-                                    </div>
-                                    <a  class="btn grey large contact">Contact</a>
+                                    <?php if ($result->profile_pic != ''): ?>
+                                        <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>"  class="image-responsive img-circle" />
+                                    <?php else: ?>
+                                        <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png"  class="image-responsive  img-circle"/>
+                                    <?php endif; ?>
+                                    <span class="meta driver-ref">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
+
+                                    <a href="javascript:;" onclick="contact(<?php echo $result->id; ?>)" class="btn grey large contact" style="cursor: pointer">Contact</a>
                                 </div>
                             </div>
                             <div class="full-width information">
@@ -155,26 +160,26 @@
 </div>
 
 <script>
-$('.contact').click(function(){
-    swal({
-    title: "Give us your contact details to reach you",
-    text: '<input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="text" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/>',
-    html: true,
-    showCancelButton: true,
-    closeOnCancel: true,
-    type: "info",
-    closeOnConfirm: false,
-  },
-  function(){
-    console.log($( "input[name='username']" ).val());
-    var username =$( "input[name='username']" ).val();
-    var email =$( "input[name='email']" ).val();
-    var phone =$( "input[name='phone']" ).val();
-    if(username!='' && (email!='' || phone !='')){
-      //place ajax call here
-      swal("Thanks for the information. We will contact you soon.");
-    }
+    function contact(vehicle_id){
+        swal({
+            title: "Give us your contact details to reach you",
+            text: '<input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="text" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/>',
+            html: true,
+            showCancelButton: true,
+            closeOnCancel: true,
+            type: "info",
+            closeOnConfirm: false,
+        },
+                function () {
+                    console.log($("input[name='username']").val());
+                    var username = $("input[name='username']").val();
+                    var email = $("input[name='email']").val();
+                    var phone = $("input[name='phone']").val();
+                    if (username != '' && (email != '' || phone != '')) {
+                        //place ajax call here
+                        swal("Thanks for the information. We will contact you soon.");
+                    }
 
-  });
-});
+                });
+    }
 </script>

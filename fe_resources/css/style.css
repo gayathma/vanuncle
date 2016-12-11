@@ -1286,3 +1286,13 @@ div.selector span:before{
     background-color: #fff;
     border: 1px solid #ddd;
 }
+
+.img-circle{
+    border-radius:50% !important;
+    width: 40px;
+}
+
+.driver-ref{
+    font-size: .8em !important;
+    padding-left: 5px 
+}

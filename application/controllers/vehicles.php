@@ -175,11 +175,15 @@ class Vehicles extends CI_Controller {
     function edit_vehicle($vehicle_id) {
         if ($this->session->userdata('USER_LOGGED_IN')) {
 
-            $make_service     = new Make_service();
-            $vehicles_service = new Vehicles_service();
+            $make_service          = new Make_service();
+            $vehicles_service      = new Vehicles_service();
+            $vehicle_route_service = new Vehicle_route_service();
+            $model_service         = new Model_service();
 
             $data['makes']   = $make_service->get_all_makes();
+            $data['models']   = $model_service->get_all_active_models();
             $data['vehicle'] = $vehicles_service->get_vehicle_by_id($vehicle_id);
+            $data['routes']  = $vehicle_route_service->get_routes_vehicle($this->session->userdata('USER_ID'), $vehicle_id);
 
             $parials = array('content' => 'pages/edit_vehicle');
             $this->template->load('template/template', $parials, $data);
@@ -187,6 +191,73 @@ class Vehicles extends CI_Controller {
             $partials = array('content' => 'pages/login');
             $this->template->load('template/template', $partials);
         }
+    }
+    
+    public function update_vehicle() {
+        $vehicles_service       = new Vehicles_service();
+        $vehicles_model         = new Vehicles_model();
+        $vehicle_images_model   = new Vehicle_images_model();
+        $vehicle_images_service = new Vehicle_images_service();
+        $vehicle_route_model    = new Vehicle_route_model();
+        $vehicle_route_service  = new Vehicle_route_service();
+
+        $vehicles_model->set_make($this->input->post('make', TRUE));
+        $vehicles_model->set_model($this->input->post('model', TRUE));
+        $vehicles_model->set_type($this->input->post('type', TRUE));
+        $vehicles_model->set_vehicle_no($this->input->post('vehicle_no', TRUE));
+        $vehicles_model->set_year($this->input->post('year', TRUE));
+        $vehicles_model->set_seats($this->input->post('seats', TRUE));
+        $vehicles_model->set_isAc($this->input->post('is_ac', TRUE));
+        $vehicles_model->set_description($this->input->post('description', TRUE));
+        $vehicles_model->set_updated_date(date("Y-m-d H:i:s"));
+
+        $vehicle_id = $vehicles_service->add_new_vehicle($vehicles_model);
+        $images     = $this->input->post('vehi_images', TRUE);
+        $routes     = $this->input->post('vehi_routes', TRUE);
+        $msg        = 1;
+
+        if ((!empty($vehicle_id)) && (!empty($images))) {
+            foreach ($images as $image) {
+                $vehicle_images_model->set_image_path($image);
+                $vehicle_images_model->set_vehicle_id($vehicle_id);
+                $vehicle_images_model->set_is_deleted('0');
+                $vehicle_images_model->set_added_date(date("Y-m-d H:i:s"));
+                $vehicle_images_model->set_added_by($this->session->userdata('USER_ID'));
+
+                $vehicle_images_service->add_new_images($vehicle_images_model);
+            }
+        }
+
+        if (!empty($routes)) {
+            foreach ($routes as $route) {
+                $vehicle_route_model->set_driver_id($this->session->userdata('USER_ID'));
+                $vehicle_route_model->set_vehicle_id($vehicle_id);
+                $vehicle_route_model->set_service_type($this->input->post('service_type', TRUE));
+                $vehicle_route_model->set_added_date(date("Y-m-d H:i:s"));
+                $vehicle_route_model->set_route($route);
+
+                $vehicle_route_service->add_new_route($vehicle_route_model);
+            }
+        }
+
+        if ($msg == '1') {
+
+            $this->load->library('email');
+
+            $this->email->from($this->session->userdata('USER_EMAIL'));
+            $this->email->to('info@vanuncle.lk');
+            $this->email->cc('gayathma3@gmail.com');
+
+            $this->email->subject('VanUncle.lk New Advertisement');
+
+            $message = 'New Advertisement submitted!!';
+
+            $this->email->message($message);
+
+            $msg = $this->email->send();
+        }
+
+        echo $msg;
     }
 
 }

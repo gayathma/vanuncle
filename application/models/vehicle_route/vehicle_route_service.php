@@ -56,6 +56,13 @@ class Vehicle_route_service extends CI_Model {
         return $query->result();
     }
     
+    function get_routes_vehicle($driver_id,$vehicle_id) {
+
+        $query = $this->db->get_where('va_vehicle_routes', array('driver_id' => $driver_id,
+            'vehicle_id' => $vehicle_id));
+        return $query->result();
+    }
+    
     function delete_vehicle_routes($vehicle_id) {
         $this->db->where('vehicle_id', $vehicle_id);
         return $this->db->delete('va_vehicle_routes');
