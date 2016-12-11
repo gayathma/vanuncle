@@ -150,10 +150,43 @@ class Vehicles extends CI_Controller {
 
             $this->email->message($message);
 
-            $msg =  $this->email->send();
+            $msg = $this->email->send();
         }
 
         echo $msg;
+    }
+
+    function delete_vehicle() {
+
+        $vehicles_service       = new Vehicles_service();
+        $vehicle_images_service = new Vehicle_images_service();
+        $vehicle_route_service  = new Vehicle_route_service();
+
+        $vehicle_id = trim($this->input->post('id', TRUE));
+        $result     = $vehicles_service->delete_vehicle($vehicle_id);
+
+        if ($result) {
+            $vehicle_images_service->delete_vehicle_images($vehicle_id);
+            $vehicle_route_service->delete_vehicle_routes($vehicle_id);
+        }
+        echo $result;
+    }
+
+    function edit_vehicle($vehicle_id) {
+        if ($this->session->userdata('USER_LOGGED_IN')) {
+
+            $make_service     = new Make_service();
+            $vehicles_service = new Vehicles_service();
+
+            $data['makes']   = $make_service->get_all_makes();
+            $data['vehicle'] = $vehicles_service->get_vehicle_by_id($vehicle_id);
+
+            $parials = array('content' => 'pages/edit_vehicle');
+            $this->template->load('template/template', $parials, $data);
+        } else {
+            $partials = array('content' => 'pages/login');
+            $this->template->load('template/template', $partials);
+        }
     }
 
 }

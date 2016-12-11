@@ -85,7 +85,11 @@
 
             <div class="results">
                 <?php if (!is_null($results) && count($results) > 0) { ?>
-                    <?php foreach ($results as $result) { ?>
+                <?php $vehicle_route_service = new Vehicle_route_service(); ?>
+                    <?php 
+                    foreach ($results as $result) { 
+                        $routes  = $vehicle_route_service->get_routes_for_vehicle($result->driver_id, $result->id, $service_type);
+                        ?>
                         <!-- Item -->
                         <article class="result">
                             <div class="one-fourth heightfix">
@@ -96,7 +100,7 @@
                                 <?php endif; ?>
                             </div>
                             <div class="one-half heightfix">
-                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?>  <a href="javascript:void(0)" class="trigger color" title="View Route"><i class="fa fa-sort-desc" aria-hidden="true"></i></a></h3>
+                                <h3><?php echo $result->make_name . ' ' . $result->model_name . ' ' . $result->year; ?>   <a href="javascript:void(0)" class="trigger color" title="View Route"><i class="fa fa-sort-desc" aria-hidden="true"></i></a></h3>
                                 <ul>
                                     <li>
                                         <i class="fa fa-taxi icn-size" aria-hidden="true"></i>
@@ -106,16 +110,26 @@
                                         <i class="fa fa-snowflake-o icn-size" aria-hidden="true"></i>
                                         <p><?php if($result->isAc == 'Y'){ echo 'Air Conditioned'; }else{ echo 'No Air Condition';} ?></p>
                                     </li>
-                                    <li  class="route-sp">
-                                        <span>Panadura</span>
-                                        <span>Moratuwa</span>
-                                        <span>Colombo</span>
-                                    </li>
+                                    <?php if (!empty($routes)): ?>
+                                        <li  class="route-sp">
+                                            <?php foreach ($routes as $route) {?>
+                                            <?php $route = explode(',', $route->route)?>
+                                            <span><?php echo $route[0]; ?></span>
+                                            <?php } ?>
+                                        </li>
+                                    <?php endif; ?>   
                                 </ul>
                             </div>
                             <div class="one-fourth heightfix">
                                 <div>
                                     <span class="meta">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
+                                    <div>
+                                        <?php if ($result->profile_pic != ''): ?>
+                                            <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>"  class="image-responsive" />
+                                        <?php else: ?>
+                                            <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png"  class="image-responsive"/>
+                                        <?php endif; ?>
+                                    </div>
                                     <a  class="btn grey large contact">Contact</a>
                                 </div>
                             </div>

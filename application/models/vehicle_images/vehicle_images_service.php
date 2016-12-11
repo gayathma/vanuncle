@@ -45,5 +45,10 @@ class Vehicle_images_service extends CI_Model {
 
         return $query->row();
     }
+    
+    function delete_vehicle_images($vehicle_id) {
+        $this->db->where('vehicle_id', $vehicle_id);
+        return $this->db->delete('va_vehicle_images');
+    }
 
 }

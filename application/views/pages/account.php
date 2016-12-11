@@ -149,22 +149,22 @@
                     foreach ($my_vehicles as $my_vehicle) {
                         ?>
                         <!-- Item -->
-                        <div class="box history">
-                            <h6><small><?php echo date('Y-m-d',  strtotime($my_vehicle->added_date));?></small></h6>
+                        <div class="box history" id="veh_<?php echo $my_vehicle->id; ?>">
+                            <h6><small><?php echo date('Y-m-d', strtotime($my_vehicle->added_date)); ?></small></h6>
                             <div class="row">
                                 <div class="image">
-                                    <?php if($my_vehicle->image_path != ''):?>
+                                    <?php if ($my_vehicle->image_path != ''): ?>
                                         <img src="<?php echo base_url(); ?>uploads/vehicles/<?php echo $my_vehicle->image_path; ?>" width="20%" class="image-responsive" />
-                                    <?php else:?>
+                                    <?php else: ?>
                                         <img src="<?php echo base_url(); ?>uploads/vehicles/default.png" width="20%" class="image-responsive"/>
-                                    <?php endif;?>
-                                        <a href="#" title="Delete" >Delete</a> &nbsp;|&nbsp; <a href="#" title="Modify">Modify</a>
+                                    <?php endif; ?>
+                                    <a href="javascript:;" onclick="deleteVehicle(<?php echo $my_vehicle->id; ?>)" title="Delete" >Delete</a> &nbsp;|&nbsp; <a href="<?php echo site_url(); ?>/vehicles/edit_vehicle/<?php echo $my_vehicle->id; ?>"  title="Modify">Modify</a>
                                 </div>
                                 <div class="one-third">
-                                    <p><span>Vehicle:</span> <?php echo $my_vehicle->make_name.' '.$my_vehicle->model_name.' '.$my_vehicle->year;?></p>
+                                    <p><span>Vehicle:</span> <?php echo $my_vehicle->make_name . ' ' . $my_vehicle->model_name . ' ' . $my_vehicle->year; ?></p>
                                 </div>
                                 <div class="two-third">
-                                    <p><span>Extras:</span> <?php echo $my_vehicle->seats.' Seats, Vehicle reg No - '.$my_vehicle->vehicle_no;?></p>
+                                    <p><span>Extras:</span> <?php echo $my_vehicle->seats . ' Seats, Vehicle reg No - ' . $my_vehicle->vehicle_no; ?></p>
                                 </div>
                             </div>
 
@@ -195,121 +195,150 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
 
 <script>
-                        $(document).ready(function () {
-                            $('.single').hide().first().show();
-                            $('.categories li:first').addClass('active');
+                                        $(document).ready(function () {
+                                            $('.single').hide().first().show();
+                                            $('.categories li:first').addClass('active');
 
-                            $('.categories a').on('click', function (e) {
-                                e.preventDefault();
-                                $(this).closest('li').addClass('active').siblings().removeClass('active');
-                                $($(this).attr('href')).show().siblings('.single').hide();
-                            });
+                                            $('.categories a').on('click', function (e) {
+                                                e.preventDefault();
+                                                $(this).closest('li').addClass('active').siblings().removeClass('active');
+                                                $($(this).attr('href')).show().siblings('.single').hide();
+                                            });
 
-                            var hash = $.trim(window.location.hash);
-                            if (hash)
-                                $('.categories a[href$="' + hash + '"]').trigger('click');
+                                            var hash = $.trim(window.location.hash);
+                                            if (hash)
+                                                $('.categories a[href$="' + hash + '"]').trigger('click');
 
 
-                            $.validator.addMethod("NIC_Validation", function (value, element) {
-                                return nicValidate(value);
-                            }, "Invalid NIC Number");
+                                            $.validator.addMethod("NIC_Validation", function (value, element) {
+                                                return nicValidate(value);
+                                            }, "Invalid NIC Number");
 
-                            $("#detail_form").validate({
-                                rules: {
-                                    name: {
-                                        required: true
-                                    },
-                                    nic: {
-                                        required: true,
-                                        NIC_Validation: true
-                                    },
-                                    mobile: {
-                                        required: true,
-                                        digits: true,
-                                        minlength: 10,
-                                        maxlength: 10
-                                    }
-                                },
-                                messages: {
-                                    name: {
-                                        required: "Please enter your name and surname"
-                                    },
-                                    nic: {
-                                        required: "Please enter your nic number"
-                                    },
-                                    mobile: "Please enter your mobile number"
+                                            $("#detail_form").validate({
+                                                rules: {
+                                                    name: {
+                                                        required: true
+                                                    },
+                                                    nic: {
+                                                        required: true,
+                                                        NIC_Validation: true
+                                                    },
+                                                    mobile: {
+                                                        required: true,
+                                                        digits: true,
+                                                        minlength: 10,
+                                                        maxlength: 10
+                                                    }
+                                                },
+                                                messages: {
+                                                    name: {
+                                                        required: "Please enter your name and surname"
+                                                    },
+                                                    nic: {
+                                                        required: "Please enter your nic number"
+                                                    },
+                                                    mobile: "Please enter your mobile number"
 
-                                }, submitHandler: function (form)
-                                {
-                                    $.post(site_url + '/sign_up/update_driver_details', $('#detail_form').serialize(), function (msg)
-                                    {
-                                        if (msg == 1) {
-                                            swal("VanUncle.lk", "Deatils Saved Successfully!!", "success");
-                                        } else {
-                                            swal("VanUncle.lk", "Error occured in saving details", "error");
+                                                }, submitHandler: function (form)
+                                                {
+                                                    $.post(site_url + '/sign_up/update_driver_details', $('#detail_form').serialize(), function (msg)
+                                                    {
+                                                        if (msg == 1) {
+                                                            swal("VanUncle.lk", "Deatils Saved Successfully!!", "success");
+                                                        } else {
+                                                            swal("VanUncle.lk", "Error occured in saving details", "error");
+
+                                                        }
+                                                    });
+                                                }
+
+                                            });
+
+                                            $("#security_form").validate({
+                                                rules: {
+                                                    password: {
+                                                        required: true,
+                                                        minlength: 6
+                                                    },
+                                                    conf_password: {
+                                                        required: true,
+                                                        equalTo: "#password"
+                                                    }
+                                                },
+                                                messages: {
+                                                    password: "Please enter a password",
+                                                    conf_password: {
+                                                        required: "Confirm the password",
+                                                        equalTo: "Passwords do not match"
+                                                    }
+
+                                                }, submitHandler: function (form)
+                                                {
+                                                    $.post(site_url + '/sign_up/update_security_details', $('#security_form').serialize(), function (msg)
+                                                    {
+                                                        if (msg == 1) {
+                                                            swal("VanUncle.lk", "Password Updated Successfully!!", "success");
+                                                        } else {
+                                                            swal("VanUncle.lk", "Error occured in saving details", "error");
+
+                                                        }
+                                                    });
+                                                }
+
+                                            });
+                                        });
+
+                                        function nicValidate(nicno) {
+
+                                            if (nicno != '') {
+                                                var last_nino_carector = nicno.charAt(9);
+
+                                                var numbers = nicno.substring(0, 9);
+                                                switch (last_nino_carector)
+                                                {
+                                                    case 'V':
+                                                        return true;
+                                                    case 'v':
+                                                        return true;
+                                                    case 'x':
+                                                        return true;
+                                                    case 'X':
+                                                        return true;
+                                                    default:
+                                                        return false;
+                                                }
+                                            } else {
+                                                return true;
+                                            }
 
                                         }
-                                    });
-                                }
 
-                            });
+                                        function deleteVehicle(vehicle_id) {
+                                            swal({
+                                                title: "Are you sure?",
+                                                text: "You will not be able to recover this vehicle!",
+                                                type: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonColor: "#DD6B55",
+                                                confirmButtonText: "Yes, delete it!",
+                                                closeOnConfirm: false
+                                            },
+                                                    function () {
 
-                            $("#security_form").validate({
-                                rules: {
-                                    password: {
-                                        required: true,
-                                        minlength: 6
-                                    },
-                                    conf_password: {
-                                        required: true,
-                                        equalTo: "#password"
-                                    }
-                                },
-                                messages: {
-                                    password: "Please enter a password",
-                                    conf_password: {
-                                        required: "Confirm the password",
-                                        equalTo: "Passwords do not match"
-                                    }
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: '<?php echo site_url(); ?>/vehicles/delete_vehicle',
+                                                            data: "id=" + vehicle_id,
+                                                            success: function (msg) {
+                                                                if (msg == 1) {
+                                                                    $('#veh_' + vehicle_id).hide();
+                                                                    swal("Deleted!", "Your vehicle has been deleted.", "success");
+                                                                } else {
+                                                                    swal("Cancelled!", "Error occured while deleting the vehicle.", "error");
+                                                                }
+                                                            }
+                                                        });
 
-                                }, submitHandler: function (form)
-                                {
-                                    $.post(site_url + '/sign_up/update_security_details', $('#security_form').serialize(), function (msg)
-                                    {
-                                        if (msg == 1) {
-                                            swal("VanUncle.lk", "Password Updated Successfully!!", "success");
-                                        } else {
-                                            swal("VanUncle.lk", "Error occured in saving details", "error");
-
+                                                    });
                                         }
-                                    });
-                                }
-
-                            });
-                        });
-
-                        function nicValidate(nicno) {
-
-                            if (nicno != '') {
-                                var last_nino_carector = nicno.charAt(9);
-
-                                var numbers = nicno.substring(0, 9);
-                                switch (last_nino_carector)
-                                {
-                                    case 'V':
-                                        return true;
-                                    case 'v':
-                                        return true;
-                                    case 'x':
-                                        return true;
-                                    case 'X':
-                                        return true;
-                                    default:
-                                        return false;
-                                }
-                            } else {
-                                return true;
-                            }
-
-                        }
 </script>

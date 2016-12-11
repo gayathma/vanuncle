@@ -47,7 +47,7 @@ class Sign_up extends CI_Controller {
         $driver_service = new Driver_service();
 
         $driver_model->set_name($this->input->post('name', TRUE));
-        $driver_model->set_nic($this->input->post('nic', TRUE));
+        $driver_model->set_nic(trim($this->input->post('nic', TRUE)));
         $driver_model->set_mobile($this->input->post('mobile', TRUE));
         $driver_model->set_land_phone($this->input->post('land_phone', TRUE));
         $driver_model->set_email(trim($this->input->post('email', TRUE)));

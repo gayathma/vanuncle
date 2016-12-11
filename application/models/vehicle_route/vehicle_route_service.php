@@ -13,7 +13,10 @@ class Vehicle_route_service extends CI_Model {
 
     public function search_vehicles($service_type, $pickup_location, $dropoff_location, $limit, $start, $type) {
 
-        $this->db->select('va_vehicles.*,va_vehicle_images.image_path, va_model.name as model_name, va_make.name as make_name');
+        $this->db->select('va_vehicles.*,va_vehicle_images.image_path,'
+                . ' va_model.name as model_name,'
+                . ' va_make.name as make_name,'
+                . ' va_drivers.profile_pic');
         $this->db->from('va_vehicle_routes');
         $this->db->join('va_drivers', 'va_drivers.id = va_vehicle_routes.driver_id');
         $this->db->join('va_vehicles', 'va_vehicles.id = va_vehicle_routes.vehicle_id');
@@ -44,6 +47,18 @@ class Vehicle_route_service extends CI_Model {
         
         $query = $this->db->get();
         return $query->result();
+    }
+    
+    function get_routes_for_vehicle($driver_id,$vehicle_id,$service_type) {
+
+        $query = $this->db->get_where('va_vehicle_routes', array('driver_id' => $driver_id,
+            'vehicle_id' => $vehicle_id, 'service_type' => $service_type));
+        return $query->result();
+    }
+    
+    function delete_vehicle_routes($vehicle_id) {
+        $this->db->where('vehicle_id', $vehicle_id);
+        return $this->db->delete('va_vehicle_routes');
     }
 
 }

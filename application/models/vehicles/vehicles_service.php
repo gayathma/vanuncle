@@ -25,5 +25,17 @@ class Vehicles_service extends CI_Model {
         $this->db->insert('va_vehicles', $vehicle_model);
         return $this->db->insert_id();
     }
+    
+    function delete_vehicle($vehicle_id) {
+        $data = array('is_deleted' => '1');
+        $this->db->where('id', $vehicle_id);
+        return $this->db->update('va_vehicles', $data);
+    }
+    
+    function get_vehicle_by_id($vehicle_id) {
+
+        $query = $this->db->get_where('va_vehicles', array('id' => $vehicle_id));
+        return $query->row();
+    }
 
 }

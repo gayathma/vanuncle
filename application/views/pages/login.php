@@ -77,7 +77,7 @@ function login() {
             data: "username=" + login_username + "&password=" + login_password,
             success: function(msg) {
                 if (msg == 1) {
-                    swal("VanUncle.lk", "Login Successfull!!", "success");
+                    //swal("VanUncle.lk", "Login Successfull!!", "success");
                     setTimeout("location.href = site_url+'/login/index';", 100);
                 } else {
                     login_form.reset();
