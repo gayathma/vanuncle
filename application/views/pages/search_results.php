@@ -153,8 +153,7 @@ function generateMap(v, element){
                                           <script type="text/javascript" language="javascript">
                                             var arr=[];
                                             <?php foreach ($routes as $route) { ?>
-                                                <?php $route = explode(',', $route->route) ?>
-                                                arr.push('<?php echo $route[0]; ?>');
+                                                arr.push('<?php echo $route->route; ?>');
                                             <?php } ?>
                                             routeArr['<?php echo $result->id; ?>']=arr;
                                           </script>
