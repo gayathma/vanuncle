@@ -38,6 +38,9 @@ class Vehicles extends CI_Controller {
 
         $this->load->model('model/model_model');
         $this->load->model('model/model_service');
+
+        $this->load->model('vehicle_request/vehicle_request_model');
+        $this->load->model('vehicle_request/vehicle_request_service');
     }
 
     public function index() {
@@ -102,7 +105,11 @@ class Vehicles extends CI_Controller {
         $vehicles_model->set_vehicle_no($this->input->post('vehicle_no', TRUE));
         $vehicles_model->set_year($this->input->post('year', TRUE));
         $vehicles_model->set_seats($this->input->post('seats', TRUE));
-        $vehicles_model->set_isAc($this->input->post('is_ac', TRUE));
+        if (isset($_POST['is_ac'])) {
+            $vehicles_model->set_isAc($this->input->post('is_ac', TRUE));
+        }else{
+            $vehicles_model->set_isAc('N');
+        }
         $vehicles_model->set_description($this->input->post('description', TRUE));
         $vehicles_model->set_is_deleted('0');
         $vehicles_model->set_added_date(date("Y-m-d H:i:s"));
@@ -138,19 +145,19 @@ class Vehicles extends CI_Controller {
 
         if ($msg == '1') {
 
-            $this->load->library('email');
-
-            $this->email->from($this->session->userdata('USER_EMAIL'));
-            $this->email->to('info@vanuncle.lk');
-            $this->email->cc('gayathma3@gmail.com');
-
-            $this->email->subject('VanUncle.lk New Advertisement');
-
-            $message = 'New Advertisement submitted!!';
-
-            $this->email->message($message);
-
-            $msg = $this->email->send();
+//            $this->load->library('email');
+//
+//            $this->email->from($this->session->userdata('USER_EMAIL'));
+//            $this->email->to('info@vanuncle.lk');
+//            $this->email->cc('gayathma3@gmail.com');
+//
+//            $this->email->subject('VanUncle.lk New Advertisement');
+//
+//            $message = 'New Advertisement submitted!!';
+//
+//            $this->email->message($message);
+//
+//            $msg = $this->email->send();
         }
 
         echo $msg;
@@ -181,7 +188,7 @@ class Vehicles extends CI_Controller {
             $model_service         = new Model_service();
 
             $data['makes']   = $make_service->get_all_makes();
-            $data['models']   = $model_service->get_all_active_models();
+            $data['models']  = $model_service->get_all_active_models();
             $data['vehicle'] = $vehicles_service->get_vehicle_by_id($vehicle_id);
             $data['routes']  = $vehicle_route_service->get_routes_vehicle($this->session->userdata('USER_ID'), $vehicle_id);
 
@@ -192,7 +199,7 @@ class Vehicles extends CI_Controller {
             $this->template->load('template/template', $partials);
         }
     }
-    
+
     public function update_vehicle() {
         $vehicles_service       = new Vehicles_service();
         $vehicles_model         = new Vehicles_model();
@@ -258,6 +265,53 @@ class Vehicles extends CI_Controller {
         }
 
         echo $msg;
+    }
+
+    function send_vehicle_request() {
+
+        $vehicle_request_model   = new Vehicle_request_model();
+        $vehicle_request_service = new Vehicle_request_service();
+        $vehicles_service        = new Vehicles_service();
+
+        $vehicle = $vehicles_service->get_vehicle_by_id($this->input->post('vehicle_id'));
+
+        $vehicle_request_model->set_customer_name($this->input->post('username'));
+        $vehicle_request_model->set_customer_email($this->input->post('email'));
+        $vehicle_request_model->set_customer_contact($this->input->post('phone'));
+        $vehicle_request_model->set_vehicle_id($this->input->post('vehicle_id'));
+        $vehicle_request_model->set_status('0');
+        $vehicle_request_model->set_added_date(date("Y-m-d H:i:s"));
+
+        $result = $vehicle_request_service->add_vehicle_request($vehicle_request_model);
+
+        if ($result) {
+
+            $content = 'Client Name : ' . $this->input->post('username');
+            $content .= '<br>Client Email : ' . $this->input->post('email');
+            $content .= '<br>Client Contact Number : ' . $this->input->post('phone');
+            $content .= '<br>Vehicle Number : ' . $vehicle->vehicle_no;
+            $content .= '<br>Driver Name : ' . $vehicle->driver_name;
+            $content .= '<br>Driver Mobile Number : ' . $vehicle->mobile;
+            $content .= '<br>Driver Other Contact Number : ' . $vehicle->land_phone;
+
+            $data['from']         = $this->input->post('name');
+            $data['subject']      = 'Vehicle Request For Vehicle Number ' . $vehicle->vehicle_no;
+            $data['title']        = 'Vehicle Request From';
+            $data['content']      = $content;
+            $data['sender']       = $this->input->post('username');
+            $data['sender_email'] = '';
+
+            $msg = $this->load->view('template/contact_mail', $data, TRUE);
+
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: ' . $this->input->post('username') . ' <' . $this->input->post('email') . '>' . "\r\n";
+            $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
+
+            mail('vanuncle.lk@gmail.com', 'Vehicle Request For Vehicle Number ' . $vehicle->vehicle_no, $msg, $headers);
+        }
+
+        echo $result;
     }
 
 }

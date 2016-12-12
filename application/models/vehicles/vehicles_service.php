@@ -34,7 +34,11 @@ class Vehicles_service extends CI_Model {
     
     function get_vehicle_by_id($vehicle_id) {
 
-        $query = $this->db->get_where('va_vehicles', array('id' => $vehicle_id));
+        $this->db->select('va_vehicles.*,va_drivers.name as driver_name, va_drivers.mobile, va_drivers.land_phone');
+        $this->db->from('va_vehicles');
+        $this->db->join('va_drivers', 'va_drivers.id = va_vehicles.driver_id');
+        $this->db->where('va_vehicles.id', $vehicle_id);
+        $query = $this->db->get();
         return $query->row();
     }
 

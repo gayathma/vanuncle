@@ -27,11 +27,10 @@ class Contact extends CI_Controller {
 
         $this->load->model('content/content_model');
         $this->load->model('content/content_service');
-
     }
 
     public function index() {
-        
+
         $content_service = new Content_service();
 
         $data['contact_content'] = $content_service->getContentbyhcode("CONTACTUS");
@@ -42,24 +41,47 @@ class Contact extends CI_Controller {
 
     function send_mail() {
 
-            $this->load->library('email');
+//            $this->load->library('email');
+//
+//            $this->email->from($this->input->post('email'), $this->input->post('name'));
+//            $this->email->to('info@vanuncle.lk');
+//            $this->email->cc('gayathma3@gmail.com');
+//
+//            $this->email->subject('Inquiry From VanUncle.lk Contact Page');
+//
+//
+//            $msg = 'Message : ' . $this->input->post('comments');
+//            $msg .= '<br/>Name : ' . $this->input->post('name');
+//            $msg .= '<br/>Email : ' . $this->input->post('email');
+//
+//
+//            $this->email->message($msg);
+//
+//            echo $this->email->send();
 
-            $this->email->from($this->input->post('email'), $this->input->post('name'));
-            $this->email->to('info@vanuncle.lk');
-            $this->email->cc('gayathma3@gmail.com');
-
-            $this->email->subject('Inquiry From VanUncle.lk Contact Page');
 
 
-            $msg = 'Message : ' . $this->input->post('comments');
-            $msg .= '<br/>Name : ' . $this->input->post('name');
-            $msg .= '<br/>Email : ' . $this->input->post('email');
+        $data['from'] = $this->input->post('name');
+        $data['subject'] = 'Inquiry From VanUncle.lk Contact Page';
+        $data['title'] = 'Inquiry From';
+        $data['content'] = $this->input->post('comments');
+        $data['sender'] = $this->input->post('name');
+        $data['sender_email'] = $this->input->post('email');
+        
+        
 
+        $msg = $this->load->view('template/contact_mail', $data, TRUE);
 
-            $this->email->message($msg);
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= 'From: '.$this->input->post('name').' <'.$this->input->post('email').'>' . "\r\n";
+        $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
 
-            echo $this->email->send();
-       
+        if (mail('vanuncle.lk@gmail.com', 'Inquiry From VanUncle.lk Contact Page', $msg, $headers)) {
+            echo "1";
+        } else {
+            echo "0";
+        }
     }
 
 }

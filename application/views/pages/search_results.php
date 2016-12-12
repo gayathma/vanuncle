@@ -158,28 +158,60 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="<?php echo base_url(); ?>fe_resources/js/jquery.validate.min.js"></script>
 <script>
-    function contact(vehicle_id){
-        swal({
-            title: "Give us your contact details to reach you",
-            text: '<input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="text" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/>',
-            html: true,
-            showCancelButton: true,
-            closeOnCancel: true,
-            type: "info",
-            closeOnConfirm: false,
-        },
-                function () {
-                    console.log($("input[name='username']").val());
-                    var username = $("input[name='username']").val();
-                    var email = $("input[name='email']").val();
-                    var phone = $("input[name='phone']").val();
-                    if (username != '' && (email != '' || phone != '')) {
-                        //place ajax call here
-                        swal("Thanks for the information. We will contact you soon.");
-                    }
+                                        function contact(vehicle_id) {
+                                            swal({
+                                                title: "Give us your contact details to reach you",
+                                                text: '<form role="form" name="request_form" id="request_form"><input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="email" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/></form>',
+                                                html: true,
+                                                showCancelButton: true,
+                                                closeOnCancel: true,
+                                                type: "info",
+                                                closeOnConfirm: false,
+                                            },
+                                                    function () {
+                                                        console.log("sdfs");
+                                                        if($("#request_form").valid()){
+                                                            console.log("sdfs2");
+                                                            var username = $("input[name='username']").val();
+                                                            var email = $("input[name='email']").val();
+                                                            var phone = $("input[name='phone']").val();
+                                                            if (username != '' && (email != '' || phone != '')) {
+                                                                //place ajax call here
+                                                                $.post(site_url + '/vehicles/send_vehicle_request', {username: username, email: email, phone: phone, vehicle_id: vehicle_id}, function (msg)
+                                                                {
+                                                                    if (msg == 1) {
+                                                                        swal("VanUncle.lk", "Thanks for the information. We will contact you soon.", "success");
+                                                                    } else {
+                                                                        swal("VanUncle.lk", "Error occured while sending your request", "error");
+                                                                    }
 
-                });
-    }
+                                                                });
+                                                            }
+                                                        }
+
+                                                    });
+                                        }
+
+                                        $(document).ready(function () {
+
+                                            $("#request_form").validate({
+                                                rules: {
+                                                    username: {
+                                                        required: true
+                                                    },
+                                                    email: {
+                                                        required: true,
+                                                        email: true
+                                                    },
+                                                    phone: {
+                                                        required: true,
+                                                        digits: true,
+                                                        minlength: 10,
+                                                        maxlength: 10
+                                                    }
+                                                }
+                                            });
+                                        });
 </script>

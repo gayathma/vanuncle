@@ -523,7 +523,7 @@ blockquote:before			{content:"";width:41px;height:29px;}
 
 
 /* 18 ERROR PAGE */
-.error 				{color: red !important;}
+.error 				{color: red !important;text-transform: lowercase;}
 .error .content 		{padding-top:70px;}
 .error h2			{font-size:35px;}
 
