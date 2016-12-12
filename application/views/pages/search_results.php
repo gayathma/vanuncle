@@ -60,7 +60,36 @@
 </div>
 <!-- //Search -->
 
+<script>
+var routeArr={};
 
+function generateMap(v){
+  var map;
+  var elevator;
+  var myOptions = {
+      zoom: 17,
+      center: new google.maps.LatLng(0, 0),
+      mapTypeId: 'terrain'
+  };
+  map = new google.maps.Map($('#map_canvas_'+v)[0], myOptions);
+
+  var addresses = routeArr[v];
+
+  for (var x = 0; x < addresses.length; x++) {
+      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
+          var p = data.results[0].geometry.location
+          var latlng = new google.maps.LatLng(p.lat, p.lng);
+          var marker=new google.maps.Marker({
+              position: latlng,
+              map: map
+          });
+          map.setZoom(10);
+          map.panTo(marker.position)
+
+      });
+  }
+}
+</script>
 
 <div class="wrap">
     <div class="row">
@@ -118,12 +147,19 @@
                                     </li>
                                     <?php if (!empty($routes)): ?>
                                         <li  class="route-sp">
+                                          <i class="fa fa-map-marker icn-size" aria-hidden="true" onclick="generateMap(<?php echo $result->id; ?>)"></i>
+                                          <script type="text/javascript" language="javascript">
+                                            var arr=[];
                                             <?php foreach ($routes as $route) { ?>
                                                 <?php $route = explode(',', $route->route) ?>
-                                                <span><?php echo $route[0]; ?></span>
+                                                arr.push('<?php echo $route[0]; ?>');
                                             <?php } ?>
+                                            routeArr['<?php echo $result->id; ?>']=arr;
+                                            console.log(routeArr);
+                                          </script>
+
                                         </li>
-                                    <?php endif; ?>   
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                             <div class="one-fourth heightfix">
@@ -140,7 +176,8 @@
                             </div>
                             <div class="full-width information">
                                 <a href="javascript:void(0)" class="close color" title="Close">x</a>
-                                <p><?php echo $result->description; ?></p>
+                                <div id="map_canvas_<?php echo $result->id; ?>" class="map-style"></div>
+                               <p><?php echo $result->description; ?></p>
                             </div>
                         </article>
                         <!-- //Item -->
