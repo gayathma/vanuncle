@@ -61,36 +61,39 @@
 <!-- //Search -->
 
 <script>
-var routeArr={};
+    var routeArr = {};
 
-function generateMap(v, element){
-  var map;
-  var elevator;
-  var myOptions = {
-      zoom: 17,
-      center: new google.maps.LatLng(0, 0),
-      mapTypeId: 'terrain'
-  };
-  map = new google.maps.Map($('#map_canvas_'+v)[0], myOptions);
+    function generateMap(v, element) {
+        var map;
+        var elevator;
+        var myOptions = {
+            zoom: 17,
+            center: new google.maps.LatLng(0, 0),
+            mapTypeId: 'terrain'
+        };
+        map = new google.maps.Map($('#map_canvas_' + v)[0], myOptions);
 
-  var addresses = routeArr[v];
+        var addresses = routeArr[v];
 
-  for (var x = 0; x < addresses.length; x++) {
-      $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
-          var p = data.results[0].geometry.location
-          var latlng = new google.maps.LatLng(p.lat, p.lng);
-          var marker=new google.maps.Marker({
-              position: latlng,
-              map: map
-          });
-          map.setZoom(10);
-          map.panTo(marker.position)
+        for (var x = 0; x < addresses.length; x++) {
+            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + addresses[x] + '&sensor=false', null, function (data) {
+                var p = data.results[0].geometry.location
+                var latlng = new google.maps.LatLng(p.lat, p.lng);
+                var marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                    label: {
+                        text: addresses[x]
+                    }
+                });
+                map.setZoom(10);
+                map.panTo(marker.position)
 
-      });
-  }
+            });
+        }
 
-  $(element).parent().parent().parent().nextAll('.information').slideToggle(500);
-}
+        $(element).parent().parent().parent().nextAll('.information').slideToggle(500);
+    }
 </script>
 
 <div class="wrap">
@@ -149,14 +152,14 @@ function generateMap(v, element){
                                     </li>
                                     <?php if (!empty($routes)): ?>
                                         <li  class="route-sp">
-                                          <i class="fa fa-map-marker icn-size" aria-hidden="true" onclick="generateMap(<?php echo $result->id; ?>, this)"></i>
-                                          <script type="text/javascript" language="javascript">
-                                            var arr=[];
-                                            <?php foreach ($routes as $route) { ?>
-                                                arr.push('<?php echo $route->route; ?>');
-                                            <?php } ?>
-                                            routeArr['<?php echo $result->id; ?>']=arr;
-                                          </script>
+                                            <i class="fa fa-map-marker icn-size" aria-hidden="true" onclick="generateMap(<?php echo $result->id; ?>, this)"></i>
+                                            <script type="text/javascript" language="javascript">
+                                                var arr = [];
+            <?php foreach ($routes as $route) { ?>
+                                                    arr.push('<?php echo $route->route; ?>');
+            <?php } ?>
+                                                routeArr['<?php echo $result->id; ?>'] = arr;
+                                            </script>
 
                                         </li>
                                     <?php endif; ?>
@@ -177,7 +180,7 @@ function generateMap(v, element){
                             <div class="full-width information">
                                 <a href="javascript:void(0)" class="close color" title="Close">x</a>
                                 <div id="map_canvas_<?php echo $result->id; ?>" class="map-style"></div>
-                               <p><?php echo $result->description; ?></p>
+                                <p><?php echo $result->description; ?></p>
                             </div>
                         </article>
                         <!-- //Item -->
@@ -208,7 +211,7 @@ function generateMap(v, element){
                                                 closeOnConfirm: false,
                                             },
                                                     function () {
-                                                        if($("#request_form").valid()){
+                                                        if ($("#request_form").valid()) {
                                                             var username = $("input[name='username']").val();
                                                             var email = $("input[name='email']").val();
                                                             var phone = $("input[name='phone']").val();
