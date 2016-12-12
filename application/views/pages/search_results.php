@@ -63,7 +63,7 @@
 <script>
 var routeArr={};
 
-function generateMap(v){
+function generateMap(v, element){
   var map;
   var elevator;
   var myOptions = {
@@ -88,6 +88,8 @@ function generateMap(v){
 
       });
   }
+
+  $(element).parent().parent().parent().nextAll('.information').slideToggle(500);
 }
 </script>
 
@@ -147,7 +149,7 @@ function generateMap(v){
                                     </li>
                                     <?php if (!empty($routes)): ?>
                                         <li  class="route-sp">
-                                          <i class="fa fa-map-marker icn-size" aria-hidden="true" onclick="generateMap(<?php echo $result->id; ?>)"></i>
+                                          <i class="fa fa-map-marker icn-size" aria-hidden="true" onclick="generateMap(<?php echo $result->id; ?>, this)"></i>
                                           <script type="text/javascript" language="javascript">
                                             var arr=[];
                                             <?php foreach ($routes as $route) { ?>
@@ -155,7 +157,6 @@ function generateMap(v){
                                                 arr.push('<?php echo $route[0]; ?>');
                                             <?php } ?>
                                             routeArr['<?php echo $result->id; ?>']=arr;
-                                            console.log(routeArr);
                                           </script>
 
                                         </li>
@@ -208,9 +209,7 @@ function generateMap(v){
                                                 closeOnConfirm: false,
                                             },
                                                     function () {
-                                                        console.log("sdfs");
                                                         if($("#request_form").valid()){
-                                                            console.log("sdfs2");
                                                             var username = $("input[name='username']").val();
                                                             var email = $("input[name='email']").val();
                                                             var phone = $("input[name='phone']").val();
