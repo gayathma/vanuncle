@@ -83,7 +83,7 @@
                     position: latlng,
                     map: map,
                     label: {
-                        text: addresses[x]
+                        text: ''+addresses[x]+''
                     }
                 });
                 map.setZoom(10);
