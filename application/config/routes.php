@@ -39,15 +39,8 @@
 */
 
 $route['default_controller'] = "home";
-$route['404_override'] = '';
+$route['404_override'] = 'page_not_found';
 
-//custom routes
-$route['about-monaru-lanka'] = "content/loadcontent/ABOUTUS";
-$route['destinations'] = "content/loadcontent/DESTINATIONS";
-$route['contact'] = "contact";
-$route['welcome-to-monaru-lanka'] = "content/loadcontent/WELCOMEINNERPAGE";
-///$route['careers']="content/loadcontent/CAREERS";
-$route['careers']="careers";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -115,8 +115,35 @@
         <!-- //Header -->
 
         <!-- Main -->
-        <main class="main" role="main">
-            <?php echo $content; ?>
+        <main class="main main-error" role="main">
+
+            <header class="site-title color">
+                <div class="wrap">
+                    <div class="container">
+                        <h1>Error 404</h1>
+                        <nav role="navigation" class="breadcrumbs">
+                            <ul>
+                                <li><a href="index.html" title="Home">Home</a></li>
+                                <li>Error 404</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <!-- //Page info -->
+
+            <div class="wrap">
+                <div class="row">
+                    <!--- Content -->
+                    <div class="content one-half right textongreyRight">
+                        <h2>404 PAGE NOT FOUND</h2>
+                        <p>The page you’ve requested could not be found or it was already removed from the database.</p>
+                        <p>If you believe that this is an error, please kindly <a href="contact.html">contact us</a> or head straight to our <a href="index.html">homepage</a>. Thank you!</p>
+                    </div>
+                    <!--- //Content -->
+                </div>
+            </div>
+
         </main>
         <!-- //Main -->
 
@@ -200,26 +227,6 @@
         }
 
         google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-89348162-1', 'auto');
-        ga('send', 'pageview');
-
-
         </script>
 
     </body>
