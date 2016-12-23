@@ -68,7 +68,7 @@ class Sign_up extends CI_Controller {
             $msg               .= "<br/> VanUncle.lk Team";
             $headers = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-            $headers .= 'From: VanUncle.lk <info@vanuncle.lk>' . "\r\n";
+            $headers .= 'From: VanUncle.lk <vanuncle.lk@gmail.com>' . "\r\n";
             $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
             if (mail($email, $email_subject, $msg, $headers)) {
                 echo "1";

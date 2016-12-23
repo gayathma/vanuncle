@@ -63,7 +63,7 @@
             <p class="terms">The term of these terms and conditions is from the date that the User first accesses the Website or uses the Services until the agreement is terminated in accordance with this clause.</p>
             <p class="terms">The Facilitator may terminate these terms and conditions at any time and for any reason by suspending, terminating, deleting or otherwise restricting the User’s access to the Website or the Services.</p>
             <h3>Notices</h3>
-            <p class="terms">Any notice, demand, consent, approval or communication under these terms and conditions must be in writing, in Sinhala or English and sent by email to info@vanuncle.lk .</p>
+            <p class="terms">Any notice, demand, consent, approval or communication under these terms and conditions must be in writing, in Sinhala or English and sent by email to vanuncle.lk@gmail.com .</p>
             <h3>Third party links and advertising</h3>
             <p class="terms">The Website may display advertisements, which may or may not contain hyperlinks or buttons which take the User to websites operated by third parties. The Facilitator does not endorse or recommend its advertisers, their products or services, or the information, products or services of any website linked to the Website.</p>
             <p class="terms">If the User contacts a third party through the Website, including via email, the Facilitator accepts no responsibility for any actions taken by that third party in connection with the User as user of that third party’s services. Any interactions with a third party website are not part of the Website or included in the Services.</p>

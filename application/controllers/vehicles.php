@@ -107,7 +107,7 @@ class Vehicles extends CI_Controller {
         $vehicles_model->set_seats($this->input->post('seats', TRUE));
         if (isset($_POST['is_ac'])) {
             $vehicles_model->set_isAc($this->input->post('is_ac', TRUE));
-        }else{
+        } else {
             $vehicles_model->set_isAc('N');
         }
         $vehicles_model->set_description($this->input->post('description', TRUE));
@@ -145,19 +145,24 @@ class Vehicles extends CI_Controller {
 
         if ($msg == '1') {
 
-//            $this->load->library('email');
-//
-//            $this->email->from($this->session->userdata('USER_EMAIL'));
-//            $this->email->to('info@vanuncle.lk');
-//            $this->email->cc('gayathma3@gmail.com');
-//
-//            $this->email->subject('VanUncle.lk New Advertisement');
-//
-//            $message = 'New Advertisement submitted!!';
-//
-//            $this->email->message($message);
-//
-//            $msg = $this->email->send();
+            $data['from']         = $this->session->userdata('USER_EMAIL');
+            $data['subject']      = 'VanUncle.lk New Vehicle Advertisement';
+            $data['title']        = 'VanUncle.lk New Vehicle Advertisement';
+            $data['content']      = 'New Advertisement submitted!!';
+            $data['sender']       = $this->session->userdata('USER_FULLNAME');
+            $data['sender_email'] = $this->session->userdata('USER_EMAIL');
+
+
+
+            $messege = $this->load->view('template/contact_mail', $data, TRUE);
+
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: ' . $this->session->userdata('USER_FULLNAME') . ' <' . $this->session->userdata('USER_EMAIL') . '>' . "\r\n";
+            $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
+
+            mail('vanuncle.lk@gmail.com', 'VanUncle.lk New Vehicle Advertisement', $messege, $headers);
+ 
         }
 
         echo $msg;
@@ -249,19 +254,23 @@ class Vehicles extends CI_Controller {
 
         if ($msg == '1') {
 
-            $this->load->library('email');
+            $data['from']         = $this->session->userdata('USER_EMAIL');
+            $data['subject']      = 'VanUncle.lk  Vehicle Advertisement Updated';
+            $data['title']        = 'VanUncle.lk  Vehicle Advertisement Updated';
+            $data['content']      = 'VanUncle.lk  Vehicle Advertisement Updated!!';
+            $data['sender']       = $this->session->userdata('USER_FULLNAME');
+            $data['sender_email'] = $this->session->userdata('USER_EMAIL');
 
-            $this->email->from($this->session->userdata('USER_EMAIL'));
-            $this->email->to('info@vanuncle.lk');
-            $this->email->cc('gayathma3@gmail.com');
 
-            $this->email->subject('VanUncle.lk New Advertisement');
 
-            $message = 'New Advertisement submitted!!';
+            $messege = $this->load->view('template/contact_mail', $data, TRUE);
 
-            $this->email->message($message);
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= 'From: ' . $this->session->userdata('USER_FULLNAME') . ' <' . $this->session->userdata('USER_EMAIL') . '>' . "\r\n";
+            $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
 
-            $msg = $this->email->send();
+            mail('vanuncle.lk@gmail.com', 'VanUncle.lk  Vehicle Advertisement Update', $messege, $headers);
         }
 
         echo $msg;

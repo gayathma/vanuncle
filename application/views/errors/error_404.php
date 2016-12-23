@@ -167,7 +167,7 @@
                         <p class="contact-data"><span class="ico phone"></span> +94 765 450 979</p>
 
 
-                        <p class="contact-data"><span class="ico email"></span> <a href="mailto:info@vanuncle.lk">info@vanuncle.lk</a></p>
+                        <p class="contact-data"><span class="ico email"></span> <a href="mailto:vanuncle.lk@gmail.com">vanuncle.lk@gmail.com</a></p>
                     </article>
                     <!-- //Column -->
 
