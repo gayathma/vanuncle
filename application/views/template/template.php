@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="keywords" content="" />
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="keywords" content="VanUncle,VanUncle.lk,Vans for hire,School Services, Van, Vehicles, Driver,Transport,Office Transport,Staff Services" />
+        <meta name="description" content="VanUncle.lk facilitate you by actively providing information that matches all your transport related queries. We are equipped with a wide database of school and office transport service providers, etc. Our site provides the platform to connect transport service seekers with transport service providers and vice versa. All transport providers can submit their details in our website and you can select the best transporter according to your requirement.">
+        <meta name="author" content="Armates.com">
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo base_url(); ?>fe_resources/images/fav/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo base_url(); ?>fe_resources/images/fav/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>fe_resources/images/fav/apple-icon-72x72.png">
