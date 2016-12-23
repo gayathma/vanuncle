@@ -72,7 +72,7 @@ class Sign_up extends CI_Controller {
             $headers .= 'Cc: gayathma3@gmail.com' . "\r\n";
             if (mail($email, $email_subject, $msg, $headers)) {
                 echo "1";
-                $this->session->set_flashdata('info', 'Please go to your email account and continue the registration process');
+                $this->session->set_flashdata('info', 'Thank You for registering with us !!');
             } else {
                 echo "0";
             }
