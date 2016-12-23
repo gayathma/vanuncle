@@ -203,7 +203,7 @@
                                         function contact(vehicle_id) {
                                             swal({
                                                 title: "Give us your contact details to reach you",
-                                                text: '<form role="form" name="request_form" id="request_form"><input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" /><input type="email" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101"/></form>',
+                                                text: '<form role="form" name="request_form" id="request_form"><input type="text" name="username" placeholder="ex : Saman Rathnayake" style="display:block" class="required"/><input type="email" style="display:block" name="email" placeholder="ex : samanrath@yahoo.com" class="required"/><input style="display:block" type="text" name="phone" placeholder="ex : 0751010101" class="required"/></form>',
                                                 html: true,
                                                 showCancelButton: true,
                                                 closeOnCancel: true,
