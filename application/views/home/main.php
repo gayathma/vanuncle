@@ -129,7 +129,7 @@ $(document).ready(function(){
         <figure class="featured-image">
             <img src="<?php echo base_url(); ?>fe_resources/images/uploads/img.jpg" alt="" />
             <div class="overlay">
-                <a href="services.html" class="expand">+</a>
+                <a href="<?php echo site_url(); ?>" class="expand">+</a>
             </div>
         </figure>
         <div class="details">
@@ -144,7 +144,7 @@ $(document).ready(function(){
         <figure class="featured-image">
             <img src="<?php echo base_url(); ?>fe_resources/images/uploads/img4.jpg" alt="" />
             <div class="overlay">
-                <a href="services.html" class="expand">+</a>
+                <a href="<?php echo site_url(); ?>" class="expand">+</a>
             </div>
         </figure>
         <div class="details">
@@ -159,7 +159,7 @@ $(document).ready(function(){
         <figure class="featured-image">
             <img src="<?php echo base_url(); ?>fe_resources/images/uploads/img2.jpg" alt="" />
             <div class="overlay">
-                <a href="services.html" class="expand">+</a>
+                <a href="<?php echo site_url(); ?>" class="expand">+</a>
             </div>
         </figure>
         <div class="details">
@@ -174,7 +174,7 @@ $(document).ready(function(){
         <figure class="featured-image">
             <img src="<?php echo base_url(); ?>fe_resources/images/uploads/img3.jpg" alt="" />
             <div class="overlay">
-                <a href="services.html" class="expand">+</a>
+                <a href="<?php echo site_url(); ?>" class="expand">+</a>
             </div>
         </figure>
         <div class="details">

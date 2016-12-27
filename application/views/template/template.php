@@ -127,7 +127,21 @@
                     <!-- Column -->
                     <article class="one-half">
                         <h6>About us</h6>
-                        <p><strong>VanUncle.lk</strong> facilitate you by actively providing information that matches all your transport related queries. We are equipped with a wide database of school and office transport service providers, etc. Our site provides the platform to connect transport service seekers with transport service providers and vice versa. All transport providers can submit their details in our website and you can select the best transporter according to your requirement.</p>
+                        <p class="terms"><strong>VanUncle.lk</strong> is an upcoming online platform structured to satisfy all your travel and transport requirements. We
+
+                            create a trusted community market place for people to find school services, staff/Office services, Vehicles for
+
+                            trips and special hires, self-driven &amp; chauffer driven cars/vans, freight transport and many more.</p>
+
+                        <p class="terms">The idea for the business first came in 2016, but here we are, as a fully functional and a registered organization
+
+                            in Sri Lanka.  Our prime concern is satisfied customers so we are 24/7 in operation and we highly value trust
+
+                            driven relationships between our customers and service providers. All these have shaped us into a thriving
+
+                            business within a short period of time. VanUncle.lk have the support of a great team of people who just want to
+
+                            do good business and help out our community by taking the Sri Lankan transportation industry to another level.</p>
                     </article>
                     <!-- //Column -->
 
@@ -137,7 +151,7 @@
                         <p>Contact us via phone or email:</p>
                         <p class="contact-data"><span class="ico phone"></span> +94 714 550 979</p>
                         <p class="contact-data"><span class="ico phone"></span> +94 773 050 979</p>
-                        <p class="contact-data"><span class="ico phone"></span> +94 765 450 979</p>
+                        <p class="contact-data"><span class="ico phone"></span> +94 777 277 618</p>
 
 
                         <p class="contact-data"><span class="ico email"></span> <a href="mailto:vanuncle.lk@gmail.com">vanuncle.lk@gmail.com</a></p>
@@ -190,34 +204,34 @@
 
 
         <script type="text/javascript">
-        function initialize() {
-            var input = document.getElementById('pick_up_loc');
-            var input2 = document.getElementById('drop_off_loc');
-            var options = {componentRestrictions: {country: 'LK'}};
+            function initialize() {
+                var input = document.getElementById('pick_up_loc');
+                var input2 = document.getElementById('drop_off_loc');
+                var options = {componentRestrictions: {country: 'LK'}};
 
-            new google.maps.places.Autocomplete(input, options);
-            new google.maps.places.Autocomplete(input2, options);
-        }
+                new google.maps.places.Autocomplete(input, options);
+                new google.maps.places.Autocomplete(input2, options);
+            }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-
+            google.maps.event.addDomListener(window, 'load', initialize);
 
 
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-89348162-1', 'auto');
-        ga('send', 'pageview');
+
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-89348162-1', 'auto');
+            ga('send', 'pageview');
 
 
         </script>

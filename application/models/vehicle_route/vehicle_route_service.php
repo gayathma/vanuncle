@@ -16,7 +16,8 @@ class Vehicle_route_service extends CI_Model {
         $this->db->select('va_vehicles.*,va_vehicle_images.image_path,'
                 . ' va_model.name as model_name,'
                 . ' va_make.name as make_name,'
-                . ' va_drivers.profile_pic');
+                . ' va_drivers.profile_pic,'
+                .'va_drivers.name as driver_name');
         $this->db->from('va_vehicle_routes');
         $this->db->join('va_drivers', 'va_drivers.id = va_vehicle_routes.driver_id');
         $this->db->join('va_vehicles', 'va_vehicles.id = va_vehicle_routes.vehicle_id');

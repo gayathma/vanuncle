@@ -168,12 +168,12 @@
                             <div class="one-fourth heightfix">
                                 <div>
                                     <?php if ($result->profile_pic != ''): ?>
-                                        <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>"  class="image-responsive img-circle" />
+                                    <img src="<?php echo base_url(); ?>uploads/drivers/<?php echo $result->profile_pic; ?>"  class="image-responsive img-circle" style="float:left" />
                                     <?php else: ?>
-                                        <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png"  class="image-responsive  img-circle"/>
+                                        <img src="<?php echo base_url(); ?>uploads/drivers/avatar.png"  class="image-responsive  img-circle" style="float:left"/>
                                     <?php endif; ?>
                                     <span class="meta driver-ref">Driver ID #DRV<?php echo str_pad($result->driver_id, 5, '0', STR_PAD_LEFT); ?></span>
-
+                                    <span class=" driver-ref driver-name"><?php echo $result->driver_name; ?></span>
                                     <a href="javascript:;" onclick="contact(<?php echo $result->id; ?>)" class="btn grey large contact" style="cursor: pointer">Contact</a>
                                 </div>
                             </div>
